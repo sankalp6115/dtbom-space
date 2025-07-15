@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      background-image: linear-gradient(to right, #030649, #29236d);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    section.text {
+      height: 100vh;
+      transform: translateY(30px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+    }
+    div.upText {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    div.text {
+      position: relative;
+      z-index: 10;
+      font-size: 25rem;
+      font-weight: 500;
+    }
+
+    div.imageRope {
+      animation: rope 2s infinite alternate ease-in-out;
+      transform-origin: top center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      translate: 0 -360px;
+    }
+    div.imageRope img.rope {
+      height: 100px;
+    }
+    div.imageRope img.astronaut {
+      transform: translateY(-100px);
+      height: 200px;
+    }
+    @keyframes rope {
+      0% {
+        transform: rotate(-45deg);
+      }
+      100% {
+        transform: rotate(45deg);
+      }
+    }
+  </style>
+  <body>
+    <div class="stars"></div>
+    <section class="text">
+      <div class="upText">Looks like you're lost in space</div>
+      <div class="text">404</div>
+      <div class="imageRope">
+        <img class="rope" src="https://dtbom.b-cdn.net/rope.png" />
+        <img class="astronaut" src="https://dtbom.b-cdn.net/astronaut.png" />
+      </div>
+    </section>
+  </body>
+  <script>
+    const starContainer = document.querySelector(".stars");
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      // star.style.height = "10px";
+      // star.style.width = "10px";
+      const min = 3;
+      const max = 6;
+
+      let num = Math.floor(Math.random() * (max - min)) + min + "px";
+      console.log(num);
+      star.style.height = num;
+      star.style.width = num;
+      star.style.backgroundColor = "white";
+      star.style.borderRadius = "50%";
+      star.style.position = "absolute";
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      const posX = Math.floor(Math.random() * width) + "px";
+      const posY = Math.floor(Math.random() * height) + "px";
+      star.style.left = posX;
+      star.style.top = posY;
+
+      starContainer.appendChild(star);
+    }
+  </script>
+</html>
