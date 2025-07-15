@@ -29,8 +29,7 @@
         overflow: hidden;
       }
 
-      .stars,
-      .planets {
+      .stars{
         position: absolute;
         width: 100%;
         height: 100%;
@@ -54,15 +53,6 @@
         100% {
           box-shadow: 0 0 2px 2px white;
         }
-      }
-
-      .planet {
-        position: absolute;
-        /* background-color: rgba(0, 65, 121, 0.729); */
-        background-image: linear-gradient(45deg, darkblue, blue);
-        border-radius: 50%;
-        opacity: 0.3;
-        border: white 1px solid;
       }
 
       section.text {
@@ -121,26 +111,9 @@
           transform: rotate(45deg);
         }
       }
-
-      /* @media (max-width: 600px) {
-      .upText {
-        font-size: 1.5rem;
-      }
-
-      .text {
-        font-size: 30vw;
-      }
-
-    } */
     </style>
   </head>
   <body>
-    <div class="planets">
-      <div class="planet"></div>
-      <div class="planet"></div>
-      <div class="planet"></div>
-      <div class="planet"></div>
-    </div>
     <div class="stars"></div>
 
     <section class="text">
@@ -180,20 +153,6 @@
 
         starContainer.appendChild(star);
       }
-
-      // Randomize each planet's position and size
-      planets.forEach((planet) => {
-        const size = Math.floor(Math.random() * 50) + 150;
-        const posX = `${Math.floor(Math.random() * window.innerWidth)}px`;
-        const posY = `${Math.floor(Math.random() * window.innerHeight)}px`;
-
-        Object.assign(planet.style, {
-          width: `${size}px`,
-          height: `${size}px`,
-          left: posX,
-          top: posY,
-        });
-      });
     </script>
   </body>
 </html>
