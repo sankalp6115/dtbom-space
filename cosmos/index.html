@@ -10,7 +10,6 @@
   <meta property="og:description" content="Interactive orbital simulation. Learn how celestial bodies move!" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-
   <link rel="shortcut icon" href="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png"
     type="image/x-icon" />
   <style>
@@ -45,7 +44,6 @@
     input[type="radio"],
     input[type="checkbox"] {
       accent-color: orange;
-      /* modern look */
       transition: all 0.2s ease;
     }
 
@@ -150,7 +148,6 @@
 
     canvas {
       width: 1000vw;
-      /* Match body width */
       height: 100vh;
       position: absolute;
       top: 0;
@@ -178,6 +175,9 @@
     }
 
     #panel-content {
+      position: absolute;
+      right: 0;
+      top: 40px;
       display: none;
       margin-top: 10px;
       background: rgba(0, 0, 0, 0.7);
@@ -194,7 +194,6 @@
       border-bottom: 1px solid gray;
     }
 
-    /* Start Screen */
     #start-overlay {
       position: fixed;
       inset: 0;
@@ -221,11 +220,11 @@
       cursor: pointer;
       color: black;
       transition: all 0.2s ease;
+    }
 
-      &:hover {
-        background-color: #ff9f39;
-        box-shadow: 0 0 10px 4px red;
-      }
+    #start-btn:hover {
+      background-color: #ff9f39;
+      box-shadow: 0 0 10px 4px red;
     }
 
     div#info-box {
@@ -244,7 +243,6 @@
       flex-direction: column;
     }
 
-    /* Mobile Warning */
     #mobile-warning {
       display: none;
       position: fixed;
@@ -280,7 +278,7 @@
   </div>
 
   <div id="info-box">
-    <h2>About This Simulation</h2>
+    <h2>About This simulation</h2>
     <p>
       This simulation represents nested orbital motion of a solar system...
     </p>
@@ -299,27 +297,22 @@
     </div>
   </div>
   <canvas id="pathCanvas"></canvas>
-  <!-- 🔧 Control Panel -->
   <div id="control-panel">
-    <button id="burger">&#9776;</button>
+    <button id="burger">☰</button>
     <div id="panel-content">
       <h3>📸 Camera</h3>
       <label><input type="radio" name="camera" id="cam-sun" /> Lock to Sun</label><br />
-      <label><input type="radio" name="camera" id="cam-earth" /> Lock to
-        Earth</label><br />
+      <label><input type="radio" name="camera" id="cam-earth" /> Lock to Earth</label><br />
       <label><input type="radio" name="camera" id="cam-free" /> Free Camera</label><br /><br />
 
       <h3>🪐 Body Controls</h3>
-      <label><input type="checkbox" id="toggle-trails" checked /> Show
-        Trails</label><br /><br />
-
+      <label><input type="checkbox" id="toggle-trails" checked /> Show Trails</label><br /><br />
       <label for="trail-length">Trail Length: <span id="trail-value">300</span></label><br />
       <input type="range" id="trail-length" min="50" max="1000" value="300" /><br /><br />
       <label><input type="checkbox" id="pause-sun" /> Pause Sun Movement</label>
     </div>
   </div>
 
-  <!-- Mobile Warning -->
   <div id="mobile-warning">
     <div>
       <h2>🔭 This simulation is best viewed on a Desktop or Laptop.</h2>
@@ -339,6 +332,20 @@
       // Set canvas size to match the body width and viewport height
       canvas.width = document.body.scrollWidth;
       canvas.height = window.innerHeight;
+
+      // Update canvas size on window resize to handle dynamic viewport changes
+      window.addEventListener('resize', () => {
+        canvas.width = document.body.scrollWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      function getElementCenterCoords(el) {
+        const rect = el.getBoundingClientRect();
+        // Adjust for scroll position and canvas offset
+        const x = rect.left + rect.width / 2 + window.scrollX;
+        const y = rect.top + rect.height / 2 + window.scrollY;
+        return { x, y };
+      }
 
       const bodies = [
         {
@@ -373,13 +380,11 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous drawings
 
         bodies.forEach((body) => {
-          const rect = body.element.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2 + window.scrollX;
-          const centerY = rect.top + rect.height / 2;
+          const { x, y } = getElementCenterCoords(body.element);
 
           const MAX_TRAIL = trailLength;
           if (showTrails) {
-            body.path.push({ x: centerX, y: centerY });
+            body.path.push({ x, y });
             if (body.path.length > MAX_TRAIL) {
               body.path.shift();
             }
@@ -398,6 +403,7 @@
           }
         });
       }
+
       function lockCamera() {
         let target = null;
 
@@ -405,9 +411,8 @@
         else if (cameraMode === "earth") target = bodies[1].element;
         else return; // free mode
 
-        const rect = target.getBoundingClientRect();
-        const centerX = window.scrollX + rect.left + rect.width / 2;
-        const scrollX = centerX - window.innerWidth / 2;
+        const { x } = getElementCenterCoords(target);
+        const scrollX = x - window.innerWidth / 2;
 
         window.scrollTo({ left: scrollX, behavior: "auto" });
       }
@@ -421,11 +426,11 @@
 
       animate();
     };
+
     const burger = document.getElementById("burger");
     const panel = document.getElementById("panel-content");
     burger.onclick = () => {
-      panel.style.display =
-        panel.style.display === "block" ? "none" : "block";
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
     };
 
     // Control panel states
