@@ -2,491 +2,183 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar System Simulator</title>
-  <meta property="og:title" content="Solar System Simulation by Sankalp" />
-  <meta property="og:image" content="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png" />
-  <meta property="og:description" content="Interactive orbital simulation. Learn how celestial bodies move!" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-  <link rel="shortcut icon" href="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png"
-    type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmos Simulation Hub</title>
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
-    body::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    body::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background-color: darkgrey;
-      outline: 1px solid slategrey;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-      margin: 0;
-      background-color: black;
-      width: 1000dvw;
-      overflow-y: hidden;
-      background-image: url(https://img.freepik.com/premium-vector/galaxy-background-decorative-seamless-pattern-repeating-background-tileable-wallpaper-print_153302-476.jpg);
-      opacity: 0;
-      transition: opacity 1s ease;
+      background: radial-gradient(circle at bottom, #000014, #000);
+      color: #ffffff;
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
     }
 
-    :root {
-      --ease: linear;
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      accent-color: orange;
-      transition: all 0.2s ease;
-    }
-
-    .box {
-      display: flex;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .sun {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      background-color: rgb(255, 177, 33);
-      box-shadow: 0 0 20px orange;
-      position: absolute;
-      animation: sun 60s 1 linear forwards;
-    }
-
-    @keyframes sun {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(950dvw);
-      }
-    }
-
-    .earth {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 40px;
-      width: 40px;
-      background-color: greenyellow;
-      border-radius: 50%;
-      animation: orbit 7s infinite var(--ease);
-      position: absolute;
-      transform: translateX(500%);
-    }
-
-    .moon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 30px;
-      width: 30px;
-      background-color: rgb(206, 206, 206);
-      border-radius: 50%;
-      animation: orbit 6s infinite var(--ease);
-      position: absolute;
-      transform: translateX(400%);
-      box-shadow: 3px 3px 20px white;
-    }
-
-    .emb-moon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 20px;
-      width: 20px;
-      background-color: blue;
-      border-radius: 50%;
-      animation: orbit 4s infinite var(--ease);
-      position: absolute;
-      transform: translateX(250%);
-    }
-
-    .emb-emb-moon1 {
-      height: 10px;
-      width: 10px;
-      background-color: gold;
-      border-radius: 50%;
-      animation: orbit 1s infinite var(--ease);
-      position: absolute;
-      transform: translateX(250%);
-    }
-
-    .emb-emb-moon2 {
-      height: 10px;
-      width: 10px;
-      background-color: red;
-      border-radius: 50%;
-      animation: orbit 1s infinite 0.5s var(--ease);
-      position: absolute;
-      transform: translateX(200%);
-    }
-
-    @keyframes orbit {
-      0% {
-        rotate: 0deg;
-      }
-
-      100% {
-        rotate: 360deg;
-      }
-    }
-
-    canvas {
-      width: 1000vw;
-      height: 100vh;
-      position: absolute;
+    .starfield {
+      position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
       z-index: 1;
     }
 
-    #control-panel {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 999;
-      font-family: sans-serif;
-      color: white;
-    }
-
-    #burger {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: none;
-      font-size: 24px;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-
-    #panel-content {
-      position: absolute;
-      right: 0;
-      top: 40px;
-      display: none;
-      margin-top: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 8px;
-      width: 200px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    #panel-content h3 {
-      margin: 10px 0 5px;
-      font-size: 16px;
-      border-bottom: 1px solid gray;
-    }
-
-    #start-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-    }
-
-    #start-box {
+    header {
       text-align: center;
-      color: white;
-      font-family: sans-serif;
+      padding: 4rem 2rem 1rem;
+      font-family: 'Orbitron', sans-serif;
+      z-index: 2;
+      position: relative;
     }
 
-    #start-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: orange;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      color: black;
-      transition: all 0.2s ease;
+    header h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #0ff, #0f0, #f0f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s ease-in-out infinite alternate;
     }
 
-    #start-btn:hover {
-      background-color: #ff9f39;
-      box-shadow: 0 0 10px 4px red;
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      100% { text-shadow: 0 0 20px #f0f, 0 0 30px #0ff; }
     }
 
-    div#info-box {
-      line-height: 0;
-      border: 1px solid white;
-      width: 70vw;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      color: white;
+    .gallery {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+      z-index: 2;
+      position: relative;
     }
 
-    #mobile-warning {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: black;
-      color: white;
-      font-family: sans-serif;
-      z-index: 10001;
-      justify-content: center;
-      align-items: center;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      width: 300px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .card h2 {
+      font-family: 'Orbitron';
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0ff;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #fff;
+      text-decoration: none;
+      background: #0ff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: #0cc;
+    }
+
+    footer {
       text-align: center;
-      padding: 20px;
-    }
-
-    @media (max-width: 800px) {
-      #mobile-warning {
-        display: flex;
-      }
-
-      body>*:not(#mobile-warning) {
-        display: none !important;
-      }
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
-  <div id="start-overlay">
-    <div id="start-box">
-      <h1>🌌 Welcome to the Solar System</h1>
-      <button id="start-btn">Start Simulation</button>
+  <canvas class="starfield"></canvas>
+  <header>
+    <h1>🚀 Welcome to the Cosmos</h1>
+    <p>Explore different space simulations and learn about the celestial mechanics.</p>
+  </header>
+
+  <div class="gallery">
+    <div class="card">
+      <h2>Solar System</h2>
+      <p>A simple model of the solar system with orbital trails and camera lock.</p>
+      <a href="system1/index.html">Launch</a>
+    </div>
+
+    <div class="card">
+      <h2>Sun, Moon & Earth</h2>
+      <p>Visualize the interaction between Earth and its closest celestial partners.</p>
+      <a href="/cosmos/sun-moon/">Launch</a>
+    </div>
+
+    <div class="card">
+      <h2>Sphere World</h2>
+      <p>Experience gravitational influence on a colorful system of spheres.</p>
+      <a href="/cosmos/sphere2/">Launch</a>
     </div>
   </div>
 
-  <div id="info-box">
-    <h2>About This simulation</h2>
-    <p>
-      This simulation represents nested orbital motion of a solar system...
-    </p>
-  </div>
+  <footer>
+    Created by Sankalp · DTBOM Space · 2025
+  </footer>
 
-  <div class="box">
-    <div class="sun">
-      <div class="earth">
-        <div class="moon">
-          <div class="emb-moon">
-            <div class="emb-emb-moon1"></div>
-            <div class="emb-emb-moon2"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <canvas id="pathCanvas"></canvas>
-  <div id="control-panel">
-    <button id="burger">☰</button>
-    <div id="panel-content">
-      <h3>📸 Camera</h3>
-      <label><input type="radio" name="camera" id="cam-sun" /> Lock to Sun</label><br />
-      <label><input type="radio" name="camera" id="cam-earth" /> Lock to Earth</label><br />
-      <label><input type="radio" name="camera" id="cam-free" /> Free Camera</label><br /><br />
-
-      <h3>🪐 Body Controls</h3>
-      <label><input type="checkbox" id="toggle-trails" checked /> Show Trails</label><br /><br />
-      <label for="trail-length">Trail Length: <span id="trail-value">300</span></label><br />
-      <input type="range" id="trail-length" min="50" max="1000" value="300" /><br /><br />
-      <label><input type="checkbox" id="pause-sun" /> Pause Sun Movement</label>
-    </div>
-  </div>
-
-  <div id="mobile-warning">
-    <div>
-      <h2>🔭 This simulation is best viewed on a Desktop or Laptop.</h2>
-      <p>
-        Please open this site on a larger screen to enjoy the full experience.
-      </p>
-    </div>
-  </div>
   <script>
-    let simulationStarted = false;
+    const canvas = document.querySelector('.starfield');
+    const ctx = canvas.getContext('2d');
 
-    window.onload = function () {
-      document.body.style.opacity = 1;
-      const canvas = document.getElementById("pathCanvas");
-      const ctx = canvas.getContext("2d");
-
-      // Set canvas size to match the body width and viewport height
-      canvas.width = document.body.scrollWidth;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-
-      // Update canvas size on window resize to handle dynamic viewport changes
-      window.addEventListener('resize', () => {
-        canvas.width = document.body.scrollWidth;
-        canvas.height = window.innerHeight;
-      });
-
-      function getElementCenterCoords(el) {
-        const rect = el.getBoundingClientRect();
-        // Adjust for scroll position and canvas offset
-        const x = rect.left + rect.width / 2 + window.scrollX;
-        const y = rect.top + rect.height / 2 + window.scrollY;
-        return { x, y };
-      }
-
-      const bodies = [
-        {
-          element: document.querySelector(".sun"),
-          color: "orange",
-          path: [],
-        },
-        {
-          element: document.querySelector(".earth"),
-          color: "greenyellow",
-          path: [],
-        },
-        { element: document.querySelector(".moon"), color: "grey", path: [] },
-        {
-          element: document.querySelector(".emb-moon"),
-          color: "blue",
-          path: [],
-        },
-        {
-          element: document.querySelector(".emb-emb-moon1"),
-          color: "gold",
-          path: [],
-        },
-        {
-          element: document.querySelector(".emb-emb-moon2"),
-          color: "red",
-          path: [],
-        },
-      ];
-
-      function updatePath() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous drawings
-
-        bodies.forEach((body) => {
-          const { x, y } = getElementCenterCoords(body.element);
-
-          const MAX_TRAIL = trailLength;
-          if (showTrails) {
-            body.path.push({ x, y });
-            if (body.path.length > MAX_TRAIL) {
-              body.path.shift();
-            }
-
-            ctx.beginPath();
-            ctx.strokeStyle = body.color;
-            ctx.lineWidth = 3;
-            ctx.moveTo(body.path[0].x, body.path[0].y);
-
-            for (let i = 1; i < body.path.length; i++) {
-              ctx.lineTo(body.path[i].x, body.path[i].y);
-            }
-
-            ctx.stroke();
-            ctx.closePath();
-          }
-        });
-      }
-
-      function lockCamera() {
-        let target = null;
-
-        if (cameraMode === "sun") target = bodies[0].element;
-        else if (cameraMode === "earth") target = bodies[1].element;
-        else return; // free mode
-
-        const { x } = getElementCenterCoords(target);
-        const scrollX = x - window.innerWidth / 2;
-
-        window.scrollTo({ left: scrollX, behavior: "auto" });
-      }
-
-      function animate() {
-        if (!simulationStarted) return requestAnimationFrame(animate); // wait
-        updatePath();
-        lockCamera();
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-    };
-
-    const burger = document.getElementById("burger");
-    const panel = document.getElementById("panel-content");
-    burger.onclick = () => {
-      panel.style.display = panel.style.display === "block" ? "none" : "block";
-    };
-
-    // Control panel states
-    let cameraMode = "free"; // 'sun', 'earth', or 'free'
-    let showTrails = true;
-    let trailLength = 300;
-    let pauseSun = false;
-
-    // DOM Elements
-    const camSun = document.getElementById("cam-sun");
-    const camEarth = document.getElementById("cam-earth");
-    const camFree = document.getElementById("cam-free");
-    const toggleTrails = document.getElementById("toggle-trails");
-    const trailRange = document.getElementById("trail-length");
-    const trailVal = document.getElementById("trail-value");
-    const pauseSunCheckbox = document.getElementById("pause-sun");
-
-    // Listeners
-    camSun.onchange = () => (cameraMode = "sun");
-    camEarth.onchange = () => (cameraMode = "earth");
-    camFree.onchange = () => (cameraMode = "free");
-
-    toggleTrails.onchange = () => (showTrails = toggleTrails.checked);
-
-    trailRange.oninput = () => {
-      trailLength = parseInt(trailRange.value);
-      trailVal.textContent = trailLength;
-    };
-
-    pauseSunCheckbox.onchange = () => {
-      pauseSun = pauseSunCheckbox.checked;
-      document.querySelector(".sun").style.animationPlayState = pauseSun
-        ? "paused"
-        : "running";
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-      camSun.checked = true; // set it checked
-      camSun.dispatchEvent(new Event("change"));
-    });
-
-    document.getElementById("start-btn").onclick = () => {
-      simulationStarted = true;
-      document.getElementById("start-overlay").style.display = "none";
-
-      // Resume sun animation if not paused
-      if (!pauseSun)
-        document.querySelector(".sun").style.animationPlayState = "running";
-    };
-
-    document.querySelector(".sun").style.animationPlayState = "paused";
-
-    // Mobile Warning
-    if (window.innerWidth < 800) {
-      document.getElementById("mobile-warning").style.display = "flex";
     }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      alpha: Math.random()
+    }));
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
 </body>
 
