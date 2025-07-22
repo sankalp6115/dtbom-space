@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar System Simulator</title>
+  <meta property="og:title" content="Solar System Simulation by Sankalp" />
+  <meta property="og:image" content="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png" />
+  <meta property="og:description" content="Interactive orbital simulation. Learn how celestial bodies move!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dvlx81xyd/image/upload/v1753199357/icon_gtaftu.png"
+    type="image/x-icon" />
+</head>
+
+<body>
+  <div id="start-overlay">
+    <div id="start-box">
+      <h1>🌌 Welcome to the Solar System</h1>
+      <button id="start-btn">Start Simulation</button>
+    </div>
+  </div>
+
+  <div id="info-box">
+    <h2>About This simulation</h2>
+    <p>
+      This simulation represents nested orbital motion of a solar system...
+    </p>
+  </div>
+
+  <div class="box">
+    <div class="sun">
+      <div class="earth">
+        <div class="moon">
+          <div class="emb-moon">
+            <div class="emb-emb-moon1"></div>
+            <div class="emb-emb-moon2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas id="pathCanvas"></canvas>
+  <div id="control-panel">
+    <button id="burger">☰</button>
+    <div id="panel-content">
+      <h3>📸 Camera</h3>
+      <label><input type="radio" name="camera" id="cam-sun" /> Lock to Sun</label><br />
+      <label><input type="radio" name="camera" id="cam-earth" /> Lock to
+        Earth</label><br />
+      <label><input type="radio" name="camera" id="cam-free" /> Free Camera</label><br /><br />
+
+      <h3>🪐 Body Controls</h3>
+      <label><input type="checkbox" id="toggle-trails" checked /> Show
+        Trails</label><br /><br />
+      <label for="trail-length">Trail Length: <span id="trail-value">300</span></label><br />
+      <input type="range" id="trail-length" min="50" max="1000" value="300" /><br /><br />
+      <label><input type="checkbox" id="pause-sun" /> Pause Sun Movement</label>
+    </div>
+  </div>
+
+  <div id="mobile-warning">
+    <div>
+      <h2>🔭 This simulation is best viewed on a Desktop or Laptop.</h2>
+      <p>
+        Please open this site on a larger screen to enjoy the full experience.
+      </p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
