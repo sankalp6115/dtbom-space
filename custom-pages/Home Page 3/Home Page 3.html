@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="Home Page2.css">
+</head>
+<body>
+
+    
+    <form action="https://www.google.com/search" method="get" class="searchform" target="_blank" autocomplete="off">
+        <input class="search" name="q" placeholder="Google" type="text" accesskey="g">
+    </form>
+    <div class="box" align="center">
+        <div id="calendar"></div>
+    <div id="clock"></div>
+    </div>
+    
+    <div class="links">
+        <table align="center">
+            <tr>
+                <td><a href="#"><img class="link" src="https://static.vecteezy.com/system/resources/thumbnails/023/986/480/small_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png"></a></td>
+                <td><a href="#"><img class="link" src="https://img.freepik.com/premium-vector/logo-instagram-icons-instgagram_1367689-33.jpg?semt=ais_hybrid&w=740&q=80"></a></td>
+                <td><a href="#"><img class="link" src="https://i0.wp.com/openvisualfx.com/wp-content/uploads/2019/10/linkedin-icon-logo-png-transparent.png?fit=2400%2C2400&ssl=1"></a></td>
+                <td><a href="#"><img class="link" src="https://static.vecteezy.com/system/resources/previews/006/057/998/non_2x/twitter-logo-on-transparent-background-free-vector.jpg"></a></td>
+                <td><a href="#"><img class="link" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpEKANMx990m2hnsbHPKf7tSVCBXlg3KxA3w&s"></a></td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+
+<script>
+     function updateClock() {
+    let now = new Date();
+    let hours = now.getHours().toString().padStart(2, '0');
+    let minutes = now.getMinutes().toString().padStart(2, '0');
+    let seconds = now.getSeconds().toString().padStart(2, '0');
+    let timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('clock').textContent = timeString;
+}
+
+function updateCalendar() {
+    let now = new Date();
+    let options = { weekday: 'long', month: 'long', day: 'numeric' };
+    let calendarString = now.toLocaleDateString('en-US', options);
+    document.getElementById('calendar').textContent = calendarString;
+}
+
+// Initial update
+updateClock();
+updateCalendar();
+
+// Update clock every second
+setInterval(updateClock, 1000);
+
+
+</script>
+</html>

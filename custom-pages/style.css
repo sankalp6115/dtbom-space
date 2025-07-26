@@ -1,0 +1,114 @@
+    :root {
+      --blue1: #00425f;
+      --blue2: #004d66;
+      --blue3: #00a6ed;
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --text-color: #e0f0ff;
+      --desc-color: #c5d9ef;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, var(--blue1), var(--blue2), var(--blue3));
+      background-size: 200% 200%;
+      animation: softGradient 30s ease infinite;
+      color: var(--text-color);
+      min-height: 100vh;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    @keyframes softGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      background: linear-gradient(to right, #5fa8f1, #91c3ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      backdrop-filter: blur(14px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 38px rgba(0,0,0,0.4);
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(90%);
+    }
+
+    .content {
+      padding: 1.2rem 1.4rem;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .desc {
+      font-size: 0.95rem;
+      color: var(--desc-color);
+      line-height: 1.4;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
+      animation: shimmerRotate 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
