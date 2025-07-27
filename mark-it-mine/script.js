@@ -195,7 +195,7 @@
         document.addEventListener("contextmenu", (e) => {e.preventDefault()});
         document.addEventListener("keydown", (e) => {
             if(
-                // (e.key === "F12") ||
+                (e.key === "F12") ||
                 (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || 
                 (e.ctrlKey && ['s','u','p'].includes(e.key.toLowerCase()))
             )
