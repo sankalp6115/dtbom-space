@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    background-image: url(https://wallpapers.com/images/featured/groot-eyu0znclsfx37s76.jpg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-color: #121013;
+    background-position: center 0%;
+    font-weight: 900;
+    font-family: ROG FONTS;
+    user-select: none;
+}
+.search{
+    padding: 8px;
+    height: 25px;
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+::placeholder{
+    font-weight: 100;
+    font-family: ROG FONTS;
+    font-size:20px;
+    color: gold;
+}
+.box{
+    color: white;
+    font-size: 45px;
+    margin-top: 50px;
+    text-shadow: 2px 2px 0px red, 4px 4px 0px blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 5px;
+}
+
+img.link{
+    margin-left: 10px;
+    margin-top: 300px;
+    padding: 10px;
+    border: 10px solid blue;
+    border-radius: 10px;
+    background-color: white;
+    height: 70px;
+    transition: 0.2s;
+}
+img.link:hover{
+    scale: 1.1;
+}

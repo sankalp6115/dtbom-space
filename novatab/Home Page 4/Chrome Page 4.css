@@ -1,0 +1,239 @@
+    body{
+        margin: 0;
+        background: url(wallpaper.png);
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        user-select: none;
+    }  
+    #cursor{
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        border: 2px solid white;
+        border-radius: 50%;
+        z-index: 100000;
+        pointer-events: none;
+    }
+    *{
+        cursor: none;
+    }
+    /* video{
+        position: absolute;
+        z-index: -10;
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        filter: brightness(130%);
+        
+    } */
+    h1.name{
+        position: absolute;
+        font-size: 2.5em;
+        font-family: "Playwrite PE";
+        display: inline;
+        color: white;
+        text-shadow: 2px 2px 4px black, -2px -2px 4px black;
+        font-weight: 900;
+        padding: 1vh 0 0 4vh;
+        z-index: 2;
+        position: relative;
+    }
+    header{
+        /* (--s) control the size*/
+            /* --s: 60px; 
+            --c1: #f2f2f2;
+            --c2: #cdcbcc;
+            --c3: #999999;
+            --_g: 0 120deg,#0000 0;
+            background:
+            conic-gradient(from    0deg at calc(500%/6) calc(100%/3),var(--c3) var(--_g)),
+            conic-gradient(from -120deg at calc(100%/6) calc(100%/3),var(--c2) var(--_g)),
+            conic-gradient(from  120deg at calc(100%/3) calc(500%/6),var(--c1) var(--_g)),
+            conic-gradient(from  120deg at calc(200%/3) calc(500%/6),var(--c1) var(--_g)),
+            conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2)  60deg,var(--c1) var(--_g)),
+            conic-gradient(from   60deg at calc(200%/3) 50%,var(--c1)  60deg,var(--c3) var(--_g)),
+            conic-gradient(from  -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
+            background-size: calc(var(--s)*1.732) var(--s); */
+    }
+    .cal-clock{
+        transform: translateX(-50%);
+        position: absolute;
+        left: 50%;
+        top: 2vh;
+    }
+    #clock, #calendar{
+        display: inline-block;
+        font-size: 2vw;   
+        color: cyan;
+        -webkit-text-stroke: 0.5px black;
+        letter-spacing: 3px;
+        font-weight: 900;
+        font-family: 'Harlow Solid Italic';
+    }
+    #clock{
+        font-size: 2.5vw;
+        text-decoration: red overline;
+    }
+    #calendar{
+        color: red;
+        background-color: yellow;
+        border-radius: 0.8rem;
+        padding: 1vh;
+    }
+    ::placeholder{
+        color: white;
+        font-weight: 600;
+        text-align: center;
+    }
+    .search{
+        position: relative;
+        width: 30vw;
+        height: 4vh;
+        border: 0;
+        border-radius: 0.3rem;
+        margin: 1vh 30vw;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+
+
+    /*Weather App*/
+    .container {
+        position: absolute;
+        width: 12vw;
+        height: max-content;
+        margin-left: 63vw;
+        margin-top: -5vh;
+        text-align: center;
+        background-image: linear-gradient(50deg,#de6262 ,#ffb88c);
+        border-radius: 5px;
+        font-family: "Playwrite PE";
+    }
+    .container h1 {
+        
+    }
+
+    .container input[type="text"] {
+        display: none; 
+    }
+
+    .container button {
+        display: none;
+    }
+
+    .container .weather-info {
+        margin: 0;
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .container input:focus{
+        outline: none;
+    }
+
+    /*Side Bar*/
+    aside.left{
+        width: max-content;
+        position: relative;
+        background-image: linear-gradient(to left in lch, transparent, rgba(36, 53, 202, 0.5));
+        height: 85vh;
+        padding: 15vh 0 0vh 5vh;
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%);
+
+    }
+    aside.left a{
+        display: block;
+        color: white;
+        text-decoration: none;
+        transition: 0.2s;
+        font-family: 'Space Grotesk';
+        font-weight: 900;
+        line-height: 1.6rem;
+    }
+    aside.left a::before{
+        content: '';
+        height: 2px;
+        width: 130px;
+        background-color: red;
+        position: absolute;
+        margin-top: 23px;
+        scale: 0 1;
+        transition: 0.2s;
+        transform-origin: left;
+    }
+    aside.left a:hover::before{
+        scale: 1;
+    }
+    aside.left a:hover{
+        color: rgb(55, 255, 0);
+    }
+    /*Middle Menu*/
+    .right_menu{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);        
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(3,1fr);
+        padding: 2vh;
+        gap: 2vh 3vh;
+        border-radius: 10px;
+        border: 2px solid gold;
+    }
+    .aside_img{
+        height: 3.5vw;
+        border-radius: 50%;
+        transition: 0.2s;
+    }
+    .aside_img:hover{
+        scale: 1.1;
+    }
+
+    /*Bottom Menu*/
+
+    .bottom_menu{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%) scaleY(0.4);
+        height: max-content;
+        width: 60%;
+        padding: 10px;
+        background-color: rgba(153, 255, 0, 0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        backdrop-filter: blur(4px);
+        transform-origin: bottom;
+        transition: 0.2s;
+    }
+    .bottom_menu:hover{
+        transform: translateX(-50%) scaleY(1);
+        border-radius: 10px;
+    }
+    .bottom_menu a{
+        opacity: 0; 
+        transition: 0.5s cubic-bezier(0.87, 0, 0.13, 1);
+        height: 10px;
+    }
+    .bottom_menu:hover a{
+        opacity: 1;
+        margin: 0 10px;
+    }
+    .bottom_menu:hover a img{
+        border-radius: 10px;
+        height: 50px;
+    }
+    .btm_img{
+        height: 50px;
+    }

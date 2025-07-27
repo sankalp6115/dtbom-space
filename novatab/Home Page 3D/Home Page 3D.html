@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Home Page 3D.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="shortcut icon" href="../Images/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    
+    <form action="https://www.google.com/search" method="get" target="_blank">
+        <input type="text" name="q" placeholder="Search Google..." />
+        <button type="submit">🔎︎</button>
+    </form>
+    <br><br>
+
+    <div id="clock"></div>
+
+    <table align="center">
+        <tr class="one">
+            <td class="o1 card"><a target="_blank" href="https://web.whatsapp.com/" target="_blank"><img src="https://www.freeiconspng.com/thumbs/logo-whatsapp-png/logo-whatsapp-png-pic-0.png"></a></td>
+            <td class="o2 card"><a target="_blank" href="https://youtube.com/" target="_blank"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/704/small/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png"></a></td>
+            <td class="o3 card"><a target="_blank" href="https://gmail.com/" target="_blank"><img src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png"></a></td>
+            <td class="o4 card"><a target="_blank" href="https://web.telegram.org/k" target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/023/986/534/non_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png"></a></td>
+            <td class="o5 card"><a target="_blank" href="https://www.codepen.io/" target="_blank"><img src="https://seeklogo.com/images/C/codepen-logo-FDEB3664F1-seeklogo.com.png"></a></td>
+            <td class="o6 card"><a target="_blank" href="https://keep.google.com/" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/free-google-keep-4762010-3955523.png?f=webp"></a></td>
+        </tr>
+
+        <tr class="two">
+            <td class="o1 card"><a target="_blank" href="https://in.pinterest.com/homefeed/edit/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"></a></td>
+            <td class="o2 card"><a target="_blank" href="https://open.spotify.com/collection/playlists" target="_blank"><img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png"></a></td>
+            <td class="o3 card"><a target="_blank" href="https://drive.google.com/" target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/012/871/368/non_2x/google-drive-icon-google-product-illustration-free-png.png"></a></td>
+            <td class="o4 card"><a target="_blank" href="https://chat.openai.com/chat" target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/022/841/111/original/chatgpt-logo-transparent-background-free-png.png"></a></td>
+            <td class="o5 card"><a target="_blank" href="https://www.desmos.com/calculator" target="_blank"><img src="https://preview.redd.it/8pubh285syd61.png?width=4096&format=png&auto=webp&s=6881b6aab2ba56d4c7e45b15201e181489330362"></a></td>
+            <td class="o6 card"><a target="_blank" href="https://moviesmod.life/movies/page/2/" target="_blank"><img src="https://img.informer.com/icons_mac/png/128/641/641404.png"></a></td>
+        </tr>
+
+        <tr class="three">
+            <td class="o1 card"><a target="_blank" href="https://www.google.com/maps" target="_blank"><img src="https://lh3.googleusercontent.com/9tLfTpdILdHDAvGrRm7GdbjWdpbWSMOa0csoQ8pUba9tLP8tq7M4Quks1xuMQAVnAxVfryiDXRzZ-KDnkPv8Sm4g_YFom1ltQHjQ6Q"></a></td>
+            <td class="o2 card"><a target="_blank" href="https://www.1024terabox.com/" target="_blank"><img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHM0OYfiFeMI2p9MWie0CvL99U4GA1gf6_kayTt_kBblFwHwo8BW8JXlqfnYxKPmmBavZ3kw9ja.DSKEM3oHma_ZSeRTj7QV5UdANEQnPZs_SrZ819sOtX5bkSMTsyfgVaEWlOzDq0wzlmMsya3Q6VBI-&format=source"></a></td>
+            <td class="o3 card"><a target="_blank" href="https://loading.io/" target="_blank"><img class="loader" src="https://i.gifer.com/origin/a6/a6b6c68285b2389353c579c87ad9c1d3_w200.gif"></a></td>
+            <td class="o4 card"><a target="_blank" href="https://www.reddit.com/" target="_blank"><img src="https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png"></a></td>
+            <td class="o5 card"><a target="_blank" href="https://x.com/?lang=en" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png"></a></td>
+            <td class="o6 card"><a target="_blank" href="https://discord.com/" target="_blank"><img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"></a></td>
+        </tr>
+    </table>
+
+</body>
+<script>
+    function currentTime() {
+  var date = new Date();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  var midday = "AM";
+  midday = (hour >= 12) ? "PM" : "AM";
+  hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour);
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday;
+    var t = setTimeout(currentTime, 1000);
+}
+
+function updateTime(k) {
+    if (k < 10) {
+        return "0" + k;
+    }
+    else {return k;}
+}
+currentTime();
+</script>
+</html>
