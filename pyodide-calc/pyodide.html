@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dtBOM - pyDet</title>
+  <link rel="shortcut icon" href="https://pics.craiyon.com/2025-07-03/uqcI9KktSR2uPChvgvKO3g.webp" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="pyodide.css">
+</head>
+<body>
+
+<header>
+  <span></span>
+  <span>dtBOM - pyDet</span>
+  <button id="helpBtn">Help</button>
+</header>
+
+<div id="container">
+  <div id="left">
+    <div id="controls">
+      <button onclick="clearConsole()">Clear Console</button>
+    </div>
+    <div id="output">Python 3 (Pyodide) on WebAssembly\n>>> </div>
+    <input id="input" type="text" autocomplete="off" placeholder="Type Python code and press Enter">
+    <div id="help">
+      <div class="section-title">Available math functions</div>
+      <span id="help-functions">Loading...</span>
+    </div>
+    <div id="examples">
+      <div class="section-title">Examples</div>
+      <pre>
+# Factorial
+a = 5
+factorial(a)
+
+# Trig functions
+angle = 0.5
+sin(angle) + cos(angle)
+
+# Logarithmic
+log(100, 10)
+
+# Power
+b = 10 ** 3
+
+# Expression chaining
+c = (a + b) * sin(angle)
+
+# Variable overwrite
+a = 100
+a * 2
+
+# Error handling
+1 / 0  # Hover on "Error" for details
+      </pre>
+    </div>
+  </div>
+  <div id="right">
+      <div class="variableSection">
+          <h4>Variables</h4>
+          <div id="vars">Loading...</div>
+      </div>
+      <div id="ads"></div>
+  </div>
+</div>
+</body>
+<script src="pyodide.js"></script>
+</html>

@@ -1,0 +1,114 @@
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #1e1e1e;
+      color: #cfcfcf;
+      overflow: hidden;
+    }
+    header {
+      background: #111;
+      color: #0ff;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #container {
+      display: flex;
+      height: calc(100vh - 40px);
+    }
+    #left {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #444;
+    }
+    #right {
+      flex: 1;
+      background: #121212;
+      overflow-y: auto;
+      font-size: 14px;
+      
+      display: flex;
+    }
+    div.variableSection{
+        margin: 10px;
+        flex: 1;
+    }
+    /* Ad Section */
+    #ads{
+        width: 150px;
+        margin: 0;
+        /* Color is transparent */
+        background: transparent; 
+        height: 100%;
+    }
+    #output {
+      flex: 1;
+      background: #000;
+      padding: 10px;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      font-size: 15px;
+    }
+    #input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 10px;
+      background: #1e1e1e;
+      color: #ff5c5c;
+      font-size: 16px;
+      border-top: 1px solid #444;
+    }
+    #controls {
+      padding: 5px;
+      background: #1e1e1e;
+      text-align: right;
+      border-bottom: 1px solid #333;
+    }
+    button {
+      padding: 4px 8px;
+      font-size: 14px;
+      background: #333;
+      color: white;
+      border: 1px solid #555;
+      cursor: pointer;
+    }
+    .output-line { color: #00ff00; }
+    .input-line  { color: #ff5c5c; }
+    .var-name { color: #0ff; }
+    .var-value { color: #fff; }
+    .error-line {
+      color: red;
+      display: inline-block;
+      border-bottom: 1px dashed red;
+      cursor: help;
+    }
+    #help, #examples {
+      background: #181818;
+      padding: 10px;
+      font-size: 13px;
+      color: #ccc;
+      border-top: 1px solid #333;
+      overflow-y: auto;
+      max-height: 100px;
+    }
+    #help.visible, #examples.visible{
+      display: block;
+    }
+    #examples {
+      max-height: 150px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #0ff;
+    }
