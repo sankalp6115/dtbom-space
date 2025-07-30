@@ -1,3 +1,7 @@
+// Stop Plague.js
+import {stopPlague} from 'https://cdn.jsdelivr.net/gh/sankalp6115/stopPlague@v1.0.0/stopPlague.js';
+stopPlague();
+
 
   let pyodideReady = false;
   let pyodide;
