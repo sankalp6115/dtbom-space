@@ -39,5 +39,5 @@ let i=0;
 
 const loaders = document.querySelectorAll("section.loaders a");
 loaders.forEach(loader => {
-  loader.href = "Loaders_for_Website/";
+  loader.href = "https://github.com/sankalp6115/dtbom-space/tree/main/waiting-is-awesome/Loaders_for_Website";
 });

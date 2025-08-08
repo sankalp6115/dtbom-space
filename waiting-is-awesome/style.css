@@ -114,7 +114,7 @@ div.free-loader{
     translate: 0 -100px;
 }
     .sample-box{
-        /* animation: box 5s ease infinite forwards; */
+        animation: box 10s ease infinite forwards;
         transition: 0.5s;
         margin: 0px 0px 0 0;
     }
