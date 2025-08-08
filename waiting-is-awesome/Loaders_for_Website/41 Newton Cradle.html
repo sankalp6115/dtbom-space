@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        :root{
+            --str-width: 3px;
+            --str-height:100px;
+            --ball-height: 40px;
+            --ball-color: greenyellow;
+            --str-color: black;
+            --dur: 0.7s;
+        }
+        .part{
+            position: fixed;
+            inset: 0px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+            height: auto;
+            width: auto;
+        }
+        .box{
+            content: '';
+            height: 10px;
+            width: 200px;
+            background-color: red;
+            margin-top: 290px;
+            margin-left: 665px;
+        }
+        .string1{
+            position: absolute;
+            height: var(--str-height);
+            width: var(--str-width);
+            background: var(--str-color);
+            left: -120px;
+        }
+        .ball1{
+            position: absolute;
+            height: var(--ball-height);
+            width: var(--ball-height);
+            border-radius: 50%;
+            background: var(--ball-color);
+            top: 100px;
+            left: -120px;
+        }
+        .string2{
+            position: absolute;
+            height: var(--str-height);
+            width: var(--str-width);
+            background: var(--str-color);            
+            left: -40px;
+        }
+        .ball2{
+            position: absolute;
+            height: var(--ball-height);
+            width: var(--ball-height);
+            border-radius: 50%;
+            background: var(--ball-color);
+            top: 100px;
+            left: -40px;
+        }
+        .string3{
+            position: absolute;
+            height: var(--str-height);
+            width: var(--str-width);
+            background: var(--str-color);
+            left: 40px;
+        }
+        .ball3{
+            position: absolute;
+            height: var(--ball-height);
+            width: var(--ball-height);
+            border-radius: 50%;
+            background: var(--ball-color);
+            top: 100px;
+            left: 40px;
+        }
+        .string4{
+            position: absolute;
+            height: var(--str-height);
+            width: var(--str-width);
+            background: var(--str-color);
+            left: 120px;
+        }
+        .ball4{
+            position: absolute;
+            height: var(--ball-height);
+            width: var(--ball-height);
+            border-radius: 50%;
+            background: var(--ball-color);
+            top: 100px;
+            left: 105px;
+        }
+        .one{
+            height: var(--str-height);
+            width: 130px;
+            animation: one var(--dur) ease-in-out infinite alternate;
+            transform-origin: top left;
+            position: fixed;
+            inset: 0px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+        }
+        .four{
+            height: var(--str-height);
+            width: 130px;
+            animation: four var(--dur) ease-in-out infinite alternate;
+            transform-origin: top right;
+            position: fixed;
+            inset: 0px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+        }
+        @keyframes one {
+            0%{transform: rotate(50deg);}
+            50%{transform: rotate(0);}
+        }
+        @keyframes four {
+            50%{transform: rotate(0deg);}
+            100%{transform: rotate(-50deg);}
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="one">
+        <div class="string1 part"></div>
+        <div class="ball1 part"></div>
+        </div>
+        <div class="string2 part"></div>
+        <div class="ball2 part"></div>
+        
+        <div class="string3 part"></div>
+        <div class="ball3 part"></div>
+        <div class="four">
+            <div class="string4 part"></div>
+            <div class="ball4 part"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 20%;
+        }
+        .disc1{
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border-style: solid;
+            border-color: cyan transparent;
+            border-width: 8px;
+            animation: disc 1s linear infinite;
+            
+        }
+        .disc2{
+            position: relative;
+            top: 20px;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border-style: solid;
+            border-color: cyan transparent;
+            border-width: 8px;
+            animation: disc 1s linear infinite reverse;
+        }
+        @keyframes disc {
+            to{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="disc1"></div>
+        <div class="disc2"></div>
+    </div>
+</body>
+</html>

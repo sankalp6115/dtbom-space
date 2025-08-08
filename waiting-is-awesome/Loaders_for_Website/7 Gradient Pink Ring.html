@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 20%;
+        }
+        .disc1{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background: radial-gradient(white 0 50%,transparent 50% 100%), repeating-conic-gradient(in lch,burlywood,blueviolet 120deg);
+            animation: disc 1s ease-in-out infinite;
+        }
+        @keyframes disc {
+            to{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="disc1"></div>
+    </div>
+</body>
+</html>

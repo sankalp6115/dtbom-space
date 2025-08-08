@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .part{
+            position: fixed;
+            inset: 0px;
+            width: 200px;
+            height: 200px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+            border-radius: 50%;
+	        background: radial-gradient(white 0 40%, transparent 40% 100%),conic-gradient(blue 0 0.125turn, transparent 0.125turn 0.250turn, cyan 0.250turn 0.375turn, transparent 0.375turn 0.500turn, greenyellow 0.500turn 0.625turn, transparent 0.625turn 0.750turn, red 0.750turn 0.875turn, transparent 0.875turn 1turn);
+            animation: ring 1s ease-in-out infinite;
+        }
+        @keyframes ring {
+            to{transform: rotate(360deg);}
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="part part1"></div>
+    </div>
+</body>
+</html>

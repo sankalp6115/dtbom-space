@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        .part{
+            position: fixed;
+            inset: 0px;
+            width: 120px;
+            height: 200px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+            border: solid white;
+            border-width: 0 6px 30px 6px;
+            border-radius: 2px 2px 40px 40px;
+            background: linear-gradient(var(--deg),#e0a239, #f07944 0 var(--p), rgba(255, 255, 255, 0.401) var(--p) 90%);
+            animation: juice 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        }
+        .part::before{
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 160px;
+            background-color: rebeccapurple;
+            bottom: -30px;
+            left: -20px;
+        }
+        @property --p {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+        }
+        @property --deg {
+            syntax: '<angle>';
+            inherits: false;    
+            initial-value: 0deg;
+        }
+        @keyframes juice {
+            0%{--p: 0%; --deg: 0deg;}
+            20%{--deg: 10deg;}
+            50%{--deg: 0deg;}
+            70%{--deg: -7deg;}
+            100%{--p: 90%; --deg: 0deg;}
+        }
+        h3{
+            position: absolute;
+            display: inline;
+            width: 200px;
+            text-align: center;
+            bottom: 130px;
+            left: 43.5%;
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="part part1"></div>
+        <div class="coaster"></div>
+        <h3>Please wait while we fill your glass</h3>
+    </div>
+</body>
+</html>

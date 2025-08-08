@@ -1,0 +1,30 @@
+@media screen and (max-width: 1400px) {
+    .box{
+        left: 6vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    svg text {
+        font-size: 2em;
+    }
+    .sample-whole{
+        scale: 0.3;
+    }
+    .box{
+        left: 0vw;
+    }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    svg text {
+        font-size: 1.5em;
+    }
+    .sample-whole{
+        scale: 0.2;
+    }
+    .box{
+        display: none;
+    }
+}

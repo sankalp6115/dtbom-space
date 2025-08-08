@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(30, 30, 30);
+    }
+    .circle{
+        position: absolute;
+    }
+    .circle1{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border-top: 4px solid red;
+        animation: circle 1s infinite linear forwards; 
+        top: 40%;
+        left: 45%;
+    }
+    .circle2{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border-top: 4px solid blue;
+        animation: circle 1s infinite linear reverse;
+        top: 41.5%;
+        left: 45.7%;
+    }
+    .circle3{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        border-top: 4px solid gold;
+        animation: circle 1s infinite linear;
+        top: 43%;
+        left: 46.4%;
+    }
+    @keyframes circle{
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(360deg);}
+    }
+</style>
+<body>
+<div class="box">
+    <div class="circle1 circle"></div>
+    <div class="circle2 circle"></div>
+    <div class="circle3 circle"></div>
+</div>
+</body>
+</html>

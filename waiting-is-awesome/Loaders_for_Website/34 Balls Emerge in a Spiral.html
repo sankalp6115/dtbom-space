@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 22%;
+            
+        }
+        @keyframes box {
+            to{transform: rotate(360deg);}
+        }
+        .ball{
+            height: 20px;
+            width: 20px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            filter: drop-shadow(2px 2px 5px black);
+        }
+        .ball1{animation: ball1 1s ease-in-out infinite alternate 0.05s;}
+        .ball2{animation: ball2 1s ease-in-out infinite alternate 0.1s;}
+        .ball3{animation: ball3 1s ease-in-out infinite alternate 0.15s;}
+        .ball4{animation: ball4 1s ease-in-out infinite alternate 0.2s;}
+        .ball5{animation: ball5 1s ease-in-out infinite alternate 0.25s;}
+        .ball6{animation: ball6 1s ease-in-out infinite alternate 0.3s;}
+        .ball7{animation: ball7 1s ease-in-out infinite alternate 0.35s;}
+        .ball8{animation: ball8 1s ease-in-out infinite alternate 0.4s;}
+        .ball9{animation: ball9 1s ease-in-out infinite alternate 0.45s;}
+        .ball10{animation: ball10 1s ease-in-out infinite alternate 0.5s;}
+        .ball11{animation: ball11 1s ease-in-out infinite alternate 0.55s;}
+        .ball12{animation: ball12 1s ease-in-out infinite alternate 0.6s;}
+         
+        :root{
+            --one: 35px;
+            --two: 60px;
+            --mono-dirn: 70px;
+        }
+
+        @keyframes ball1 {
+            0%{transform: translate(0) rotate(0);}
+            100%{transform: translateX(0px) translateY(calc(-1*var(--mono-dirn))) rotate(0);}
+        }
+        @keyframes ball2 {
+            0%{transform: translate(0) rotate(30deg);}
+            100%{transform: translateX(calc(var(--one))) translateY(calc(-1*var(--two))) rotate(30deg);}
+        }
+        @keyframes ball3 {
+            0%{transform: translate(0) rotate(60deg);}
+            100%{transform: translateX(calc(var(--two))) translateY(calc(-1*var(--one))) rotate(60deg);}
+        }
+        @keyframes ball4 {
+            0%{transform: translate(0) rotate(90deg);}
+            100%{transform: translateX(calc(var(--mono-dirn))) translateY(0px) rotate(90deg);}
+        }
+        @keyframes ball5 {
+            0%{transform: translate(0) rotate(120deg);}
+            100%{transform: translateX(calc(var(--two))) translateY(calc(var(--one))) rotate(120deg);}
+        }
+        @keyframes ball6 {
+            0%{transform: translate(0) rotate(150deg);}
+            100%{transform: translateX(calc(var(--one))) translateY(calc(var(--two))) rotate(150deg);}
+        }
+        @keyframes ball7 {
+            0%{transform: translate(0) rotate(180deg);}
+            100%{transform: translateX(0) translateY(calc(var(--mono-dirn))) rotate(180deg);}
+        }
+        @keyframes ball8 {
+            0%{transform: translate(0) rotate(210deg);}
+            100%{transform: translateX(calc(-1*var(--one))) translateY(calc(var(--two))) rotate(210deg);}
+        }
+        @keyframes ball9 {
+            0%{transform: translate(0) rotate(240deg);}
+            100%{transform: translateX(calc(-1*var(--two))) translateY(calc(var(--one))) rotate(240deg);}
+        }
+        @keyframes ball10 {
+            0%{transform: translate(0) rotate(270deg);}
+            100%{transform: translateX(calc(-1*var(--mono-dirn))) translateY(0) rotate(270deg);}
+        }
+        @keyframes ball11 {
+            0%{transform: translate(0) rotate(300deg);}
+            100%{transform: translateX(calc(-1*var(--two))) translateY(calc(-1*var(--one))) rotate(300deg);}
+        }
+        @keyframes ball12 {
+            0%{transform: translate(0) rotate(330deg);}
+            100%{transform: translateX(calc(-1*var(--one))) translateY(calc(-1*var(--two))) rotate(330deg);}
+        }
+        .ball13{
+            clip-path: none;
+            background-color: black;
+            border-radius: 50%;
+            z-index: -100;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ball1 ball"></div>
+        <div class="ball2 ball"></div>
+        <div class="ball3 ball"></div>
+        <div class="ball4 ball"></div>
+        <div class="ball5 ball"></div>
+        <div class="ball6 ball"></div>
+        <div class="ball7 ball"></div>
+        <div class="ball8 ball"></div>
+        <div class="ball9 ball"></div>
+        <div class="ball10 ball"></div>
+        <div class="ball11 ball"></div>
+        <div class="ball12 ball"></div>
+        <div class="ball13 ball"></div>
+    </div>
+</body>
+</html>

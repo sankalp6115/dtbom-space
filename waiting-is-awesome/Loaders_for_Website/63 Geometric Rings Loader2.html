@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        :root{
+            --wide: 200px;
+            --tall: 100px;
+        }
+        .ell{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: var(--tall);
+            width: var(--wide);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 217, 0, 0.3);
+        }
+        .ball{
+            z-index: 2;
+            height: 15px;
+            aspect-ratio: 1;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+            transform: translateX(calc((var(--wide)/2)*sin(var(--angle)))) translateY(calc((var(--tall)/2)*cos(var(--angle))));
+            animation: ball 4s infinite linear;
+        }
+        /* For perfect circle in reverse dirn */
+        /* .ball{animation-delay: calc(var(--i) * 84ms);}  */
+        
+        /* For coolanimation at t = 2s and delay = 500ms */
+        /* .ball{animation-delay: calc(var(--i) * 500ms);}  */
+        
+        .ball{animation-delay: calc(var(--i) * -1 * 1000ms);} 
+        @property --angle{
+            inherits: false;
+            initial-value: 0deg;
+            syntax: '<angle>';
+        }
+        @keyframes ball {
+            from{--angle: 0deg;}
+            to{--angle: 720deg;}
+        }
+.ell-1{rotate: 20deg; }
+.ell-2{rotate: 40deg; }
+.ell-3{rotate: 60deg; }
+.ell-4{rotate: 80deg; }
+.ell-5{rotate: 100deg;}
+.ell-6{rotate: 120deg;}
+.ell-7{rotate: 140deg;}
+.ell-8{rotate: 160deg;}
+.ell-9{rotate: 180deg;}
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ell ell-1"><div style="--i: 1;" class="ball o1"></div></div>
+        <div class="ell ell-2"><div style="--i: 2;" class="ball o2"></div></div>
+        <div class="ell ell-3"><div style="--i: 3;" class="ball o3"></div></div>
+        <div class="ell ell-4"><div style="--i: 4;" class="ball o4"></div></div>
+        <div class="ell ell-5"><div style="--i: 5;" class="ball o5"></div></div>
+        <div class="ell ell-6"><div style="--i: 6;" class="ball o6"></div></div>
+        <div class="ell ell-7"><div style="--i: 7;" class="ball o7"></div></div>
+        <div class="ell ell-8"><div style="--i: 8;" class="ball o8"></div></div>
+        <div class="ell ell-9"><div style="--i: 9;" class="ball o9"></div></div>
+    </div>
+</body>
+</html>

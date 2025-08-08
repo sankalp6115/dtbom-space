@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    .box{
+        position: fixed;
+        inset: 0px;
+        width: 12rem;
+        height: 5rem;
+        max-width: 100vw;
+        max-height: 100vh;
+        margin: auto;
+        transform-origin: 80px 60px;
+        transform: rotate(-30deg) translateY(-50px);
+        perspective: 300px;
+    }
+    .piece{
+        height: 50px;
+        width: 200px;
+        background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+        transform-origin: center;
+    }
+    .o1{
+        animation: ani1 1.3s ease-in-out infinite forwards;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 30%, 0 0);
+    }
+    .o2{
+        animation: ani2 1.3s ease-in-out infinite backwards 0.65s;
+    }
+    .o3{
+        animation: ani1 1.3s ease-in-out infinite forwards;
+    }
+    .o4{
+        animation: ani2 1.3s ease-in-out infinite backwards 0.65s;
+        clip-path: polygon(0% 100%, 50% 70%, 100% 100%, 100% 0, 0 0);
+    }
+    @keyframes ani1 {
+        0%{
+            transform: rotateY(0);
+            background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+        }
+        100%{
+            transform: rotateY(180deg);
+            background-image: linear-gradient(-90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+        }
+    }
+    @keyframes ani2 {
+        0%{
+            transform: rotateY(0deg);
+            background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+        }
+        100%{
+            transform: rotateY(-180deg);
+            background-image: linear-gradient(-90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+        }
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="o1 piece"></div>
+        <div class="o2 piece"></div>
+        <div class="o3 piece"></div>
+        <div class="o4 piece"></div>
+    </div>
+</body>
+</html>

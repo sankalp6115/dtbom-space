@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D</title>
+</head>
+<style>
+    body{
+        background-color: rgb(35, 35, 35);
+    }
+    .box{
+        perspective: 200px;
+        position: fixed;
+        inset: 0px;
+        margin: auto;
+        transform: scale(0.7);
+    }
+    .disc1{
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        margin-left: 43%;
+        border-radius: 50%;
+        margin-top: 50px;
+        animation: disc1 2s linear infinite forwards;
+        border-bottom: blue 5px solid;
+        border-top:  blue 5px solid;
+    }
+    @keyframes disc1 {
+        0%{transform: rotateZ(0deg);}
+        100%{transform: rotateZ(360deg);}
+    }
+    .disc2{
+        position: absolute;
+        height: 220px;
+        width: 220px;
+        margin-left: 42.3%;
+        border-radius: 50%;
+        animation: disc2 2s linear infinite forwards;
+        border-bottom: red 5px solid;
+        border-top:  red 5px solid;
+        margin-top: 60px;
+    }
+    @keyframes disc2 {
+        0%{transform: rotateX(60deg) rotateZ(0deg);}
+        100%{transform: rotateX(60deg) rotateZ(360deg);}
+    }
+    .disc3{
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        margin-left: 45%;
+        border-radius: 50%;
+        animation: disc3 2s linear infinite forwards;
+        border-bottom: gold 5px solid; 
+        border-top:  gold 5px solid;
+        margin-top: 80px;
+    }
+    @keyframes disc3 {
+        0%{transform: rotateY(50deg) rotateZ(0deg);}
+        100%{transform:  rotateY(50deg) rotateZ(360deg);}
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="disc1"></div>
+        <div class="disc2"></div>
+        <div class="disc3"></div>
+    </div>
+</body>
+</html>

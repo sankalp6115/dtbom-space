@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 20%;
+        }
+        .ball1{
+            position: absolute;
+            height: 110px;
+            width: 120px;
+            border-radius: 50%;
+            border-width: 7px 8px 9px 0px;
+            border-color: red red transparent transparent;
+            border-style: solid;
+            animation: disc 1s infinite linear;
+        }
+        .ball2{
+            position: absolute; 
+            height: 50px;
+            width: 60px;
+            border-radius: 50%;
+            border-width: 7px 8px 9px 0px;
+            border-color: red red transparent transparent;
+            border-style: solid;
+            margin-top: 25px;
+            animation: disc 1s infinite linear reverse;
+        }
+        @keyframes disc {
+            to{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
+    </div>
+</body>
+</html>

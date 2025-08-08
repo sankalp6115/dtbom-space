@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    :root{
+        --dur: 1.5s;
+        --delay: 100ms; 
+        --ease: ease-in-out;
+        --dirn: ;
+    }
+    .box1{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .part-one{
+        position: relative;
+        height: 20px;
+        width: 20px;
+        background-color: #FF9495;
+        margin: 2px;
+        border-radius: 50%;
+        animation: part-one var(--dur) infinite var(--dirn) var(--ease);
+        animation-delay: calc(var(--i)*var(--delay));
+    }
+    @keyframes part-one {
+        /* 0%{transform: translateY(0px); scale: 1; z-index: 10;}
+        50%{scale: 0.8; z-index: 5;}
+        100%{transform: translateY(100px); scale: 1; z-index: 10;} */
+        0%{transform: translateY(0) translateZ(0px); scale: 1; z-index: 0;}
+        25%{transform:              translateZ(0px); scale: 1.2; z-index: 10;}
+        50%{transform: translateY(100px) translateZ(0px); scale: 1; z-index: 5;}
+        75%{transform:              translateZ(0px); scale: 0.8; z-index: -10;}
+        100%{transform: translateY(0px) translateZ(0px); scale: 1; z-index: 0;}
+    }
+
+
+    .box2{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 50px;
+    }
+    .part-two{
+        position: relative;
+        height: 20px;
+        width: 20px;
+        background-color: #FF2A94;
+        margin: 2px;
+        border-radius: 50%;
+        animation: part-two var(--dur) infinite var(--dirn) var(--ease);
+        animation-delay: calc(var(--i)*var(--delay));
+    }
+    @keyframes part-two {
+        0%{transform: translateY(0) translateZ(0px); scale: 1; z-index: 0;}
+        25%{transform:              translateZ(0px); scale: 0.8; z-index: -10;}
+        50%{transform: translateY(-100px) translateZ(0px); scale: 1; z-index: 5;}
+        75%{transform:              translateZ(0px); scale: 1.2; z-index: 10;}
+        100%{transform: translateY(0px) translateZ(0px); scale: 1; z-index: 0;}
+    }
+</style>
+<body>
+    <div class="box1">
+        <div class="part-one" style="--i: 1;"></div>
+        <div class="part-one" style="--i: 2;"></div>
+        <div class="part-one" style="--i: 3;"></div>
+        <div class="part-one" style="--i: 4;"></div>
+        <div class="part-one" style="--i: 5;"></div>
+        <div class="part-one" style="--i: 6;"></div>
+        <div class="part-one" style="--i: 7;"></div>
+        <div class="part-one" style="--i: 8;"></div>
+        <div class="part-one" style="--i: 9;"></div>
+        <div class="part-one" style="--i: 10;"></div>
+    </div>
+    
+    <div class="box2">
+        <div class="part-two" style="--i: 1;"></div>
+        <div class="part-two" style="--i: 2;"></div>
+        <div class="part-two" style="--i: 3;"></div>
+        <div class="part-two" style="--i: 4;"></div>
+        <div class="part-two" style="--i: 5;"></div>
+        <div class="part-two" style="--i: 6;"></div>
+        <div class="part-two" style="--i: 7;"></div>
+        <div class="part-two" style="--i: 8;"></div>
+        <div class="part-two" style="--i: 9;"></div>
+        <div class="part-two" style="--i: 10;"></div>
+    </div>
+</body>
+</html>

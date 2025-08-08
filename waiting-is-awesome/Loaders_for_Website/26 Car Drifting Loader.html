@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root{
+        --dur: 5s;
+    }
+    body{
+        background-color: rgb(217, 208, 255);
+    }
+    .box{
+        position: fixed;
+        inset: 0;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+    }
+    .disc1{
+        position: fixed;
+        inset: 0;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        height: 170px;
+        width: 170px;
+        background-size: 100%;
+        border: 7px solid black;
+        border-radius: 50%;
+    }
+    .disc2{
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        height: 50px;
+        width: 50px;
+        background-size: 100%;
+        border: 5px solid black;
+        border-radius: 50%;
+    }
+    img{
+        position: relative;
+        height: 11vh;
+        margin-top: 7vw;
+        transform-origin: center -2vh;
+        animation: car var(--dur) linear infinite forwards;
+    }
+    @keyframes car {
+        0%{transform: rotate(0);}
+        100%{transform: rotate(360deg);}
+    }
+    .smoke>img{
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        border-radius: 100%;
+        inset: 0;
+        margin: auto;
+        z-index: 1;
+        animation: smoke var(--dur) linear infinite;
+        transform-origin: center 1vw;
+    }
+    @keyframes smoke {
+        0%{transform: rotate(0) translateY(8.3vh) translateX(2.1vw);}
+        100%{transform: rotate(360deg) translateY(8.3vh) translateX(2.1vw);}
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="disc1"></div>
+        <div class="disc2"></div>
+            <div class="img">
+                <img class="car" src="https://png.pngtree.com/png-clipart/20230807/original/pngtree-topview-vector-illustration-of-an-isolated-formula-racing-car-on-a-white-background-vector-picture-image_10044405.png">
+            </div>
+    </div>
+    <div class="smoke"><img src="https://i.gifer.com/3MfZ.gif"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: black;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .ring{
+            background-image: radial-gradient(black 0 70%, transparent 70% 100%), conic-gradient(from 90deg,pink 0deg, transparent 350deg 360deg);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            position: absolute;
+            animation: disc 2s infinite alternate ease-in-out forwards;
+            rotate: 0deg;
+            
+        }
+        @keyframes disc {
+            0%{rotate: -225deg;}
+            100%{rotate: 225deg;}
+        }
+.ring:nth-child(1){height: 18px; z-index:19; animation-delay:0.05s;}
+.ring:nth-child(2){height: 36px; z-index:18; animation-delay:0.1s;}
+.ring:nth-child(3){height: 54px; z-index:17; animation-delay:0.15s;}
+.ring:nth-child(4){height: 72px; z-index:16; animation-delay:0.2s;}
+.ring:nth-child(5){height: 90px; z-index:15; animation-delay:0.25s;}
+.ring:nth-child(6){height: 108px; z-index:14; animation-delay:0.3s;}
+.ring:nth-child(7){height: 126px; z-index:13; animation-delay:0.35s;}
+.ring:nth-child(8){height: 144px; z-index:12; animation-delay:0.4s;}
+.ring:nth-child(9){height: 162px; z-index:11; animation-delay:0.45s;}
+.ring:nth-child(10){height: 180px; z-index:10; animation-delay:0.5s;}
+.ring:nth-child(11){height: 198px; z-index:9; animation-delay:0.55s;}
+.ring:nth-child(12){height: 216px; z-index:8; animation-delay:0.6s;}
+.ring:nth-child(13){height: 234px; z-index:7; animation-delay:0.65s;}
+.ring:nth-child(14){height: 252px; z-index:6; animation-delay:0.7s;}
+.ring:nth-child(15){height: 270px; z-index:5; animation-delay:0.75s;}
+.ring:nth-child(16){height: 288px; z-index:4; animation-delay:0.8s;}
+.ring:nth-child(17){height: 306px; z-index:3; animation-delay:0.85s;}
+.ring:nth-child(18){height: 324px; z-index:2; animation-delay:0.9s;}
+.ring:nth-child(19){height: 342px; z-index:1; animation-delay:0.95s;}
+.ring:nth-child(20){height: 360px; z-index:0; animation-delay:1.0s;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+    </div>
+</body>
+</html>

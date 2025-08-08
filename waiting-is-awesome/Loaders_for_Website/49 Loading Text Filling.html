@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 18%;
+            
+        }
+        .letter{
+            background: linear-gradient(var(--deg), blue 0 var(--a), white var(--a) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            font-size: 100px;
+            font-family: "Arial Black";
+            animation: load 5s linear infinite;
+            -webkit-text-stroke: 1px pink;
+        }
+        @keyframes load {
+            0%{--a: 0%; --deg: 90deg;}
+            10%{--a: 10%; --deg: 125deg;}
+            20%{--a: 20%; --deg: 90deg;}
+            30%{--a: 30%; --deg: 75deg;}
+            40%{--a: 40%; --deg: 90deg;}
+            50%{--a: 50%; --deg: 60deg;}
+            60%{--a: 60%; --deg: 90deg;}
+            70%{--a: 70%; --deg: 110deg;}
+            80%{--a: 80%; --deg: 90deg;}
+            90%{--a: 90%; --deg: 80deg;}
+            100%{--a: 100%; --deg: 90deg;}
+        }
+        @property --a{
+            inherits: false;
+            syntax: '<percentage>';
+            initial-value: 0%;
+        }
+        @property --deg{
+            inherits: false;
+            syntax: '<angle>';
+            initial-value:90deg;
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="letter">LOADING</div>
+    </div>
+</body>
+</html>

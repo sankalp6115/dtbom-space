@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: indigo;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 15%;
+            
+            transform-origin: center;
+        }
+        @keyframes box {
+            to{transform: rotate(360deg);}
+        }
+        .ring{
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border: dotted gold;
+            border-radius: 50%;
+            border-width: 8px 6px 4px 2px;
+            animation: box 2s infinite linear;
+        }
+        .pac{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            margin-top: -20px;
+            background: conic-gradient(from 125deg,yellow 0 300deg, transparent 300deg 345deg);
+            border-radius: 50%;
+            transform-origin: center 125px;
+            animation: box 1.8s infinite linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ring"></div>
+        <div class="pac"></div>
+    </div>
+</body>
+</html>

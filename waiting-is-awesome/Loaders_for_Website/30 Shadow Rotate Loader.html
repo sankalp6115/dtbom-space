@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .disc1{
+            position: relative;
+            height: 240px;
+            width: 240px;
+            max-width: 100vw;
+            max-height: 100dvh;
+            background: radial-gradient(rgb(228, 228, 228) 0 65%, white 65% 100%);
+            border-radius: 50%;
+            inset: 0px;
+            position: fixed;
+            margin: auto;
+            z-index: 2;
+        }
+        .disc2{
+            content: '';
+            position: fixed;
+            height: 260px;
+            width: 260px;
+            max-height: 100dvh;
+            max-width: 100vw;
+            margin: auto;
+            inset: 0px;
+            border-radius: 50%;
+            background: radial-gradient(white 0 40%, transparent 40% 100%),conic-gradient(pink, cyan, tomato,pink);
+            filter: blur(10px);
+            animation: disc 1.5s infinite linear;
+            z-index: -1;
+        }
+        @keyframes disc {
+            to{transform: rotate(360deg);}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="disc1"></div>
+        <div class="disc2"></div>
+    </div>
+</body>
+</html>

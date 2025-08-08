@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            margin-top: 22%;
+        }
+        .box{
+            display: grid;
+            place-items: center;
+            perspective: 100px;
+        }
+        .loader{
+            height: 50px;
+            width: 200px;
+            border: 4px solid white;
+            border-radius: 0px;
+            background: linear-gradient(to right,red 0 50%, black 50% 100%) no-repeat;
+            animation: ani 2s ease-in-out infinite alternate;
+
+        }
+        @keyframes ani {
+            0%{background-size: 0%; transform: rotateX(0) rotateY(0) skewX(20deg);}
+            100%{background-size: 200%; transform: rotateX(10deg) rotateY(10deg);}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>

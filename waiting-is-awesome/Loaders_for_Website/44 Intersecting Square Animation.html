@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        :root{
+            --dur: 3s;
+        }
+        .sqr{
+            mix-blend-mode:color-burn;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            margin-top: 45%;
+        }
+        .sqr1{
+            
+            opacity: 0.8;
+            border: 2px solid;
+            animation: sqr1 var(--dur) ease-in-out infinite forwards;
+        }
+        .sqr2{
+            
+            border: 2px solid;
+            opacity: 0.8;
+            animation: sqr2 var(--dur) ease-in-out infinite forwards;
+        }
+        @keyframes sqr2 {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(180deg);}
+        }
+        
+        @keyframes sqr1 {
+            0%{transform: rotate(45deg);}
+            100%{transform: rotate(-135deg);}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="sqr1 sqr"></div>
+        <div class="sqr2 sqr"></div>
+    </div>
+</body>
+</html>

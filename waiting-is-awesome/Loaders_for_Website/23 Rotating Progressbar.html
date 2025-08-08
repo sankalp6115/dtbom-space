@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .box{
+            margin-top: 20%;
+            animation: box 1.5s linear infinite;
+        }
+        .part{
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border-radius: 50%;
+	        background: radial-gradient(white 0 40%,transparent 40% 100%), conic-gradient(transparent 0 var(--p), blue var(--p) 360deg);
+            animation: object 4s ease-in-out infinite reverse;
+        }
+        @property --p{
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+        @keyframes object{
+            0%{--p: 0deg;}
+            100%{--p: 360deg;}
+        }
+        @keyframes box{
+            to{transform: rotate(360deg);}
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="part"></div>
+    </div>
+</body>
+</html>

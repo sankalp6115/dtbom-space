@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .clock{
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background-color: rgb(113, 219, 255);
+            border: 4px solid darkblue;
+        }
+        .small{
+            position: absolute;
+            height: 35px;
+            width: 5px;
+            background-color: darkblue;
+            border-radius: 10px;
+            margin-top: -35px;
+            animation: needle 1s linear infinite;
+            transform-origin: bottom;
+        }
+        .big{
+            position: absolute;
+            height: 20px;
+            width: 5px;
+            background-color: darkblue;
+            border-radius: 10px;
+            animation: needle 2s linear infinite;
+            transform-origin: bottom;
+            margin-top: -20px;
+        }
+        @keyframes needle {
+            0%{rotate: 0;}
+            100%{rotate: 360deg;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="clock"></div>
+        <div class="needle small"></div>
+        <div class="needle big"></div>
+    </div>
+</body>
+</html>

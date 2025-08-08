@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --duration: 0.3s;
+        }
+        body{
+            background-color: black;
+        }
+        .whole_box{
+            position: relative;
+            margin-top: 30vh;
+            transform: scale(0.8);
+        }
+        .box{
+            animation: box 6s linear infinite;
+            background-color: rgb(0, 0, 0);
+            width: min-content;
+        }
+        @keyframes box {
+            0%{padding-left: 0;}
+            100%{padding-left: 75%;}
+        }
+        .pac{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            transform: translateX(130px);
+            animation: pac var(--duration) ease-in-out infinite alternate;
+        }
+        @keyframes pac {
+            0%  {background: conic-gradient(from 135deg   at 37% 50%,gold 270deg, transparent 10deg);}
+            10% {background: conic-gradient(from 130.5deg at 37% 50%,gold 279deg, transparent 10deg);}
+            20% {background: conic-gradient(from 126deg   at 37% 50%,gold 288deg, transparent 10deg);}
+            30% {background: conic-gradient(from 121.5deg at 37% 50%,gold 297deg, transparent 10deg);}
+            40% {background: conic-gradient(from 117deg   at 37% 50%,gold 306deg, transparent 10deg);}
+            50% {background: conic-gradient(from 112.5deg at 37% 50%,gold 315deg, transparent 10deg);}
+            60% {background: conic-gradient(from 108deg   at 37% 50%,gold 324deg, transparent 10deg);}
+            70% {background: conic-gradient(from 103.5deg at 37% 50%,gold 333deg, transparent 10deg);}
+            80% {background: conic-gradient(from 99deg    at 37% 50%,gold 342deg, transparent 10deg);}
+            90% {background: conic-gradient(from 94.5deg  at 37% 50%,gold 351deg, transparent 10deg);}
+            100%{background: conic-gradient(from 90deg    at 37% 50%,gold 360deg, transparent 10deg);}
+        }
+        .eye{
+            height: 20px;
+            width: 20px;
+            background-color: black;
+            border-radius: 50%;
+            transform: translateX(110px) translateY(40px);
+            animation: eye var(--duration) linear infinite alternate;
+        }
+        @keyframes eye {
+            0%{transform: translateX(90px) translateY(20px);}
+            100%{transform: translateX(120px) translateY(40px);}
+        }
+        .goli{
+            margin-top: -115px;
+            margin-left: 0px;
+        }
+        .ball{
+            position: relative;
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            border-radius: 50%;
+            margin-left: 20px;
+            z-index: -1;
+        }
+        h1{
+            color: white;
+            text-align: center;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PACMAN</h1>
+<div class="whole_box">
+
+<div class="box">
+    <div class="pac"><div class="eye"></div></div>
+</div>
+<div class="goli">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+</div>
+
+</div>
+<audio autoplay loop src="pacman_chomp.wav" type="audio/wav"></audio>
+</body>
+</html>

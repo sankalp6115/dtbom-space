@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Grad</title>
+    <style>
+        body{
+            background: black;
+            background-size: 100%;
+            
+        }
+        .box{
+            position: absolute;
+            height: 98%;
+            width: 99%;
+            display: flex;
+            justify-content: center;
+        }
+        .ring{
+            position: absolute;
+            margin-top: 15%;
+            height: 160px;
+            width: 160px;
+            border-color: rgba(255, 0, 0, 0.403) transparent;
+            border-width: 40px;
+            border-style: solid;
+            border-radius: 50%;
+            animation: disc 2s linear infinite;
+            filter: drop-shadow(0px 0 5px black);
+            
+        }
+        .ring::before{
+            content: '';
+            position: absolute;
+            height: 220px;
+            width: 220px;
+            background: radial-gradient(white 50%, transparent 52%), conic-gradient(#FF5722 0% 25%, #FFEB3B 25% 50%, #2196F3 50% 75%, transparent 75% 100%);
+            top: -30px;
+            left: -30px;
+            border-radius: 50%;
+            animation: disc 1s linear infinite reverse;
+        }
+        @keyframes disc {
+            to{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ring"></div>
+    </div>
+</body>
+</html>

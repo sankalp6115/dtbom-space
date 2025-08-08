@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: indigo;   
+        }
+        :root{
+            --dur: 1s;
+        }
+        .box{
+            position: fixed;
+            inset: 0px;
+            width:  max-content;
+            height: max-content;
+            max-width: 100vw;
+            max-height: 100dvh;
+            margin: auto;
+            transform: rotate(45deg);
+            animation: box 4s linear infinite forwards;
+        }
+        @keyframes box {
+            to{transform: rotate(405deg);}
+        }
+        .sqr{
+            height: 60px;
+            width: 60px;
+            margin: -10px;
+        }
+        .box1{animation: box1 var(--dur) cubic-bezier(0.37, 0, 0.63, 1) infinite forwards;}
+        .box2{animation: box2 var(--dur) cubic-bezier(0.37, 0, 0.63, 1) infinite forwards;}
+        .box3{animation: box3 var(--dur) cubic-bezier(0.37, 0, 0.63, 1) infinite forwards;}
+        .box4{animation: box4 var(--dur) cubic-bezier(0.37, 0, 0.63, 1) infinite forwards;}
+@keyframes box1 {
+    0%{transform: none; background-color: red;}
+    50%{transform: translateX(-50px) translateY(-50px) rotate(180deg); background-color: greenyellow;}
+    100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box2 {
+    0%{transform: none; background-color: red;}
+    50%{transform: translateX(50px) translateY(-50px) rotate(180deg); background-color: greenyellow;}
+    100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box3 {
+    0%{transform: none; background-color: red;}
+    50%{transform: translateX(-50px) translateY(50px) rotate(180deg); background-color: greenyellow;}
+    100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box4 {
+    0%{transform: none; background-color: red;}
+    50%{transform: translateX(50px) translateY(50px) rotate(180deg); background-color: greenyellow;}
+    100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <table>
+            <tr>
+                <td class="box1 sqr"></td>
+                <td class="box2 sqr"></td>
+            </tr>
+            <tr>
+                <td class="box3 sqr"></td>
+                <td class="box4 sqr"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: indigo;
+        overflow: hidden;
+    }
+    :root{
+        --dur: 0.8s;
+        --ease:  cubic-bezier(0.45, 0, 0.55, 1);
+    }
+    .box{
+        transform: rotateZ(90deg) translateX(50vh);
+    }
+    .ring{
+        position: fixed;
+        inset: 0px;
+        max-width: 100vw;
+        max-height: 100dvh;
+        margin: auto;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 3px 0 white,0 -3px 0 white;   
+    }
+    .ring1{
+        height: 10px;
+        width: 40px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.1s;
+    }
+    .ring2{
+        height: 40px;
+        width: 100px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.2s;
+    }
+    .ring3{
+        height: 70px;
+        width: 160px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.3s;
+    }
+    .ring4{
+        height: 100px;
+        width: 220px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.4s;
+    }
+    .ring5{
+        height: 130px;
+        width: 280px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.5s;
+    }
+    .ring6{
+        height: 160px;
+        width: 340px;
+        animation: disc var(--dur) var(--ease) infinite alternate 0.6s;
+    }
+    @keyframes disc {
+        0%{transform: scale(1);}
+        100%{transform: scale(0.5);}
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+        <div class="ring ring4"></div>
+        <div class="ring ring5"></div>
+        <div class="ring ring6"></div>
+
+    </div>
+</body>
+</html>

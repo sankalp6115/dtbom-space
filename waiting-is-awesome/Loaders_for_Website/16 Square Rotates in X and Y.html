@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #d35400;
+            padding-top: 20%;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 200px;
+        }
+        .sqr{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            background-color: white;
+            transform-style: preserve-3d;
+            border-radius: 5px;
+            animation: sqr 2s linear infinite forwards;
+        }
+        @keyframes sqr {
+            0%{transform: rotateX(0) rotateY(0);}
+            25%{transform: rotateX(-180deg) rotateY(0);}
+            50%{transform: rotateX(-180deg) rotateY(-180deg);}
+            75%{transform: rotateX(0) rotateY(-180deg);}
+            100%{transform: rotateX(0) rotateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="sqr"></div>
+    </div>
+</body>
+</html>

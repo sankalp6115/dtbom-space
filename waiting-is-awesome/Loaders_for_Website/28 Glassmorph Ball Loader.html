@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism</title>
+    <style>
+        :root{
+            --dur: 0.7s;
+        }
+        body{
+            background-color: indigo;
+            margin: 0;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25%;
+        }
+        .cont{
+            position: relative;
+            height: 60px;
+            width: 170px;
+            background-color: rgba(255, 255, 255, 0.104);
+            backdrop-filter: blur(6px);
+            border-width: 0 1px 1px 1px;
+            border-radius: 0 0 15px 15px;
+            border-color: rgb(204, 204, 204);
+            border-style: solid;
+            z-index: 1;
+            animation: cont var(--dur) linear infinite alternate;
+        }
+        @keyframes cont {
+            0%{transform: rotate(-15deg);}
+            50%{transform: rotate(0deg);}
+            100%{transform: rotate(15deg);}
+        }
+        .ball{
+            z-index: -1;
+            position: relative;
+            margin-top: 0px;
+            margin-left: 5px;
+            display:inline-block;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+        }
+        .ball1{
+            background-color: red;
+            margin-left: -140px;
+            animation: ball var(--dur) linear infinite alternate 0.1s;
+        }
+        .ball2{
+            background-color: white;
+            animation: ball var(--dur) linear infinite alternate 0.3s;
+        }
+        .ball3{
+            background-color: blue;
+            animation: ball var(--dur) linear infinite alternate 0.5s;
+        }
+        .ball4{
+            background-color: greenyellow;
+            animation: ball var(--dur) linear infinite alternate 0.7s;
+        }
+        @keyframes ball {
+            0%{transform: translateY(0);}
+            100%{transform: translateY(-90px);}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="cont"></div>
+        <div class="ball1 ball"></div>
+        <div class="ball2 ball"></div>
+        <div class="ball3 ball"></div>
+        <div class="ball4 ball"></div>
+    </div>
+</body>
+</html>

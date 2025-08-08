@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typewriter</title>
+</head>
+<style>
+    body{
+        background-color: blueviolet;
+        display: flex;
+        justify-content: center;
+    }
+
+    .text{
+        position: absolute;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 90px;
+        
+        z-index: -1;
+    }
+    .layer{
+        position: absolute;
+        margin-top: -100px;
+        margin-left: -20px;
+        height: 100px;
+        width: 650px;
+        background-color: blueviolet;
+        border-left: 6px solid  ;
+        animation: layer 3.5s infinite alternate-reverse steps(40);
+        transform-origin: right;
+        z-index: 1;
+        
+    }
+    @keyframes layer {
+        0%{ transform: scaleX(0.1);}
+        100%{ transform: scaleX(1);}
+    }
+</style>
+<body>
+    <div class="text">
+        TYPEWRITER
+        <div class="layer"></div>
+    </div>
+</body>
+</html>

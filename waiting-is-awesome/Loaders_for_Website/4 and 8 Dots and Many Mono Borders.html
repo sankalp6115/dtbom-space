@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Multi Loaders.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Many Loaders</title>
+    <style>
+        body{
+    background-color: black;
+    margin: 0;
+}
+:root{
+    --dur: 1s;
+    --dur2: 2s;
+    --ease: linear;
+}
+.l{
+    height: 12vw;
+    width: 12vw;
+    border: 2px solid gold;
+}
+/*LOADER 1*/
+
+.ball{
+    margin: 10.7vh;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+.ball1{
+    transform: translateY(-45px);
+    animation: ball var(--dur) var(--ease) 0.125s infinite alternate;
+}
+.ball2{
+    transform: translateX(30px) translateY(-30px);
+    animation: ball var(--dur) var(--ease) 0.250s infinite alternate;
+}
+.ball3{
+    transform: translateX(45px);
+    animation: ball var(--dur) var(--ease) 0.375s infinite alternate;
+}
+.ball4{
+    transform: translateX(30px) translateY(30px);
+    animation: ball var(--dur) var(--ease) 0.500s infinite alternate;
+}
+.ball5{
+    transform: translateY(45px);
+    animation: ball var(--dur) var(--ease) 0.625s infinite alternate;
+}
+.ball6{
+    transform: translateX(-30px) translateY(30px);
+    animation: ball var(--dur) var(--ease) 0.750s infinite alternate;
+}
+.ball7{
+    transform: translateX(-45px);
+    animation: ball var(--dur) var(--ease) 0.875s infinite alternate;
+}
+.ball8{
+    transform: translateX(-30px) translateY(-30px);
+    animation: ball var(--dur) var(--ease) 1.000s infinite alternate;
+}
+@keyframes ball {
+    0%{opacity: 0.1;}
+    100%{opacity: 1;}
+}
+
+
+/*LOADER 2*/
+.l2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 20px;
+    padding-bottom: 70px;
+}
+.disc{
+    position: absolute;
+    border-top: 7px solid blue;
+    border-right: 7px solid blue;
+    border-radius: 0% 100% 100% 0% / 0% 100% 0% 100%;
+    transform-origin: left bottom;
+}
+@keyframes disc {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+.disc1{
+    height: 50px;
+    width: 50px;
+    animation: disc var(--dur2) linear infinite forwards 0.1s;
+}
+.disc2{
+    height: 60px;
+    width: 60px;
+    margin-top: -10px;
+    margin-left: 10px;
+    animation: disc var(--dur2) linear infinite forwards 0.3s;
+}
+.disc3{
+    height: 70px;
+    width: 70px;
+    margin-top: -20px;
+    margin-left: 20px;
+    animation: disc var(--dur2) linear infinite forwards 0.5s;
+}
+.disc4{
+    height: 80px;
+    width: 80px;
+    margin-top: -30px;
+    margin-left: 30px;
+    animation: disc var(--dur2) linear infinite forwards 0.7s;
+}
+.disc5{
+    height: 90px;
+    width: 90px;
+    margin-top: -40px;
+    margin-left: 40px;
+    animation: disc var(--dur2) linear infinite forwards 0.9s;
+}
+.disc6{
+    height: 100px;
+    width: 100px;
+    margin-top: -50px;
+    margin-left: 50px;
+    animation: disc var(--dur2) linear infinite forwards 1.1s;
+}
+    </style>
+</head>
+<body>
+    
+<!--LOADER 1-->
+        <div class="l1 l">
+            <div class="ball ball1"></div>
+            <div class="ball ball2"></div>
+            <div class="ball ball3"></div>
+            <div class="ball ball4"></div>
+            <div class="ball ball5"></div>
+            <div class="ball ball6"></div>
+            <div class="ball ball7"></div>
+            <div class="ball ball8"></div>
+        </div>
+
+<!--LOADER 2-->
+        <div class="l2 l">
+            <div class="disc1 disc"></div>
+            <div class="disc2 disc"></div>
+            <div class="disc3 disc"></div>
+            <div class="disc4 disc"></div>
+            <div class="disc5 disc"></div>
+            <div class="disc6 disc"></div>
+        </div>
+
+</body>
+</html>

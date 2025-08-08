@@ -1,0 +1,3045 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+        /* --s: 6px;
+        --c1: #3b2d38;
+        --c2: #f02475;
+        
+        --g:#0000 66%,var(--c1) 68% 98%,#0000;
+        background:
+          radial-gradient(30% 30% at 0%   30%,var(--g))
+           var(--s) calc(9*var(--s)),
+          radial-gradient(30% 30% at 100% 30%,var(--g))
+           var(--s) calc(-1*var(--s)),
+          radial-gradient(30% 30% at 30% 100%,var(--g))
+           calc(10*var(--s)) 0,
+          radial-gradient(30% 30% at 30% 0%  ,var(--g))
+           var(--c2);
+        background-size: calc(20*var(--s)) calc(20*var(--s)); */
+        background-image: url(https://wallpapers.com/images/featured/white-abstract-jcss6s6ijvfkpr5z.jpg);
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+}
+*{
+    font-family: "Montserrat", sans-serif;
+}
+::-webkit-scrollbar {
+    width: 7px;
+}  
+
+::-webkit-scrollbar-track {
+    background-color: black;
+}  
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(magenta,cyan);
+    border-radius: 0 0 10px 10px;
+}
+
+
+/* Title Text */
+header{
+    background-color: #181717;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border-bottom: 2px solid gold;
+    z-index: 1000;
+    padding-bottom: 40px;
+}
+svg{
+    margin-top: -30px;   
+}
+svg text {
+    font-size: 3em;
+    letter-spacing: 8px;
+    fill: transparent;
+    stroke: white;
+    stroke-width: 1px;
+    animation: animated-stroke 3s;
+    text-anchor: middle;
+    text-shadow: 1px 1px 1px red, -1px -1px 1px cyan;
+    font-family: "Playwrite AR", cursive;
+}
+  
+@keyframes animated-stroke {
+    0%{
+      stroke-dasharray: 0 80%;
+    }
+    100%{
+      stroke-dasharray: 25% 0%;
+      stroke-dashoffset: 10%;
+    }
+}
+
+/* About Animation */
+div.free-loader{
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.5em;
+    font-family: serif;
+    -webkit-text-stroke: 1px white;
+}
+
+/* Sample Loader */
+.box{
+    position: absolute;
+    perspective: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 210px;
+    left: 10vw;
+    filter: brightness(0.8);
+}
+/* Sample Loader */
+.sample-whole{
+    scale: 0.4;
+    transform: rotateX(20deg) rotateY(0deg);
+    height: 330px;
+    width: 270px;
+    /* background-color: #1a0e2f; */
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    translate: 0 -100px;
+}
+    .sample-box{
+        /* animation: box 5s ease infinite forwards; */
+        transition: 0.5s;
+        margin: 0px 0px 0 0;
+    }
+
+@keyframes box {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(1080deg);}
+    }
+
+    .sample-box1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(130px*cos(0deg))) translateY(calc(130px*sin(0deg)));
+    }
+    .sample-box3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(130px*cos(120deg))) translateY(calc(130px*sin(120deg)));
+    }
+    .sample-box5{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(130px*cos(240deg))) translateY(calc(130px*sin(240deg)));
+    }
+
+    .sample-box2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(80px*cos(60deg))) translateY(calc(80px*sin(60deg)));
+    }
+    .sample-box4{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(80px*cos(180deg))) translateY(calc(80px*sin(180deg)));
+    }
+    .sample-box6{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(calc(80px*cos(300deg))) translateY(calc(80px*sin(300deg)));
+    }
+    .sample-inbox:nth-of-type(2n) span{
+        height: 120px;
+        width: 120px;
+    }    
+    .sample-inbox:nth-of-type(2n+1) span{
+        height: 60px;
+        width: 60px;
+    }   
+
+@property --sample-disc1{
+    inherits: false;
+    initial-value: 0px;
+    syntax: '<length>';
+}
+@property --sample-disc2{
+    inherits: false;
+    initial-value: 0px;
+    syntax: '<length>';
+}
+@property --sample-disc3{
+    inherits: false;
+    initial-value: 0px;
+    syntax: '<length>';
+}
+
+@keyframes sample-disc1 {
+    0%{--sample-disc1: 10px;}
+    100%{--sample-disc1: 40px;}
+}
+@keyframes sample-disc2 {
+    0%{--sample-disc2: 0px;}
+    100%{--sample-disc2: 0px;}
+}
+@keyframes sample-disc3 {
+    0%{--sample-disc3: -10px;}
+    100%{--sample-disc3: -50px;}
+}
+
+/* Outer Boxes */
+    .sample-box1 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(0deg))) translateY(calc(var(--sample-disc1)*sin(0deg)));
+    }
+    .sample-box1 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(0deg))) translateY(calc(var(--sample-disc2)*sin(0deg)));
+    }
+    .sample-box1 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(0deg))) translateY(calc(var(--sample-disc3)*sin(0deg)));
+    }
+
+
+    .sample-box3 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(120deg))) translateY(calc(var(--sample-disc1)*sin(120deg)));
+    }
+    .sample-box3 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(120deg))) translateY(calc(var(--sample-disc2)*sin(120deg)));
+    }
+    .sample-box3 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(120deg))) translateY(calc(var(--sample-disc3)*sin(120deg)));
+    }
+
+
+    .sample-box5 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(240deg))) translateY(calc(var(--sample-disc1)*sin(240deg)));
+    }
+    .sample-box5 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(240deg))) translateY(calc(var(--sample-disc2)*sin(240deg)));
+    }
+    .sample-box5 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(240deg))) translateY(calc(var(--sample-disc3)*sin(240deg)));
+    }
+
+/* Inner Boxes */
+    .sample-box2 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(60deg))) translateY(calc(var(--sample-disc1)*sin(60deg)));
+    }
+    .sample-box2 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(60deg))) translateY(calc(var(--sample-disc2)*sin(60deg)));
+    }
+    .sample-box2 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(60deg))) translateY(calc(var(--sample-disc3)*sin(60deg)));
+    }
+
+    .sample-box4 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(180deg))) translateY(calc(var(--sample-disc1)*sin(180deg)));
+    }
+    .sample-box4 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(180deg))) translateY(calc(var(--sample-disc2)*sin(180deg)));
+    }
+    .sample-box4 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(180deg))) translateY(calc(var(--sample-disc3)*sin(180deg)));
+    }
+
+
+    .sample-box6 .sample-disc1{
+        animation: sample-disc1 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc1)*cos(300deg))) translateY(calc(var(--sample-disc1)*sin(300deg)));
+    }
+    .sample-box6 .sample-disc2{
+        animation: sample-disc2 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc2)*cos(300deg))) translateY(calc(var(--sample-disc2)*sin(300deg)));
+    }
+    .sample-box6 .sample-disc3{
+        animation: sample-disc3 1s infinite alternate cubic-bezier(0.85, 0, 0.15, 1);
+        transform: translateX(calc(var(--sample-disc3)*cos(300deg))) translateY(calc(var(--sample-disc3)*sin(300deg)));
+    }
+
+    
+    .sample-disc{
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        mix-blend-mode:color-dodge;
+        border-radius: 50%;
+        border: 2px solid black;
+    }
+    .sample-disc1{
+        background-color: rgb(8 8 254);  
+        scale: 1;
+    }
+    .sample-disc2{
+        background-color: rgb(9 255 10);
+        scale: 0.7;
+    }
+    .sample-disc3{
+        background-color: rgb(254 8 10);
+        scale: 0.5;
+    }
+    .center{
+        height: 10px;
+        width: 10px;
+        background-color: wheat;
+        position: absolute;
+        border-radius: 5px;
+        transform: translateX(-5px) translateY(-5px);
+    }
+
+/* Hover Box */
+.part{
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
+    border: 1px solid;
+    opacity: 0;
+    text-align: center;
+    translate: 30px -30px;
+}
+.part1:hover ~ .sample-whole{transform: rotateX(15deg) rotateY(-15deg) ;}
+.part2:hover ~ .sample-whole{transform: rotateX(20deg) rotateY(0deg)   ;}
+.part3:hover ~ .sample-whole{transform: rotateX(15deg) rotateY(15deg)  ;}
+.part4:hover ~ .sample-whole{transform: rotateX(0deg) rotateY(-20deg)  ;}
+.part5:hover ~ .sample-whole{transform: scale(0.8)                     ;}
+.part6:hover ~ .sample-whole{transform: rotateX(0deg) rotateY(20deg)   ;}
+.part7:hover ~ .sample-whole{transform: rotateX(-15deg) rotateY(-15deg);}
+.part8:hover ~ .sample-whole{transform: rotateX(-20deg) rotateY(0deg)  ;}
+.part9:hover ~ .sample-whole{transform: rotateX(-15deg) rotateY(15deg) ;}
+
+
+.part1:hover ~ .sample-whole .sample-box {margin: -40px 40px 0 0;}
+.part2:hover ~ .sample-whole .sample-box {margin: -50px 0px 0 0;}
+.part3:hover ~ .sample-whole .sample-box {margin: -40px -40px 0 0;}
+.part4:hover ~ .sample-whole .sample-box {margin: 0px 50px 0 0;}
+.part5:hover ~ .sample-whole .sample-box {margin: 0px 0px 0 0;}
+.part6:hover ~ .sample-whole .sample-box {margin: 0px -50px 0 0;}
+.part7:hover ~ .sample-whole .sample-box {margin: 40px 40px 0 0;}
+.part8:hover ~ .sample-whole .sample-box {margin: 50px 0px 0 0;}
+.part9:hover ~ .sample-whole .sample-box {margin: 40px -40px 0 0;}
+
+
+
+/* Loaders Showcase */
+section.loaders{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 27vh;
+}
+
+.loader{
+    height: 250px;
+    width: 290px;
+    border: 3px solid gold;
+    background-color: rgb(24, 23, 23, 0.7);
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+.loader:hover{
+    background-color: black;
+    box-shadow: 0 0 10px 5px black;
+}
+
+a:nth-of-type(n+69){display: none;}
+
+
+/*Number of loader*/
+.loader::before{
+    transform: translateX(-18vh) translateY(-15vh);
+    position: absolute;
+    color: gold;
+    text-align: center;
+    padding: 2px;
+    width: 20px;
+    opacity: 0;
+    transition: 0.1s;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.loader::after{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: gold;
+    text-align: center;
+    padding: 2px;
+    opacity: 0;
+    transition: 0.1s;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.loader:hover::before, .loader:hover::after{
+    opacity: 1;
+}
+
+.loader.paused * {
+  animation: none !important;
+  transition: none !important;
+}
+
+
+/* Loaders */
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER1*/
+.loader1::before{content: '1';}
+.loader1::after{content: 'The Classic One';}
+.loader1 .disc1{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border-width: 7px;
+    border-style: solid solid dotted dotted;
+    border-color: white white red red;    
+    animation: disc1 2s linear infinite;
+}
+@keyframes disc1 {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER2*/
+.loader2::before{content: '2';}
+.loader2::after{content: 'I have got perspective';}
+.loader2{
+    perspective: 80px;
+}
+.box-load-2{
+    transform: rotateX(30deg);
+}
+.loader2 .disc1{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border-width: 10px;
+    border-color: red transparent white transparent;
+    border-style: double;
+    animation: disc2-2 1s linear infinite;
+}
+@keyframes disc2-2 {
+    to{transform: rotateZ(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER3*/
+.loader3::before{content: '3';}
+.loader3::after{content: 'The Ring and Balls';}
+.loader3 .disc1{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border-style:double;
+    border-color: cyan transparent;
+    border-width: 8px;
+    animation: disc3 2s linear infinite;
+}
+.loader3 .disc2{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-style:dotted;
+    border-color: greenyellow;
+    border-width: 8px;
+    animation: disc3 2s linear infinite reverse;
+}
+@keyframes disc3 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER4*/
+.loader4::before{content: '4';}
+.loader4::after{content: 'Growing Bubbles';}
+.loader4{
+    --radius: 20px;
+    --easing: ease-in-out;
+}
+.loader4 .ball-4{
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid white;
+    aspect-ratio: 1;
+    background-color: greenyellow;
+    height: 20px;
+}
+.loader4 .ball1-4{
+    transform: translateX(calc(var(--radius)*sin(0deg))) translateY(calc(var(--radius)*cos(0deg)));
+    animation: ball-4 0.5s var(--easing) -0.125s infinite alternate-reverse;
+    z-index: 1;
+}
+.loader4 .ball2-4{
+    transform: translateX(calc(var(--radius)*sin(45deg))) translateY(calc(var(--radius)*cos(45deg)));
+    animation: ball-4 0.5s var(--easing) -0.250s infinite alternate-reverse;
+    z-index: 2;
+}
+.loader4 .ball3-4{
+    transform: translateX(calc(var(--radius)*sin(90deg))) translateY(calc(var(--radius)*cos(90deg)));
+    animation: ball-4 0.5s var(--easing) -0.375s infinite alternate-reverse;
+    z-index: 3;
+}
+.loader4 .ball4-4{
+    transform: translateX(calc(var(--radius)*sin(135deg))) translateY(calc(var(--radius)*cos(135deg)));
+    animation: ball-4 0.5s var(--easing) -0.500s infinite alternate-reverse;
+    z-index: 4;
+}
+.loader4 .ball5-4{
+    transform: translateX(calc(var(--radius)*sin(180deg))) translateY(calc(var(--radius)*cos(180deg)));
+    animation: ball-4 0.5s var(--easing) -0.625s infinite alternate-reverse;
+    z-index: 5;
+}
+.loader4 .ball6-4{
+    transform: translateX(calc(var(--radius)*sin(225deg))) translateY(calc(var(--radius)*cos(225deg)));
+    animation: ball-4 0.5s var(--easing) -0.750s infinite alternate-reverse;
+    z-index: 6;
+}
+.loader4 .ball7-4{
+    transform: translateX(calc(var(--radius)*sin(270deg))) translateY(calc(var(--radius)*cos(270deg)));
+    animation: ball-4 0.5s var(--easing) -0.875s infinite alternate-reverse;
+    z-index: 7;
+}
+.loader4 .ball8-4{
+    transform: translateX(calc(var(--radius)*sin(315deg))) translateY(calc(var(--radius)*cos(315deg)));
+    animation: ball-4 0.5s var(--easing) -1.000s infinite alternate-reverse;
+    z-index: 8;
+}
+@keyframes ball-4 {
+    0%{scale: 1;}
+    100%{scale: 2;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER5*/
+.loader5::before{content: '5';}
+.loader5::after{content: 'Calm Rainbow Rings';}
+
+.loader5 .text{
+    position: absolute;
+    font-size: 14px;
+}
+.loader5 .ball{
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 3px;
+}
+.loader5 .ball1{
+    height: 100px;
+    width: 110px;
+    border-color: red;
+    animation: disc5 3s infinite linear;
+    box-shadow: 0 0 5px red, 0 0 5px red inset;
+}
+.loader5 .ball2{
+    height: 110px;
+    width: 100px;
+    border-color: gold;
+    animation: disc5 4s infinite linear reverse;
+    box-shadow: 0 0 5px gold, 0 0 5px gold inset;
+}
+.loader5 .ball3{
+    height: 107px;
+    width: 110px;
+    border-color: greenyellow;
+    animation: disc5 5s infinite linear;
+    box-shadow: 0 0 5px greenyellow, 0 0 5px greenyellow inset;
+}
+@keyframes disc5 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER6*/
+.loader6::before{content: '6';}
+.loader6::after{content: 'Ball Bearing';}
+.loader6 .circle{
+    position: absolute;
+}
+.loader6 .circle1{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: transparent;
+    box-shadow: 0 0 10px white inset;
+    animation: circle6 2s infinite linear; 
+}
+.loader6 .circle2{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    /* background-color: blue; */
+    background-image: conic-gradient(black, darkgrey, black, darkgrey, black);
+    translate: 11px 11px;
+    animation: circle6 0.8s infinite linear reverse; 
+}
+@keyframes circle6{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER7*/
+.loader7::before{content: '7';}
+.loader7::after{content: 'Gradient Ring';}
+.loader7 .disc1{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: radial-gradient(black 0 50%,transparent 50% 100%), repeating-conic-gradient(in lch,burlywood,blueviolet 120deg);
+    animation: disc7 1s ease-in-out infinite;
+}
+@keyframes disc7 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER8*/
+.loader8::before{content: '8';}
+.loader8::after{content: 'Spirality';}
+.loader8 .disc{
+    position: absolute;
+    border-style: solid;
+    border-width: 4px;
+    border-color: gold transparent greenyellow transparent;
+    border-radius: 50%;
+}
+@keyframes disc8 {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+.loader8 .disc1{
+    height: 35px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 0.1s;
+}
+.loader8 .disc2{
+    height: 50px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 0.3s;
+}
+.loader8 .disc3{
+    height: 65px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 0.5s;
+}
+.loader8 .disc4{
+    height: 80px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 0.7s;
+}
+.loader8 .disc5{
+    height: 95px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 0.9s;
+}
+.loader8 .disc6{
+    height: 110px;
+    aspect-ratio: 1;
+    animation: disc8 1.5s linear infinite forwards 1.1s;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER9*/
+.loader9::before{content: '9';}
+.loader9::after{content: 'Growing Beads';}
+.loader9 .bead{
+    width: 70px;
+    height: 70px;
+    background-color: blue;
+    border-radius: 50%;
+}
+.loader9 .bead1{animation: bead9 1s ease-in-out infinite alternate 0.1s;}
+.loader9 .bead2{animation: bead9 1s ease-in-out infinite alternate 0.3s;}
+.loader9 .bead3{animation: bead9 1s ease-in-out infinite alternate 0.5s;}
+@keyframes bead9 {
+    0%{transform: scale(0.9);}
+    100%{transform: scale(0.1);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER10*/
+.loader10::before{content: '10';}
+.loader10::after{content: 'Colorful Blobs';}
+.loader10{
+    animation: box10 1s ease-in-out infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader10 .part-10{
+    position: absolute;
+    aspect-ratio: 1;
+    height: 100px;   
+}
+.loader10 .part1-10{
+    animation: box10-1 2s ease-in-out infinite; 
+    background-image: linear-gradient(30deg, #6022FF, #DE06FF);
+    z-index: 4;
+}
+.loader10 .part2-10{
+    animation: box10-1 3s -0.4s ease-in-out infinite reverse;  
+    background-image: linear-gradient(#09E4F5, #44FA55);
+    z-index: 3;
+}
+.loader10 .part3-10{
+    animation: box10-1 3s -0.7s ease-in-out infinite; 
+    background-image: linear-gradient(30deg, #DB9D10, #FF0F00);
+    z-index: 2;
+}
+.loader10 .part4-10{
+    background-color: black;
+    color: white;
+    height: 80px;
+    width: 80px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    border-radius: 65% 35% 57% 43% / 37% 56% 44% 63%;
+}
+@keyframes box10-1 {
+    0%{border-radius: 43% 57% 70% 30% / 30% 30% 70% 70%; rotate: 0deg;}
+    50%{border-radius: 29% 100% 64% 76% / 71% 61% 79% 64% ;               }
+    100%{border-radius: 43% 57% 70% 30% / 30% 30% 70% 70%; rotate: 360deg;}
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER11*/
+.loader11::before{content: '11';}
+.loader11::after{content: 'Color Wheel';}
+.loader11 .part-11{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(#ffffff4f 0 50%, transparent 50% 100%),conic-gradient(blue 0 0.125turn, transparent 0.125turn 0.250turn, cyan 0.250turn 0.375turn, transparent 0.375turn 0.500turn, greenyellow 0.500turn 0.625turn, transparent 0.625turn 0.750turn, red 0.750turn 0.875turn, transparent 0.875turn 1turn);
+    animation: ring11 1s ease-in-out infinite;
+}
+@keyframes ring11 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER12*/
+.loader12::before{content: '12';}
+.loader12::after{content: 'Gradient Progressbar';}
+.loader12 .progress-bar-container {
+    width: 150px;
+    height: 20px;
+    margin: 50px 0px;
+  }
+  
+.loader12 .progress-bar-indicator {
+    height: 100%;
+    background-image: linear-gradient(60deg,rgb(0, 255, 255), rgb(255, 45, 157));
+    border-radius: 25px;
+  }
+  
+.loader12 #indicator-1 {
+    animation: loader12 2s linear infinite forwards;
+  }
+  @keyframes loader12{
+      0%{width: 0;}
+      100%{width: 100%;}
+  }
+  
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER13*/
+.loader13::before{content: '13';}
+.loader13::after{content: 'Square Progressbar';}
+
+.loader13 .one{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    animation: one-13 2s infinite linear;
+    border-radius: 20%;
+    background: conic-gradient(from var(--angle-grad) in lch,red, yellow, greenyellow, transparent 0.9turn);
+    
+}
+@property --angle-grad {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes one-13 {
+    0%{--angle-grad: 0deg;}
+    100%{--angle-grad: 360deg;}
+}
+.loader13 .one::after{
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    margin: 10px 10px;
+    background-color: #000000;
+    border-radius: 20%;
+    
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER14*/
+.loader14::before{content: '14';}
+.loader14::after{content: 'Hexagon to Square';}
+.loader14 .part-14{
+    position: absolute;
+    box-shadow: 0 0 10px black inset;
+}
+.loader14 .tri1{
+    height: 40px;
+    width: 70px;
+    background-color: magenta;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform-origin: bottom center;
+    animation: tri 2s ease-in-out infinite alternate;
+    z-index: 4;
+    translate: 0 15px;
+}
+.loader14 .rect{
+    height: 70px;
+    width: 70px;
+    background-color: magenta;
+    animation: zin 2s linear infinite alternate;
+}
+@keyframes zin {
+    0%{z-index: 2;}
+    100%{z-index: 5;}
+}
+.loader14 .tri2{
+    height: 40px;
+    width: 70px;
+    background-color:magenta;
+    clip-path: polygon(100% 0%, 0 0,50% 100%);
+    transform-origin: top center;
+    animation: tri 2s ease-in-out infinite alternate -1s;
+    z-index: 1;
+    translate: 0 -15px;
+}
+@keyframes tri {
+    0%{transform: rotateX(0);}
+    33%{transform: rotateX(180deg);}
+    66%{transform: rotateX(0deg);}
+    100%{transform: rotateX(180deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER15*/
+.loader15::before{content: '15';}
+.loader15::after{content: 'Square Loader';}
+.loader15{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+    --distX: 19vh;
+    --distY: 17vh;
+}
+.loader15 .sqr-15{
+    height: 30px;
+    width: 30px;
+}
+@keyframes sqr15 {
+    0%{background-color: darkblue;}
+    50%{background-color: blue;}
+    100%{background-color: lightblue;}
+}
+.loader15 .sqr1{animation: sqr15 0.5s ease-out infinite alternate -0.125s; transform: translateX(var(--distX)) translateY(var(--distY)); }
+.loader15 .sqr2{animation: sqr15 0.5s ease-out infinite alternate -0.250s; transform: translateX(0) translateY(var(--distY));}
+.loader15 .sqr3{animation: sqr15 0.5s ease-out infinite alternate -0.375s; transform: translateX(calc(-1*var(--distX))) translateY(var(--distY));}
+.loader15 .sqr6{animation: sqr15 0.5s ease-out infinite alternate -0.500s; transform: translateX(calc(-1*var(--distX))) translateY(0px);}
+.loader15 .sqr9{animation: sqr15 0.5s ease-out infinite alternate -0.625s; transform: translateX(calc(-1*var(--distX))) translateY(calc(-1*var(--distY)));}
+.loader15 .sqr8{animation: sqr15 0.5s ease-out infinite alternate -0.750s; transform: translateX(0px) translateY(calc(-1*var(--distY)));}
+.loader15 .sqr7{animation: sqr15 0.5s ease-out infinite alternate -0.875s; transform: translateX(var(--distX)) translateY(calc(-1*var(--distY)));}
+.loader15 .sqr4{animation: sqr15 0.5s ease-out infinite alternate -1.000s; transform: translateX(var(--distX)) translateY(0px);}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER16*/
+.loader16::before{content: '16';}
+.loader16::after{content: 'Golden Ticket';}
+.loader16{
+    perspective: 200px;
+}
+.loader16 .sqr{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    background-color: gold;
+    transform-style: preserve-3d;
+    border-radius: 5px;
+    animation: sqr16 2s linear infinite forwards;
+}
+@keyframes sqr16 {
+    0%{transform: rotateX(0) rotateY(0);}
+    25%{transform: rotateX(-180deg) rotateY(0);}
+    50%{transform: rotateX(-180deg) rotateY(-180deg);}
+    75%{transform: rotateX(0) rotateY(-180deg);}
+    100%{transform: rotateX(0) rotateY(0);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER17*/
+.loader17::before{content: '17';}
+.loader17::after{content: 'Colorful Wave';}
+.loader17 .ball{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+@keyframes obj{
+    0%{transform: translateY(25px);}
+    100%{transform: translateY(-25px);}
+}
+.loader17 .ball1{animation: obj 0.5s ease-in-out infinite alternate 0.1s; background: red;}
+.loader17 .ball2{animation: obj 0.5s ease-in-out infinite alternate 0.2s; background: orange;}
+.loader17 .ball3{animation: obj 0.5s ease-in-out infinite alternate 0.3s; background: gold;}
+.loader17 .ball4{animation: obj 0.5s ease-in-out infinite alternate 0.4s; background: greenyellow;}
+.loader17 .ball5{animation: obj 0.5s ease-in-out infinite alternate 0.5s; background: green;}
+.loader17 .ball6{animation: obj 0.5s ease-in-out infinite alternate 0.6s; background: cyan;}
+.loader17 .ball7{animation: obj 0.5s ease-in-out infinite alternate 0.7s; background: blue;}
+.loader17 .ball8{animation: obj 0.5s ease-in-out infinite alternate 0.8s; background: indigo;}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER18*/
+.loader18::before{content: '18';}
+.loader18::after{content: 'Sun And Earth';}
+.loader18 .part-18{
+
+}
+.loader18 .part1-18{
+    height: 70px;
+    width: 70px;
+    background-image: radial-gradient(orange, orangered, orange);
+    box-shadow: 0 0 10px gold;
+    border-radius: 50%;
+    animation: sun 2s infinite linear;
+}
+@keyframes sun {
+    0%{rotate: 0;}
+    100%{rotate: 360deg;}
+}
+.loader18 .part2-18{
+    height: 30px;
+    width: 30px;
+    /* background-color: orange; */
+    border: 1px solid white;
+    background-image: url(https://i0.wp.com/pearlyarts.com/wp-content/uploads/2022/04/Earth-Clipart-with-outline-WM.png?fit=1001%2C1001&ssl=1);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    translate: -30px -30px;
+    animation: sun 1s infinite linear reverse;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER19*/
+.loader19::before{content: '19';}
+.loader19::after{content: 'Heart Beating';}
+.loader19 .part-19{
+    position: absolute;
+    
+    width: 50px;
+    height: 75px;
+    border-radius: 50px 50px 0 0;
+    background-color: red;
+    animation: part19 1s ease-in-out infinite alternate;
+}
+.loader19 .part1-19{
+    transform: rotate(45deg) translateY(-13px);
+}
+.loader19 .part2-19{
+    transform: rotate(-45deg) translateY(-13px);
+}
+@keyframes part19{
+0%{scale:.75;}
+20%{scale:1;}
+40%{scale:.75;}
+60%{scale:1;}
+80%{scale:.75;}
+100%{scale:.75;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER20*/
+.loader20::before{content: '20';}
+.loader20::after{content: 'Shimmering Stars';}
+.loader20 .star{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.loader20 .star1{transform: translateX(0) translateY(-40px);     animation: star20 0.6s infinite ease-in-out alternate 0.125s;}
+.loader20 .star2{transform: translateX(28px) translateY(-28px);  animation: star20 0.6s infinite ease-in-out alternate 0.250s;}
+.loader20 .star3{transform: translateX(40px) translateY(0);      animation: star20 0.6s infinite ease-in-out alternate 0.375s;}
+.loader20 .star4{transform: translateX(28px) translateY(28px);   animation: star20 0.6s infinite ease-in-out alternate 0.500s;}
+.loader20 .star5{transform: translateX(0) translateY(40px);      animation: star20 0.6s infinite ease-in-out alternate 0.625s;}
+.loader20 .star6{transform: translateX(-28px) translateY(28px);  animation: star20 0.6s infinite ease-in-out alternate 0.750s;}
+.loader20 .star7{transform: translateX(-40px) translateY(0);     animation: star20 0.6s infinite ease-in-out alternate 0.875s;}
+.loader20 .star8{transform: translateX(-28px) translateY(-28px); animation: star20 0.6s infinite ease-in-out alternate 1.000s;}
+@keyframes star20 {
+    0%{background-color: lightgreen; scale: 1;}
+    10%{background-color: lightgreen; scale: 1;}
+    100%{background-color: cyan; scale: 0.2;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER21*/
+.loader21::before{content: '21';}
+.loader21::after{content: 'Square combine to form square';}
+.box-load-21{
+    transform: rotate(45deg);
+    animation: box21 3.5s linear infinite forwards;
+}
+@keyframes box21 {
+    to{transform: rotate(405deg);}
+}
+.loader21 .sqr{
+    height: 30px;
+    width: 30px;
+    margin: -10px;
+}
+.loader21 .box1{animation: box1 1s ease-in-out infinite forwards;}
+.loader21 .box2{animation: box2 1s ease-in-out infinite forwards;}
+.loader21 .box3{animation: box3 1s ease-in-out infinite forwards;}
+.loader21 .box4{animation: box4 1s ease-in-out infinite forwards;}
+@keyframes box1 {
+0%{transform: none; background-color: red;}
+50%{transform: translateX(-20px) translateY(-20px) rotate(180deg); background-color: greenyellow;}
+100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box2 {
+0%{transform: none; background-color: red;}
+50%{transform: translateX(20px) translateY(-20px) rotate(180deg); background-color: greenyellow;}
+100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box3 {
+0%{transform: none; background-color: red;}
+50%{transform: translateX(-20px) translateY(20px) rotate(180deg); background-color: greenyellow;}
+100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+@keyframes box4 {
+0%{transform: none; background-color: red;}
+50%{transform: translateX(20px) translateY(20px) rotate(180deg); background-color: greenyellow;}
+100%{transform: translateX(0px) translateY(0px) rotate(360deg); background-color: red;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER22*/
+.loader22::before{content: '22';}
+.loader22::after{content: 'Hanging or Loading ?';} 
+.loader22 .box-load-22{
+    animation: hang 1s ease-in-out infinite alternate;
+    transform-origin: center top;
+    height: 150px;
+    width: 150px;
+}
+@keyframes hang {
+    0%{transform: rotate(-25deg);}
+    100%{transform: rotate(25deg);}
+}
+.loader22 .hang{
+    position: absolute;
+    height: 100px;
+    width: 5px;
+    margin-left: 75px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+.loader22 .text{
+    position: absolute;
+    
+    color: blue;
+    font-family: fantasy;
+    margin-top: 90px;
+    margin-left: 10px;
+    font-weight: 900;
+    border-radius: 5px;
+    padding: 2px;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER23*/
+.loader23::before{content: '23';}
+.loader23::after{content: 'Progressing Ring';}
+.box-load-23{
+    animation: box 2s linear infinite;
+}
+.loader23 .part-23{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(black 0 50%,transparent 50% 100%), conic-gradient(transparent 0 var(--p-23), greenyellow var(--p-23) 360deg);
+    animation: object-23 2s ease-in-out infinite alternate-reverse,box 2s infinite linear;
+}
+@property --p-23{
+    syntax: '<angle>';
+    initial-value: 120deg;
+    inherits: false;
+}
+@keyframes object-23{
+    0%{--p-23: 0deg;}
+    100%{--p-23: 360deg;}
+}
+@keyframes box{
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER24*/
+.loader24::before{content: '24';}
+.loader24::after{content: 'Glowing Squares';}
+.loader24 .part-24{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    animation: object 1s ease-in-out infinite;
+}
+.loader24 .part1-24{transform: translateX(-30px) translateY(-30px); box-shadow: 0 0 20px red; animation: dot24 0.5s ease-in-out infinite alternate 0.1s; background-color: red;}  
+.loader24 .part2-24{transform: translateX(0px) translateY(-30px);   box-shadow: 0 0 20px gold; animation: dot24 0.5s ease-in-out infinite alternate 0.2s; background-color: gold;}
+.loader24 .part3-24{transform: translateX(-30px) translateY(0px);   box-shadow: 0 0 20px gold; animation: dot24 0.5s ease-in-out infinite alternate 0.2s; background-color: gold;}
+.loader24 .part4-24{transform: translateX(30px) translateY(-30px);  box-shadow: 0 0 20px orange; animation: dot24 0.5s ease-in-out infinite alternate 0.3s; background-color: orange;}
+.loader24 .part5-24{transform: translateX(0px) translateY(0px);     box-shadow: 0 0 20px orange; animation: dot24 0.5s ease-in-out infinite alternate 0.3s; background-color: orange;}
+.loader24 .part6-24{transform: translateX(-30px) translateY(30px);  box-shadow: 0 0 20px orange; animation: dot24 0.5s ease-in-out infinite alternate 0.3s; background-color: orange;}
+.loader24 .part7-24{transform: translateX(30px) translateY(0px);    box-shadow: 0 0 20px greenyellow; animation: dot24 0.5s ease-in-out infinite alternate 0.4s; background-color: greenyellow;}
+.loader24 .part8-24{transform: translateX(0px) translateY(30px);    box-shadow: 0 0 20px greenyellow; animation: dot24 0.5s ease-in-out infinite alternate 0.4s; background-color: greenyellow;}
+.loader24 .part9-24{transform: translateX(30px) translateY(30px);   box-shadow: 0 0 20px cyan; animation: dot24 0.5s ease-in-out infinite alternate 0.5s; background-color: cyan;}
+@keyframes dot24 {
+    0%{opacity: 0.1;}
+    100%{opacity: 1;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER25*/
+.loader25::before{content: '25';}
+.loader25::after{content: 'Touch your Books';}
+.loader25 .book{
+    height: 80px;
+    width: 100px;
+    background-color: #3498db;
+    border: 4px solid white;
+    perspective: 300px;
+}
+.loader25 .page{
+    position: absolute;
+    height: 80px;
+    width: 50px;
+    border-width: 4px 1px 4px 4px;
+    border-style: solid;
+    border-color: white;
+    transform-origin: right;
+    margin-top: -4px;
+    
+}
+.loader25 .page1{animation: page 2.5s linear infinite forwards 0.2s;}
+.loader25 .page2{animation: page 2.5s linear infinite forwards 0.4s;}
+.loader25 .page3{animation: page 2.5s linear infinite forwards 0.6s;}
+.loader25 .page4{animation: page 2.5s linear infinite forwards 0.8s;}
+@keyframes page {
+    0%{transform: rotateY(0deg);     background-color: #3498db;}
+    50%{transform: rotateY(90deg);   background-color: #2978ac;}
+    100%{transform: rotateY(180deg); background-color: #3498db;}
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER26*/
+.loader26::before{content: '26';}
+.loader26::after{content: 'Tokyo Drift';}
+.loader26{
+    
+}
+.box-load-26{
+    width: 200px;
+    height: 200px;
+    background: url(https://i.ibb.co/pXPcZZM/26.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER27*/
+.loader27::before{content: '27';}
+.loader27::after{content: 'How did you make this?';}
+.loader27{
+
+}
+.box-load-27-1{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid gold;
+    background-image: 
+    linear-gradient(217deg, rgb(255 0 0 / 80%), rgb(255 0 0 / 0%) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 234, 0.8), rgb(0 255 0 / 0%) 70.71%),
+    linear-gradient(336deg, rgb(0 0 255 / 80%), rgb(0 0 255 / 0%) 70.71%);
+    animation: disk 2s infinite linear;
+}
+@keyframes disk {
+    0%{rotate: 0;}
+    100%{rotate: 360deg;}
+}
+.box-load-27-2{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: -1;
+
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER28*/
+.loader28::before{content: '28';}
+.loader28::after{content: 'Bouncing Balls';}
+.loader28 .cont{
+    position: relative;
+    height: 40px;
+    width: 100px;
+    background-color: rgba(255, 255, 255, 0.104);
+    border-width: 0 1px 1px 1px;
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+    border-color: rgb(204, 204, 204);
+    border-style: solid;
+    margin-top: 20px;
+    animation: cont 1s linear infinite alternate;
+}
+@keyframes cont {
+    0%{transform: rotate(-15deg);}
+    50%{transform: rotate(0deg);}
+    100%{transform: rotate(15deg);}
+}
+.loader28 .glass-ball{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.loader28 .glass-ball1{
+    background-color: red;
+    animation: glass-ball-28 1s linear infinite alternate 0.1s;
+    margin-left: -53px;
+}
+.loader28 .glass-ball2{
+    background-color: white;
+    animation: glass-ball-28 1s linear infinite alternate 0.3s;
+    margin-left: -18px;
+}
+.loader28 .glass-ball3{
+    background-color: blue;
+    animation: glass-ball-28 1s linear infinite alternate 0.5s;
+    margin-left: 18px;
+}
+.loader28 .glass-ball4{
+    background-color: greenyellow;
+    animation: glass-ball-28 1s linear infinite alternate 0.7s;
+    margin-left: 53px;
+}
+@keyframes glass-ball-28 {
+    0%{transform: translateY(10px);}
+    100%{transform: translateY(-30px);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER29*/
+.loader29::before{content: '29';}
+.loader29::after{content: 'Two Partial Rotating Disks';}
+.loader29 .ring{
+    height: 70px;
+    width: 70px;
+    border-color: rgba(255, 0, 0, 0.403) transparent;
+    border-width: 40px;
+    border-style: solid;
+    border-radius: 50%;
+    animation: disc29 2s linear infinite;
+    filter: drop-shadow(0px 0 5px black);
+}
+.loader29 .ring::before{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border-color: #FF5722 #FFEB3B #2196F3 transparent;
+    border-style: solid;
+    border-width: 25px;
+    border-radius: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    animation: disc29 0.8s linear infinite reverse;
+}
+@keyframes disc29 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER30*/
+.loader30::before{content: '30';}
+.loader30::after{content: 'Glowing Shadow';}
+.loader30 .disc1{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background: radial-gradient(rgb(228, 228, 228) 0 65%, white 65% 100%);
+    border-radius: 50%;
+    z-index: 20;
+}
+.loader30 .disc2{
+    content: '';
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    background: radial-gradient(white 0 40%, transparent 40% 100%),conic-gradient(pink, cyan, tomato,pink);
+    filter: blur(10px);
+    animation: disc30 1.5s infinite linear;
+    z-index: 1;
+}
+@keyframes disc30 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER31*/
+.loader31::before{content: '31';}
+.loader31::after{content: 'Wave';}
+.loader31 .wave-31{
+    height: 50px;
+    width: 4px;
+    background: linear-gradient(cyan, green);
+    margin: 10px;
+}
+.loader31 .wave1-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.1s;}
+.loader31 .wave2-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.2s;}
+.loader31 .wave3-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.3s;}
+.loader31 .wave4-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.4s;}
+.loader31 .wave5-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.5s;}
+.loader31 .wave6-31{animation: wave-31 0.5s infinite alternate ease-in-out 0.6s;}
+@keyframes wave-31 {
+    0%{transform: scaleY(1);}
+    100%{transform: scaleY(0.1);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER32*/
+.loader32::before{content: '32';}
+.loader32::after{content: 'Pacman looping';}
+@keyframes box32 {
+    to{transform: rotate(-360deg);}
+}
+.loader32 .ring{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border: dotted gold;
+    border-radius: 50%;
+    border-width: 10px 8px 6px 4px;
+    animation: box32 1.5s infinite linear;
+}
+.loader32 .pac{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: conic-gradient(from 125deg,yellow 0 300deg, transparent 300deg 345deg);
+    border-radius: 50%;
+    margin-top: 120px;
+    transform-origin: center -40px;
+    animation: box32 1.5s infinite linear;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER33*/
+.loader33::before{content: '33';}
+.loader33::after{content: 'Pacman Eating';}
+.loader33{
+    background-image: url(https://i.ibb.co/gtLjnSY/33.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER34*/
+.loader34::before{content: '34';}
+.loader34::after{content: 'Circular Wave (Damn it is cool)';}
+.loader34 .box-34{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader34 .ball-34{
+    height: 25px;
+    width: 25px;
+    background-color: rgb(247, 0, 255);
+    box-shadow: 0 0 10px rgb(247, 0, 255);
+    border-radius: 50%;
+    position: absolute;
+    filter: drop-shadow(2px 2px 5px black);
+}
+.loader34 .ball1-34{animation: ball1 1s ease-in-out infinite alternate 0.05s;}
+.loader34 .ball2-34{animation: ball2 1s ease-in-out infinite alternate 0.1s;}
+.loader34 .ball3-34{animation: ball3 1s ease-in-out infinite alternate 0.15s;}
+.loader34 .ball4-34{animation: ball4 1s ease-in-out infinite alternate 0.2s;}
+.loader34 .ball5-34{animation: ball5 1s ease-in-out infinite alternate 0.25s;}
+.loader34 .ball6-34{animation: ball6 1s ease-in-out infinite alternate 0.3s;}
+.loader34 .ball7-34{animation: ball7 1s ease-in-out infinite alternate 0.35s;}
+.loader34 .ball8-34{animation: ball8 1s ease-in-out infinite alternate 0.4s;}
+.loader34 .ball9-34{animation: ball9 1s ease-in-out infinite alternate 0.45s;}
+.loader34 .ball10-34{animation: ball10 1s ease-in-out infinite alternate 0.5s;}
+.loader34 .ball11-34{animation: ball11 1s ease-in-out infinite alternate 0.55s;}
+.loader34 .ball12-34{animation: ball12 1s ease-in-out infinite alternate 0.6s;}
+ 
+:root{
+    --one: 35px;
+    --two: 60px;
+    --mono-dirn: 70px;
+}
+
+@keyframes ball1 {
+    0%{transform: translate(0) rotate(0);}
+    100%{transform: translateX(0px) translateY(calc(-1*var(--mono-dirn))) rotate(0);}
+}
+@keyframes ball2 {
+    0%{transform: translate(0) rotate(30deg);}
+    100%{transform: translateX(calc(var(--one))) translateY(calc(-1*var(--two))) rotate(30deg);}
+}
+@keyframes ball3 {
+    0%{transform: translate(0) rotate(60deg);}
+    100%{transform: translateX(calc(var(--two))) translateY(calc(-1*var(--one))) rotate(60deg);}
+}
+@keyframes ball4 {
+    0%{transform: translate(0) rotate(90deg);}
+    100%{transform: translateX(calc(var(--mono-dirn))) translateY(0px) rotate(90deg);}
+}
+@keyframes ball5 {
+    0%{transform: translate(0) rotate(120deg);}
+    100%{transform: translateX(calc(var(--two))) translateY(calc(var(--one))) rotate(120deg);}
+}
+@keyframes ball6 {
+    0%{transform: translate(0) rotate(150deg);}
+    100%{transform: translateX(calc(var(--one))) translateY(calc(var(--two))) rotate(150deg);}
+}
+@keyframes ball7 {
+    0%{transform: translate(0) rotate(180deg);}
+    100%{transform: translateX(0) translateY(calc(var(--mono-dirn))) rotate(180deg);}
+}
+@keyframes ball8 {
+    0%{transform: translate(0) rotate(210deg);}
+    100%{transform: translateX(calc(-1*var(--one))) translateY(calc(var(--two))) rotate(210deg);}
+}
+@keyframes ball9 {
+    0%{transform: translate(0) rotate(240deg);}
+    100%{transform: translateX(calc(-1*var(--two))) translateY(calc(var(--one))) rotate(240deg);}
+}
+@keyframes ball10 {
+    0%{transform: translate(0) rotate(270deg);}
+    100%{transform: translateX(calc(-1*var(--mono-dirn))) translateY(0) rotate(270deg);}
+}
+@keyframes ball11 {
+    0%{transform: translate(0) rotate(300deg);}
+    100%{transform: translateX(calc(-1*var(--two))) translateY(calc(-1*var(--one))) rotate(300deg);}
+}
+@keyframes ball12 {
+    0%{transform: translate(0) rotate(330deg);}
+    100%{transform: translateX(calc(-1*var(--one))) translateY(calc(-1*var(--two))) rotate(330deg);}
+}
+.loader34 .ball13-34{
+    background-color: black;
+    border-radius: 50%;
+    z-index: 10;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER35*/
+.loader35::before{content: '35';}
+.loader35::after{content: 'Falling Toggle Button';}
+.loader35 .out{
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    background: white;
+    animation: out-35 3s ease-in-out infinite;
+    border: 4px solid rgb(43, 255, 36);
+}
+@keyframes out-35 {
+    0%{transform: rotate(0);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+.loader35 .in1{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: blueviolet;
+    top: 5px;
+    left: 5px;
+    animation: in-35 3s ease-in-out infinite;
+}
+@keyframes in-35 {
+    0%{transform: scaleX(1);}
+    25%{transform: scaleX(1) translateX(50px);}
+    50%{transform: scaleX(1) translateX(50px);}
+    75%{transform: scaleX(1);}
+    100%{transform: scaleX(1);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER36*/
+.loader36::before{content: '36';}
+.loader36::after{content: 'Another Wave';}
+.loader36 .wave-36{
+    background-color: rgb(13, 0, 255);
+    height: 50px;
+    width: 4px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+@keyframes one-36{
+    from{transform: rotate(0deg);}
+    to{transform: rotateZ(110deg);}
+}
+    .loader36 div.a1 {animation:  one-36 0.5s  0.05s ease-in-out infinite alternate;}
+    .loader36 div.a2 {animation:  one-36 0.5s  0.10s ease-in-out infinite alternate;}
+    .loader36 div.a3 {animation:  one-36 0.5s  0.15s ease-in-out infinite alternate;}
+    .loader36 div.a4 {animation:  one-36 0.5s  0.20s ease-in-out infinite alternate;}
+    .loader36 div.a5 {animation:  one-36 0.5s  0.25s ease-in-out infinite alternate;}
+    .loader36 div.a6 {animation:  one-36 0.5s  0.30s ease-in-out infinite alternate;}
+    .loader36 div.a7 {animation:  one-36 0.5s  0.35s ease-in-out infinite alternate;}
+    .loader36 div.a8 {animation:  one-36 0.5s  0.40s ease-in-out infinite alternate;}    
+    .loader36 div.a9 {animation:  one-36 0.5s  0.45s ease-in-out infinite alternate;}
+    .loader36 div.a10 {animation: one-36 0.5s 0.50s ease-in-out infinite alternate;}
+    .loader36 div.a11 {animation: one-36 0.5s 0.55s ease-in-out infinite alternate;}
+    .loader36 div.a12 {animation: one-36 0.5s 0.60s ease-in-out infinite alternate;}
+    .loader36 div.a13 {animation: one-36 0.5s 0.65s ease-in-out infinite alternate;}
+    .loader36 div.a14 {animation: one-36 0.5s 0.70s ease-in-out infinite alternate;}    
+    .loader36 div.a15 {animation: one-36 0.5s 0.75s ease-in-out infinite alternate;}
+    .loader36 div.a16 {animation: one-36 0.5s 0.80s ease-in-out infinite alternate;}
+    .loader36 div.a17 {animation: one-36 0.5s 0.85s ease-in-out infinite alternate;}
+    .loader36 div.a18 {animation: one-36 0.5s 0.90s ease-in-out infinite alternate;}
+    .loader36 div.a19 {animation: one-36 0.5s 0.95s ease-in-out infinite alternate;}
+    .loader36 div.a20 {animation: one-36 0.5s 1.00s ease-in-out infinite alternate;}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER37*/
+.loader37::before{content: '37';}
+.loader37::after{content: 'Pulling Circular Rings';}
+.loader37 .box-load-37{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 100px;
+}
+.loader37 .ell-ring{
+    position: absolute;
+    border-style: solid;
+    border-width: 4px;
+    border-color: orange transparent transparent orange;
+    border-radius: 70%;
+}
+.loader37 .ell-ring1{
+    height: 20px;
+    width: 20px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.1s;
+}
+.loader37 .ell-ring2{
+    height: 40px;
+    width: 40px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.2s;
+}
+.loader37 .ell-ring3{
+    height: 60px;
+    width: 60px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.3s;
+}
+.loader37 .ell-ring4{
+    height: 80px;
+    width: 80px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.4s;
+}
+.loader37 .ell-ring5{
+    height: 100px;
+    width: 100px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.5s;
+}
+.loader37 .ell-ring6{
+    height: 120px;
+    width: 120px;
+    animation: disc-37 1s ease-in-out infinite alternate 0.6s;
+}
+@keyframes disc-37 {
+    0%{transform: rotateZ(-20deg);}
+    100%{transform: rotateZ(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER38*/
+.loader38::before{content: '38';}
+.loader38::after{content: 'Standing Wave (Should`ve studied physics)';}
+.loader38 .st-wave{
+    background-color: cyan;
+    height: 15px;
+    width: 7px;
+    border: 1px solid #000e69;
+    border-radius: 50%;
+    scale: 2 1;
+}
+.loader38 .b1 ,.b15 ,.b29{
+  background-color: red !important; 
+  
+}
+@keyframes wave1 {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(0);}}
+@keyframes wave2 {
+  0% { transform: translateY(30%);}
+  100% { transform: translateY(-30%);}}
+@keyframes wave3 {
+  0% { transform: translateY(60%);}
+  100% { transform: translateY(-60%);}}
+@keyframes wave4 {
+  0% { transform: translateY(90%);}
+  100% { transform: translateY(-90%);}}
+@keyframes wave5 {
+  0% { transform: translateY(120%);}
+  100% { transform: translateY(-120%);}}
+@keyframes wave6 {
+  0% { transform: translateY(150%);}
+  100% { transform: translateY(-150%);}}
+@keyframes wave7 {
+  0% { transform: translateY(180%);}
+  100% { transform: translateY(-180%);}}
+@keyframes wave8 {
+  0% { transform: translateY(210%);}
+  100% { transform: translateY(-210%);}}
+@keyframes wave9 {
+  0% { transform: translateY(180%);}
+  100% { transform: translateY(-180%);}}
+@keyframes wave10 {
+  0% { transform: translateY(150%);}
+  100% { transform: translateY(-150%);}}
+@keyframes wave11 {
+  0% { transform: translateY(120%);}
+  100% { transform: translateY(-120%);}}
+@keyframes wave12 {
+  0% { transform: translateY(90%);}
+  100% { transform: translateY(-90%);}}
+@keyframes wave13 {
+  0% { transform: translateY(60%);}
+  100% { transform: translateY(-60%);}}
+@keyframes wave14 {
+  0% { transform: translateY(30%);}
+  100% { transform: translateY(-30%);}}
+@keyframes wave15 {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(0);}}
+@keyframes wave16 {
+  0% { transform: translateY(-30%);}
+  100% { transform: translateY(30%);}}
+@keyframes wave17 {
+  0% { transform: translateY(-60%);}
+  100% { transform: translateY(60%);}}
+@keyframes wave18 {
+  0% { transform: translateY(-90%);}
+  100% { transform: translateY(90%);}}
+@keyframes wave19 {
+  0% { transform: translateY(-120%);}
+  100% { transform: translateY(120%);}}
+@keyframes wave20 {
+  0% { transform: translateY(-150%);}
+  100% { transform: translateY(150%);}}
+@keyframes wave21 {
+  0% { transform: translateY(-180%);}
+  100% { transform: translateY(180%);}}
+@keyframes wave22 {
+  0% { transform: translateY(-210%);}
+  100% { transform: translateY(210%);}}
+@keyframes wave23 {
+  0% { transform: translateY(-180%);}
+  100% { transform: translateY(180%);}}
+@keyframes wave24 {
+  0% { transform: translateY(-150%);}
+  100% { transform: translateY(150%);}}
+@keyframes wave25 {
+  0% { transform: translateY(-120%);}
+  100% { transform: translateY(120%);}}
+@keyframes wave26 {
+  0% { transform: translateY(-90%);}
+  100% { transform: translateY(90%);}}
+@keyframes wave27 {
+  0% { transform: translateY(-60%);}
+  100% { transform: translateY(60%);}}
+@keyframes wave28 {
+  0% { transform: translateY(-30%);}
+  100% { transform: translateY(30%);}}
+@keyframes wave29 {
+  0% { transform: translateY(0%);}
+  100% { transform: translateY(0%);}}
+.loader38 .b1 {animation: wave1 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b2 {animation: wave2 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b3 {animation: wave3 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b4 {animation: wave4 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b5 {animation: wave5 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b6 {animation: wave6 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b7 {animation: wave7 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b8 {animation: wave8 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b9 {animation: wave9 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b10 {animation: wave10 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b11 {animation: wave11 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b12 {animation: wave12 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b13 {animation: wave13 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b14 {animation: wave14 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b15 {animation: wave15 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b16 {animation: wave16 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b17 {animation: wave17 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b18 {animation: wave18 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b19 {animation: wave19 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b20 {animation: wave20 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b21 {animation: wave21 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b22 {animation: wave22 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b23 {animation: wave23 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b24 {animation: wave24 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b25 {animation: wave25 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b26 {animation: wave26 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b27 {animation: wave27 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b28 {animation: wave28 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+.loader38 .b29 {animation: wave29 0.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER39*/
+.loader39::before{content: '39';}
+.loader39::after{content: 'Sinusoidal Wave';}
+.loader39{
+    
+}
+.box-load-39{
+    height: 300px;
+    width: 300px;
+    background: url(https://i.ibb.co/hF16RV7/39.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER40*/
+.loader40::before{content: '40';}
+.loader40::after{content: 'Wave or Hearts';}
+.loader40{
+    overflow: hidden;
+}
+.loader40 .w{
+    height: 30px;
+    width: 7px;
+    margin-left: 2px;
+    transform-origin: 50px;
+    box-shadow: 0 20px 0px rgb(255, 124, 124), 0 -20px 0px rgb(255, 124, 124);
+}
+@keyframes wave-40{
+    0%{transform: rotateZ(0deg);}
+    100%{transform: rotateZ(360deg);}
+}
+.loader40 .o1{ translate: -25px; animation: wave-40  1.12s  0.05s linear infinite normal;}
+.loader40 .o2{ translate: -25px; animation: wave-40  1.12s  0.1s linear infinite normal;}
+.loader40 .o3{ translate: -25px; animation: wave-40  1.12s  0.15s linear infinite normal;}
+.loader40 .o4{ translate: -25px; animation: wave-40  1.12s  0.2s linear infinite normal;}
+.loader40 .o5{ translate: -25px; animation: wave-40  1.12s  0.25s linear infinite normal;}
+.loader40 .o6{ translate: -25px; animation: wave-40  1.12s  0.3s linear infinite normal;}
+.loader40 .o7{ translate: -25px; animation: wave-40  1.12s  0.35s linear infinite normal;}
+.loader40 .o8{ translate: -25px; animation: wave-40  1.12s  0.4s linear infinite normal;}
+.loader40 .o9{ translate: -25px; animation: wave-40  1.12s  0.45s linear infinite normal;}
+.loader40 .o10{translate: -25px; animation: wave-40 1.12s  0.5s linear infinite normal;}
+.loader40 .o11{translate: -25px; animation: wave-40 1.12s  0.55s linear infinite normal;}
+.loader40 .o12{translate: -25px; animation: wave-40 1.12s  0.6s linear infinite normal;}
+.loader40 .o13{translate: -25px; animation: wave-40 1.12s  0.65s linear infinite normal;}
+.loader40 .o14{translate: -25px; animation: wave-40 1.12s  0.7s linear infinite normal;}
+.loader40 .o15{translate: -25px; animation: wave-40 1.12s  0.75s linear infinite normal;}
+.loader40 .o16{translate: -25px; animation: wave-40 1.12s  0.8s linear infinite normal;}
+.loader40 .o17{translate: -25px; animation: wave-40 1.12s  0.85s linear infinite normal;}
+.loader40 .o18{translate: -25px; animation: wave-40 1.12s  0.9s linear infinite normal;}
+.loader40 .o19{translate: -25px; animation: wave-40 1.12s  0.95s linear infinite normal;}
+.loader40 .o20{translate: -25px; animation: wave-40 1.12s  1.0s linear infinite normal;}
+.loader40 .o21{translate: -25px; animation: wave-40 1.12s  1.05s linear infinite normal;}
+.loader40 .o22{translate: -25px; animation: wave-40 1.12s  1.1s linear infinite normal;}
+.loader40 .o23{translate: -25px; animation: wave-40 1.12s  1.15s linear infinite normal;}
+.loader40 .o24{translate: -25px; animation: wave-40 1.12s  1.2s linear infinite normal;}
+.loader40 .o25{translate: -25px; animation: wave-40 1.12s  1.25s linear infinite normal;}
+.loader40 .o26{translate: -25px; animation: wave-40 1.12s  1.3s linear infinite normal;}
+.loader40 .o27{translate: -25px; animation: wave-40 1.12s  1.35s linear infinite normal;}
+.loader40 .o28{translate: -25px; animation: wave-40 1.12s  1.4s linear infinite normal;}
+.loader40 .o29{translate: -25px; animation: wave-40 1.12s  1.45s linear infinite normal;}
+.loader40 .o30{translate: -25px; animation: wave-40 1.12s  1.5s linear infinite normal;}
+.loader40 .o31{translate: -25px; animation: wave-40 1.12s  1.55s linear infinite normal;}
+.loader40 .o32{translate: -25px; animation: wave-40 1.12s  1.6s linear infinite normal;}
+.loader40 .o33{translate: -25px; animation: wave-40 1.12s  1.65s linear infinite normal;}
+.loader40 .o34{translate: -25px; animation: wave-40 1.12s  1.7s linear infinite normal;}
+.loader40 .o35{translate: -25px; animation: wave-40 1.12s  1.75s linear infinite normal;}
+.loader40 .o36{translate: -25px; animation: wave-40 1.12s  1.8s linear infinite normal;}
+.loader40 .o37{translate: -25px; animation: wave-40 1.12s  1.85s linear infinite normal;}
+.loader40 .o38{translate: -25px; animation: wave-40 1.12s  1.9s linear infinite normal;}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER41*/
+.loader41::before{content: '41';}
+.loader41::after{content: 'Newton`s Cradle';}
+.loader41{
+    
+}
+.box-load-41{
+    height: 300px;
+    width: 300px;
+    background: url(https://i.ibb.co/vxm07qC/41.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER42*/
+.loader42::before{content: '42';}
+.loader42::after{content: 'Shifting Squares';}
+.squr{
+    position: absolute;
+    border-width: 2px;
+    border-style: solid;
+    filter: blur(1px);
+    border-radius: 5px;
+}
+.squr1{border-color: silver;}
+.squr2{border-color: cyan;}
+.squr3{border-color: red;}
+.squr4{border-color: gold;}
+.squr5{border-color: magenta;}
+.squr6{border-color: pink;}
+.squr7{border-color: orange;}
+.squr8{border-color: yellow;}
+.squr9{border-color: purple;}
+.squr10{border-color: white;}
+:root {
+--f:0.2s;
+}
+.squr1 {height:15px;   aspect-ratio: 1; animation: squr1 3s ease-out infinite calc(0.25*var(--f)*1);}
+.squr2 {height:30px;   aspect-ratio: 1; animation: squr2 3s ease-out infinite calc(0.25*var(--f)*2);}
+.squr3 {height:45px;   aspect-ratio: 1; animation: squr3 3s ease-out infinite calc(0.25*var(--f)*3);}
+.squr4 {height:60px;   aspect-ratio: 1; animation: squr4 3s ease-out infinite calc(0.25*var(--f)*4);}
+.squr5 {height:75px;   aspect-ratio: 1; animation: squr5 3s ease-out infinite calc(0.25*var(--f)*5);}
+.squr6 {height:90px;   aspect-ratio: 1; animation: squr6 3s ease-out infinite calc(0.25*var(--f)*6);}
+.squr7 {height:105px;  aspect-ratio: 1; animation: squr7 3s ease-out infinite calc(0.25*var(--f)*7);}
+.squr8 {height:120px;  aspect-ratio: 1; animation: squr8 3s ease-out infinite calc(0.25*var(--f)*8);}
+.squr9 {height:135px;  aspect-ratio: 1; animation: squr9 3s ease-out infinite calc(0.25*var(--f)*9);}
+.squr10 {height:150px; aspect-ratio: 1; animation:squr10 3s ease-out infinite calc(0.25*var(--f)*10);}
+
+@keyframes squr1{
+0%{transform: translateX(-67.5px) translateY(67.5px);}
+25%{transform: translateX(-67.5px) translateY(-67.5px);}
+50%{transform: translateX(67.5px) translateY(-67.5px);}
+75%{transform: translateX(67.5px) translateY(67.5px);}
+100%{transform: translateX(-67.5px) translateY(67.5px);}
+}
+@keyframes squr2{
+0%{transform: translateX(-60px) translateY(60px);}
+25%{transform: translateX(-60px) translateY(-60px);}
+50%{transform: translateX(60px) translateY(-60px);}
+75%{transform: translateX(60px) translateY(60px);}
+100%{transform: translateX(-60px) translateY(60px);}
+}
+@keyframes squr3{
+0%{transform: translateX(-52.5px) translateY(52.5px);}
+25%{transform: translateX(-52.5px) translateY(-52.5px);}
+50%{transform: translateX(52.5px) translateY(-52.5px);}
+75%{transform: translateX(52.5px) translateY(52.5px);}
+100%{transform: translateX(-52.5px) translateY(52.5px);}
+}
+@keyframes squr4{
+0%{transform: translateX(-45px) translateY(45px);}
+25%{transform: translateX(-45px) translateY(-45px);}
+50%{transform: translateX(45px) translateY(-45px);}
+75%{transform: translateX(45px) translateY(45px);}
+100%{transform: translateX(-45px) translateY(45px);}
+}
+@keyframes squr5{
+0%{transform: translateX(-37.5px) translateY(37.5px);}
+25%{transform: translateX(-37.5px) translateY(-37.5px);}
+50%{transform: translateX(37.5px) translateY(-37.5px);}
+75%{transform: translateX(37.5px) translateY(37.5px);}
+100%{transform: translateX(-37.5px) translateY(37.5px);}
+}
+@keyframes squr6{
+0%{transform: translateX(-30px) translateY(30px);}
+25%{transform: translateX(-30px) translateY(-30px);}
+50%{transform: translateX(30px) translateY(-30px);}
+75%{transform: translateX(30px) translateY(30px);}
+100%{transform: translateX(-30px) translateY(30px);}
+}
+@keyframes squr7{
+0%{transform: translateX(-22.5px) translateY(22.5px);}
+25%{transform: translateX(-22.5px) translateY(-22.5px);}
+50%{transform: translateX(22.5px) translateY(-22.5px);}
+75%{transform: translateX(22.5px) translateY(22.5px);}
+100%{transform: translateX(-22.5px) translateY(22.5px);}
+}
+@keyframes squr8{
+0%{transform: translateX(-15px) translateY(15px);}
+25%{transform: translateX(-15px) translateY(-15px);}
+50%{transform: translateX(15px) translateY(-15px);}
+75%{transform: translateX(15px) translateY(15px);}
+100%{transform: translateX(-15px) translateY(15px);}
+}
+@keyframes squr9{
+0%{transform: translateX(-7.5px) translateY(7.5px);}
+25%{transform: translateX(-7.5px) translateY(-7.5px);}
+50%{transform: translateX(7.5px) translateY(-7.5px);}
+75%{transform: translateX(7.5px) translateY(7.5px);}
+100%{transform: translateX(-7.5px) translateY(7.5px);}
+}
+@keyframes squr10{
+0%{transform: translateX(0px) translateY(0px);}
+25%{transform: translateX(0px) translateY(0px);}
+50%{transform: translateX(0px) translateY(0px);}
+75%{transform: translateX(0px) translateY(0px);}
+100%{transform: translateX(0px) translateY(0px);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER43*/
+.loader43::before{content: '43';}
+.loader43::after{content: 'Pulling Squares';}
+.sqar{
+    position: absolute;
+    border-radius: 15%;
+    opacity: 0.7;
+    box-shadow: 0 0 2px black;
+}
+.sqar1{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.1s;  height:20px;  aspect-ratio: 1; background-color: #fbad7b;}
+.sqar2{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.2s;  height:30px;  aspect-ratio: 1; background-color: #f6732f;}
+.sqar3{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.3s;  height:40px;  aspect-ratio: 1; background-color: #ed5951;}
+.sqar4{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.4s;  height:50px;  aspect-ratio: 1; background-color: #f4506d;}
+.sqar5{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.5s;  height:60px;  aspect-ratio: 1; background-color: #f24b87;}
+.sqar6{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.6s;  height:70px;  aspect-ratio: 1; background-color: #e8489e;}
+.sqar7{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.7s;  height:80px; aspect-ratio: 1;  background-color: #d848b1;}
+.sqar8{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.8s;  height:90px; aspect-ratio: 1;  background-color: #c249bd;}
+.sqar9{ animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 0.9s;  height:100px; aspect-ratio: 1;  background-color: #a64bc1;}
+.sqar10{animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 1.0s;  height:110px; aspect-ratio: 1;  background-color: #874ab8;}
+.sqar11{animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 1.1s;  height:120px; aspect-ratio: 1;  background-color: #473d84;}
+.sqar12{animation: sqr-43 1s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate 1.2s;  height:130px; aspect-ratio: 1;  background-color: #292c53;}
+@keyframes sqr-43 {
+0%{transform: rotate(-30deg);}
+100%{transform: rotate(30deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER44*/
+.loader44::before{content: '44';}
+.loader44::after{content: 'Minimal Square Animation';}
+.loader44 .sqqr{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+}
+.loader44 .sqqr1{
+    border: 2px solid white;
+    animation: sqqr1 2s ease-in-out infinite forwards;
+}
+.loader44 .sqqr2{
+    border: 2px solid white;
+    animation: sqqr2 2s ease-in-out infinite forwards;
+}
+@keyframes sqqr2 {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(180deg);}
+}
+@keyframes sqqr1 {
+    0%{transform: rotate(45deg);}
+    100%{transform: rotate(-135deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER45*/
+.loader45::before{content: '45';}
+.loader45::after{content: 'Typewriter Animation';}
+.text{
+    position: absolute;
+    font-family: monospace;
+    font-size: 40px;
+    z-index: 1;
+    color: white;
+}
+.layer{
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -10px;
+    height: 50px;
+    width: 230px;
+    background-color: black;
+    animation: layer 3.5s infinite alternate steps(30);
+    transform-origin: right;
+    z-index: 2;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+    
+}
+@keyframes layer {
+    0%{ transform: scaleX(0);}
+    100%{ transform: scaleX(1);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER46*/
+.loader46::before{content: '46';}
+.loader46::after{content: 'Have a Drink';}
+.loader46 .part-46{
+    width: 70px;
+    height: 120px;
+    position: absolute;
+    border: solid white;
+    border-width: 0 6px 15px 6px;
+    border-radius: 2px 2px 10px 10px;
+    background: linear-gradient(var(--deg-46),#e0a239, #f07944 0 var(--p-46), rgba(255, 255, 255, 0.401) var(--p-46) 90%);
+    animation: juice 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    transform: translateY(-10px);
+}
+.loader46 .coaster-46{
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100px;
+    background-color: rebeccapurple;
+    transform: translateX(0px) translateY(60px);
+}
+@property --p-46 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+@property --deg-46 {
+    syntax: '<angle>';
+    inherits: false;    
+    initial-value: 0deg;
+}
+@keyframes juice {
+    0%{--p-46: 0%; --deg-46: 0deg;}
+    20%{--deg-46: 10deg;}
+    50%{--deg-46: 0deg;}
+    70%{--deg-46: -7deg;}
+    100%{--p-46: 90%; --deg-46: 0deg;}
+}
+.loader46 h3{
+    position: absolute;
+    display: inline;
+    width: 100px;
+    text-align: center;
+    margin-top: 180px;
+    color: white;
+    font-size: 10px;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER47*/
+.loader47::before{content: '47';}
+.loader47::after{content: 'Letters Scaling';}
+.loader47 .letter{
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 30px;
+    font-family:sans-serif;
+    transform-origin: bottom;
+    color: gold;
+}
+.loader47 .L   {animation: letter-47 0.8s ease-in-out 0.1s infinite alternate;}
+.loader47 .O   {animation: letter-47 0.8s ease-in-out 0.2s infinite alternate;}
+.loader47 .A   {animation: letter-47 0.8s ease-in-out 0.3s infinite alternate;}
+.loader47 .D   {animation: letter-47 0.8s ease-in-out 0.4s infinite alternate;}
+.loader47 .I   {animation: letter-47 0.8s ease-in-out 0.5s infinite alternate;}
+.loader47 .N   {animation: letter-47 0.8s ease-in-out 0.6s infinite alternate;}
+.loader47 .G   {animation: letter-47 0.8s ease-in-out 0.7s infinite alternate;}
+.loader47 .dot1{animation: letter-47 0.8s ease-in-out 0.8s infinite alternate;}
+.loader47 .dot2{animation: letter-47 0.8s ease-in-out 0.9s infinite alternate;}
+.loader47 .dot3{animation: letter-47 0.8s ease-in-out 1s infinite alternate;}
+@keyframes letter-47 {
+    0%{transform: scaleY(1);}
+    100%{transform: scaleY(1.5);}
+}
+.loader47 .dot{
+    height: 10px;
+    width: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background-color: gold;
+    transform-origin: bottom;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER48*/
+.loader48::before{content: '48';}
+.loader48::after{content: 'Letters Blurring';}
+.loader48 .letter{
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    color: gold;
+    font-family:sans-serif;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+.loader48 .L   {animation: letter-48 1s linear 0.1s infinite alternate;}
+.loader48 .O   {animation: letter-48 1s linear 0.2s infinite alternate;}
+.loader48 .A   {animation: letter-48 1s linear 0.3s infinite alternate;}
+.loader48 .D   {animation: letter-48 1s linear 0.4s infinite alternate;}
+.loader48 .I   {animation: letter-48 1s linear 0.5s infinite alternate;}
+.loader48 .N   {animation: letter-48 1s linear 0.6s infinite alternate;}
+.loader48 .G   {animation: letter-48 1s linear 0.7s infinite alternate;}
+.loader48 .dot1{animation: letter-48 1s linear 0.8s infinite alternate;}
+.loader48 .dot2{animation: letter-48 1s linear 0.9s infinite alternate;}
+.loader48 .dot3{animation: letter-48 1s linear 1s infinite alternate;}
+@keyframes letter-48 {
+    0%{filter: blur(0px);}
+    100%{filter: blur(7px);}
+}
+.dot{
+    height: 10px;
+    width: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background-color: gold;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER49*/
+.loader49::before{content: '49';}
+.loader49::after{content: 'Letters Filling';}
+.loader49 .letter{
+    background: linear-gradient(var(--deg-49), blue 0 var(--a-49), white var(--a-49) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-size: 40px;
+    font-family: "Arial Black";
+    animation: load-49 5s linear infinite;
+    -webkit-text-stroke: 1.5px pink;
+}
+@keyframes load-49 {
+    0%{ --a-49: 0%;  --deg-49: 90deg;}
+    10%{--a-49: 10%; --deg-49: 125deg;}
+    20%{--a-49: 20%; --deg-49: 90deg;}
+    30%{--a-49: 30%; --deg-49: 75deg;}
+    40%{--a-49: 40%; --deg-49: 90deg;}
+    50%{--a-49: 50%; --deg-49: 60deg;}
+    60%{--a-49: 60%; --deg-49: 90deg;}
+    70%{--a-49: 70%; --deg-49: 110deg;}
+    80%{--a-49: 80%; --deg-49: 90deg;}
+    90%{--a-49: 90%; --deg-49: 80deg;}
+    100%{--a-49: 100%; --deg-49: 90deg;}
+}
+@property --a-49{
+    inherits: false;
+    syntax: '<percentage>';
+    initial-value: 0%;
+}
+@property --deg-49{
+    inherits: false;
+    syntax: '<angle>';
+    initial-value:90deg;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER50*/
+.loader50::before{content: '50';}
+.loader50::after{content: '3D Stripes Rotating';}
+.loader50 .box-load-50{
+    perspective: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    transform: rotate(-30deg);
+}
+.loader50 .piece{
+    height: 30px;
+    width: 100px;
+    background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+    transform-origin: center;
+}
+.z1{
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 50%, 0 0);
+    animation: ani1 1.3s ease-in-out infinite forwards;
+}
+.z2{
+    animation: ani2 1.3s ease-in-out infinite backwards calc(1.3s/2);
+}
+.z3{
+    animation: ani1 1.3s ease-in-out infinite forwards;
+}
+.z4{
+    clip-path: polygon(0% 100%, 50% 50%, 100% 100%, 100% 0, 0 0);
+    animation: ani2 1.3s ease-in-out infinite backwards calc(1.3s/2);
+}
+@keyframes ani1 {
+    0%{
+        transform: rotateY(0);
+        background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+    }
+    100%{
+        transform: rotateY(180deg);
+        background-image: linear-gradient(-90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+    }
+}
+@keyframes ani2 {
+    0%{
+        transform: rotateY(0deg);
+        background-image: linear-gradient(90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+    }
+    100%{
+        transform: rotateY(-180deg);
+        background-image: linear-gradient(-90deg, #ff6d5a 0%, #ffdd6d 37%, #ffc55c 100%);
+    }
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER51*/
+.loader51::before{content: '51';}
+.loader51::after{content: '3D It seems';}
+.loader51{
+    
+}
+.box-load-51{
+    height: 300px;
+    width: 300px;
+    border-radius: 0 0 1000px 0;
+    background: url(https://i.ibb.co/HYdFBFb/51.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;   
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER52*/
+.loader52::before{content: '52';}
+.loader52::after{content: 'Oh it is the top one, is`nt it?';}
+.loader52{
+    
+}
+.box-load-52{
+    height: 200px;
+    width: 200px;
+    background: url(https://i.ibb.co/B3X53Zj/52.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER53*/
+.loader53::before{content: '53';}
+.loader53::after{content: 'Colorful Rings Rotating out of sync';}
+.loader53 .ring{
+    height: 100px;
+    width: 110px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.8;
+}
+.loader53 .ring1{border-color: violet;    animation: ring-53 1.1s linear infinite forwards reverse;}
+.loader53 .ring2{border-color: red;       animation: ring-53 1.2s linear infinite forwards;}
+.loader53 .ring3{border-color: cyan;      animation: ring-53 1.3s linear infinite forwards reverse;}
+.loader53 .ring4{border-color: transparent; animation: ring-53 1.4s linear infinite forwards;}
+.loader53 .ring5{border-color: gold;      animation: ring-53 1.5s linear infinite forwards;}
+.loader53 .ring6{border-color: white;     animation: ring-53 1.6s linear infinite forwards;}
+@keyframes ring-53 {
+    to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER54*/
+.loader54::before{content: '54';}
+.loader54::after{content: 'Constrained Bars Wave';}
+.e{
+    height: 50px;
+    width: 6px;
+    border-radius: 50px;
+    border-top: 10px solid rgba(255, 0, 0,);
+    background-color: rgb(255, 255, 255);
+    transform-origin: top;
+    border-bottom: 2px solid cyan;
+}
+@keyframes wave {
+    0%{transform: rotateZ(0deg);}
+    100%{transform: rotateZ(360deg);}
+}
+div.r1 {animation: wave 2s  0.05s ease infinite normal;}
+div.r2 {animation: wave 2s  0.1s ease infinite normal;}
+div.r3 {animation: wave 2s  0.15s ease infinite normal;}
+div.r4 {animation: wave 2s  0.2s ease infinite normal;}
+div.r5 {animation: wave 2s  0.25s ease infinite normal;}
+div.r6 {animation: wave 2s  0.3s ease infinite normal;}
+div.r7 {animation: wave 2s  0.35s ease infinite normal;}
+div.r8 {animation: wave 2s  0.4s ease infinite normal;}
+div.r9 {animation: wave 2s  0.45s ease infinite normal;}
+div.r10 {animation: wave 2s  0.5s ease infinite normal;}
+div.r11 {animation: wave 2s  0.55s ease infinite normal;}
+div.r12 {animation: wave 2s  0.6s ease infinite normal;}
+div.r13 {animation: wave 2s  0.65s ease infinite normal;}
+div.r14 {animation: wave 2s  0.7s ease infinite normal;}
+div.r15 {animation: wave 2s  0.75s ease infinite normal;}
+div.r16 {animation: wave 2s  0.8s ease infinite normal;}
+div.r17 {animation: wave 2s  0.85s ease infinite normal;}
+div.r18 {animation: wave 2s  0.9s ease infinite normal;}
+div.r19 {animation: wave 2s  0.95s ease infinite normal;}
+div.r20 {animation: wave 2s  1.0s ease infinite normal;}
+div.r21 {animation: wave 2s  1.05s ease infinite normal;}
+div.r22 {animation: wave 2s  1.1s ease infinite normal;}
+div.r23 {animation: wave 2s  1.15s ease infinite normal;}
+div.r24 {animation: wave 2s  1.2s ease infinite normal;}
+div.r25 {animation: wave 2s  1.25s ease infinite normal;}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER55*/
+.loader55::before{content: '55';}
+.loader55::after{content: 'Orbiting Rings and Balls';}
+.loadeer55{
+    perspective: 100px;
+}
+.loader55 .ring1{
+    height: 100px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: ani-55-1 3s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --radius55: 80px;
+}
+div.ring2{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: ani-55-2 3s infinite ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --radius55: 80px;
+}
+div.ring3{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: ani-55-2 2s infinite ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --radius55: 80px;
+}
+.loader55 .ball{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+.loader55 .ball1{transform: translateX(calc(cos(0deg) * var(--radius55))) translateY(calc(sin(0deg) * var(--radius55)));}
+.loader55 .ball2{transform: translateX(calc(cos(120deg) * var(--radius55))) translateY(calc(sin(120deg) * var(--radius55)));}
+.loader55 .ball3{transform: translateX(calc(cos(240deg) * var(--radius55))) translateY(calc(sin(240deg) * var(--radius55)));}
+@keyframes ani-55-1 {
+    0%{transform: rotateX(50deg) rotateZ(0);}
+    50%{transform: rotateX(70deg) rotateZ(180deg);}
+    100%{transform: rotateX(50deg) rotateZ(360deg);}
+}
+@keyframes ani-55-2 {
+    0%{transform: rotateX(0deg) rotateY(0deg);}
+    100%{transform: rotateX(360deg) rotateY(360deg);}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER56*/
+.loader56::before{content: '56';}
+.loader56::after{content: 'Among US inspired ඞ';}
+.bead{
+    height: 20px;
+    width: 20px;
+    border: 4px solid white;
+    border-radius: 50%;
+    position: absolute;
+    translate: -10px -10px;
+}
+@keyframes bead {
+    85%{background-color: transparent;}
+    100%{background-color: greenyellow;}
+}
+.bead1{
+    transform: translateX(0) translateY(-30px);
+    animation: bead 0.5s infinite alternate ease-in-out 0s;
+}
+.bead2{
+    transform: translateX(40px) translateY(0px);
+    animation: bead 0.5s infinite alternate ease-in-out 0.1s;
+}
+.bead3{
+    transform: translateX(0) translateY(30px);
+    animation: bead 0.5s infinite alternate ease-in-out 0.2s;
+}
+.bead4{
+    transform: translateX(-40px) translateY(0px);
+    animation: bead 0.5s infinite alternate ease-in-out 0.3s;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER57*/
+.loader57::before{content: '57';}
+.loader57::after{content: 'Triangles to form Hexagon';}
+.triangle {
+width: 0;
+height: 0;
+border-right: 30px solid  transparent; 
+border-left: 30px solid  transparent; 
+border-bottom: 50px solid;
+position: absolute;
+transform-origin: top;
+opacity: 0.7;
+mix-blend-mode: lighten;
+margin-left: -30px;
+}
+.tri1{
+    animation: tri1 3s linear infinite ;
+    border-bottom-color: violet;
+}
+@keyframes tri1 {
+    0%{transform: rotate(0deg);}
+    85%{transform: rotate(60deg);}
+    100%{transform: rotate(60deg);}
+}
+
+.tri2{
+    animation: tri2 3s linear infinite ;
+    border-bottom-color: indigo;
+}
+@keyframes tri2 {
+    0%{transform: rotate(0deg);}
+    85%{transform: rotate(120deg);}
+    100%{transform: rotate(120deg);}
+}
+
+.tri3{
+    animation: tri3 3s linear infinite ;
+    border-bottom-color: blue;
+}
+@keyframes tri3 {
+    0%{transform: rotate(0deg);}
+    85%{transform: rotate(180deg);}
+    100%{transform: rotate(180deg);}
+}
+
+.tri4{
+    animation: tri4 3s linear infinite ;
+    border-bottom-color: green;
+}
+@keyframes tri4 {
+    0%{transform: rotate(0deg);}
+    85%{transform: rotate(240deg);}
+    100%{transform: rotate(240deg);}
+}
+
+.tri5{
+    animation: tri5 3s linear infinite ;
+    border-bottom-color: yellow;
+}
+@keyframes tri5 {
+    0%{transform: rotate(0deg);}
+    85%{transform: rotate(300deg);}
+    100%{transform: rotate(300deg);}
+}
+
+.tri6{
+    animation: tri6 3s linear infinite ;
+    border-bottom-color: rgb(255, 87, 87);
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER58*/
+.loader58::before{content: '58';}
+.loader58::after{content: 'Man, that`s AWESOME';}
+.loader58 .line{
+    position: absolute;
+    height: 150px;
+    margin-top: -70px;
+    margin-left: 8px;
+    border: 1px dashed white;
+    opacity: 0.6;
+}
+.loader58 .ball-58{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid;
+    background-color: gold;
+    z-index: 100;
+    --easing: cubic-bezier(0.83, 0, 0.17, 1);
+}
+.loader58 .line1-58{transform: rotate(0);}
+.loader58 .line2-58{transform: rotate(22.5deg);}
+.loader58 .line3-58{transform: rotate(45deg);}
+.loader58 .line4-58{transform: rotate(67.5deg);}
+.loader58 .line5-58{transform: rotate(90deg);}
+.loader58 .line6-58{transform: rotate(110.5deg);}
+.loader58 .line7-58{transform: rotate(135deg);}
+.loader58 .line8-58{transform: rotate(157.5deg);}
+
+@property --rad{
+syntax: '<percentage>';
+inherits: false;
+initial-value: 500%;
+}
+.loader58 .ball1-58{transform:translateX(calc(sin(0deg)*var(--rad)))         translateY(calc(cos(0deg)*var(--rad)));      animation: ball-58 1s infinite var(--easing) alternate 0s;}
+.loader58 .ball2-58{transform:translateX(calc(sin(22.5deg)*var(--rad)))      translateY(calc(cos(22.5deg)*var(--rad)));   animation: ball-58 1s infinite var(--easing) alternate 0.075s;}
+.loader58 .ball3-58{transform:translateX(calc(sin(45deg)*var(--rad)))        translateY(calc(cos(45deg)*var(--rad)));     animation: ball-58 1s infinite var(--easing) alternate 0.15s;}
+.loader58 .ball4-58{transform:translateX(calc(sin(67.5deg)*var(--rad)))      translateY(calc(cos(67.5deg)*var(--rad)));   animation: ball-58 1s infinite var(--easing) alternate 0.225s;}
+.loader58 .ball5-58{transform:translateX(calc(sin(90deg)*var(--rad)))        translateY(calc(cos(90deg)*var(--rad)));     animation: ball-58 1s infinite var(--easing) alternate 0.30s;}
+.loader58 .ball6-58{transform:translateX(calc(sin(110.5deg)*var(--rad)))     translateY(calc(cos(110.5deg)*var(--rad)));  animation: ball-58 1s infinite var(--easing) alternate 0.375s;}
+.loader58 .ball7-58{transform:translateX(calc(sin(135deg)*var(--rad)))       translateY(calc(cos(135deg)*var(--rad)));    animation: ball-58 1s infinite var(--easing) alternate 0.45s;}
+.loader58 .ball8-58{transform:translateX(calc(sin(157.5deg)*var(--rad)))     translateY(calc(cos(157.5deg)*var(--rad)));  animation: ball-58 1s infinite var(--easing) alternate 0.525s;}
+
+@keyframes ball-58{
+0%{--rad: -400%; scale: 1;}
+50%{scale: 0.8;}
+100%{--rad: 400%; scale: 1;}
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER59*/
+.loader59::before{content: '59';}
+.loader59::after{content: 'Mechanical Typewriter';}
+.loader59{
+    background-image: url(https://i.ibb.co/r0WqYRd/Adv-Typewriter.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER60*/
+.loader60::before{content: '60';}
+.loader60::after{content: 'Wave of Balls in 3D';}
+    .loader60 .box1{
+        position: absolute;
+        translate: 0 -30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .loader60 .part-one{
+        position: relative;
+        height: 20px;
+        width: 20px;
+        background-color: #FF9495;
+        margin: 2px;
+        border-radius: 50%;
+        animation: part-one-1 var(--dur) infinite var(--dirn) var(--ease);
+        animation-delay: calc(var(--i)*var(--delay));
+        --dur: 2s;
+        --delay: 100ms; 
+        --ease: ease-in-out;
+        --dirn: reverse;
+    }
+    @keyframes part-one-1 {
+        /* 0%{transform: translateY(0px); scale: 1; z-index: 10;}
+        50%{scale: 0.8; z-index: 5;}
+        100%{transform: translateY(100px); scale: 1; z-index: 10;} */
+        0%{transform: translateY(0) translateZ(0px); scale: 1; z-index: 0;}
+        25%{transform:              translateZ(0px); scale: 1.2; z-index: 10;}
+        50%{transform: translateY(100px) translateZ(0px); scale: 1; z-index: 5;}
+        75%{transform:              translateZ(0px); scale: 0.8; z-index: -10;}
+        100%{transform: translateY(0px) translateZ(0px); scale: 1; z-index: 0;}
+    }
+
+
+    .loader60 .box2{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        translate: 0 30px;
+    }
+    .loader60 .part-two{
+        position: relative;
+        height: 20px;
+        width: 20px;
+        background-color: #FF2A94;
+        margin: 2px;
+        border-radius: 50%;
+        animation: part-two var(--dur) infinite var(--dirn) var(--ease);
+        animation-delay: calc(var(--i)*var(--delay));
+        --dur: 2s;
+        --delay: 100ms; 
+        --ease: ease-in-out;
+        --dirn: reverse;
+    }
+    @keyframes part-two {
+        0%{transform: translateY(0) translateZ(0px); scale: 1; z-index: 0;}
+        25%{transform:              translateZ(0px); scale: 0.8; z-index: -10;}
+        50%{transform: translateY(-100px) translateZ(0px); scale: 1; z-index: 5;}
+        75%{transform:              translateZ(0px); scale: 1.2; z-index: 10;}
+        100%{transform: translateY(0px) translateZ(0px); scale: 1; z-index: 0;}
+    }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER61*/
+.loader61::before{content: '61';}
+.loader61::after{content: 'Keep running like a clock';}
+        .loader61{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }        
+
+        .loader61 .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader61 .clock{
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background-color: rgb(113, 219, 255);
+            border: 4px solid darkblue;
+        }
+        .loader61 .small{
+            position: absolute;
+            height: 35px;
+            width: 5px;
+            background-color: darkblue;
+            border-radius: 10px;
+            margin-top: -35px;
+            animation: needle 1s linear infinite;
+            transform-origin: bottom;
+        }
+        .loader61 .big{
+            position: absolute;
+            height: 20px;
+            width: 5px;
+            background-color: darkblue;
+            border-radius: 10px;
+            animation: needle 2s linear infinite;
+            transform-origin: bottom;
+            margin-top: -20px;
+        }
+        @keyframes needle {
+            0%{rotate: 0;}
+            100%{rotate: 360deg;}
+        }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER62*/
+.loader62::before{content: '62';}
+.loader62::after{content: 'Font Weight Shifting';}
+    .loader62 .word{
+        color: white;
+        display: flex;
+        flex-direction: row;
+    }
+    .loader62 .letter{
+        animation: letter-62 1s ease-in-out infinite alternate-reverse;
+        animation-delay: calc(-1*var(--i)*0.15s);
+    }
+    @keyframes letter-62 {
+        0%{font-weight: 100; font-size: 20px;}
+        100%{font-weight: 700; font-size: 30px;}
+    }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER63*/
+.loader63::before{content: '63';}
+.loader63::after{content: 'Squares going in an ellipse';}
+.loader63 .box-load-63{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;            
+        }
+.loader63 .ell{
+            --wide: 100px;
+            --tall: 50px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: var(--tall);
+            width: var(--wide);
+            border-radius: 50%;
+            border: 1px solid rgb(0, 255, 255, 0.5);
+        }
+.loader63 .ball{
+            z-index: 2;
+            height: 8px;
+            aspect-ratio: 1;
+            background-color: gold;
+            position: absolute;
+            /* border-radius: 50%; */
+            transform: translateX(calc((var(--wide)/2)*sin(var(--angle)))) translateY(calc((var(--tall)/2)*cos(var(--angle))));
+            animation: ball 4s infinite linear;
+        }
+        /* For perfect circle in reverse dirn */
+        /* .ball{animation-delay: calc(var(--i) * 84ms);}  */
+        
+        /* For coolanimation at t = 2s and delay = 500ms */
+        /* .ball{animation-delay: calc(var(--i) * 500ms);}  */
+        
+.loader63 .ball{animation-delay: calc(var(--i) * -1 * 1000ms);} 
+        @property --angle{
+            inherits: false;
+            initial-value: 0deg;
+            syntax: '<angle>';
+        }
+        @keyframes ball {
+            from{--angle: 0deg;}
+            to{--angle: 720deg;}
+        }
+.loader63 .ell-1{rotate: 20deg; }
+.loader63 .ell-2{rotate: 40deg; }
+.loader63 .ell-3{rotate: 60deg; }
+.loader63 .ell-4{rotate: 80deg; }
+.loader63 .ell-5{rotate: 100deg;}
+.loader63 .ell-6{rotate: 120deg;}
+.loader63 .ell-7{rotate: 140deg;}
+.loader63 .ell-8{rotate: 160deg;}
+.loader63 .ell-9{rotate: 180deg;}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER64*/
+.loader64::before{content: '64';}
+.loader64::after{content: 'Bars Wave';}
+        .box-load-64{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loader64 .line{
+            height: 2px;
+            width: 30px;
+            background-color: white;
+        }
+        .loader64 .line:nth-child(1){animation: line 0.5s ease-in-out infinite alternate calc(0.1s*1.5);}
+        .loader64 .line:nth-child(2){animation: line 0.5s ease-in-out infinite alternate calc(0.2s*1.5);}
+        .loader64 .line:nth-child(3){animation: line 0.5s ease-in-out infinite alternate calc(0.3s*1.5);}
+        .loader64 .line:nth-child(4){animation: line 0.5s ease-in-out infinite alternate calc(0.4s*1.5);}
+        .loader64 .line:nth-child(5){animation: line 0.5s ease-in-out infinite alternate calc(0.5s*1.5);}
+        @keyframes line {
+            0%{transform: translateY(0);}
+            100%{transform: translateY(-40px);}
+        }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER65*/
+.loader65::before{content: '65';}
+.loader65::after{content: 'Constrained Circular Disk';}
+      .mainLoaderContainer {
+        background-color: #000;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .loaderSpan {
+        position: absolute;
+        border-radius: 50%;
+        animation: rotate 1.4s ease-in-out infinite;
+      }
+      .span1 {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #d500f9;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 50ms;
+      }
+      .span2 {
+        width: 60px;
+        height: 60px;
+        border: 4px solid #e91e63;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 100ms;
+      }
+      .span3 {
+        width: 70px;
+        height: 70px;
+        border: 4px solid #26a69a;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 150ms;
+      }
+      .span4 {
+        width: 80px;
+        height: 80px;
+        border: 4px solid #cddc39;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 200ms;
+      }
+      .span5 {
+        width: 90px;
+        height: 90px;
+        border: 4px solid #7cb342;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 250ms;
+      }
+      .span6 {
+        width: 100px;
+        height: 100px;
+        border: 4px solid #ffa726;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 300ms;
+      }
+      .span7 {
+        width: 110px;
+        height: 110px;
+        border: 4px solid #ff8a65;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 350ms;
+      }
+      .span8 {
+        width: 120px;
+        height: 120px;
+        border: 4px solid #ef5350;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 400ms;
+      }
+      .span9 {
+        width: 130px;
+        height: 130px;
+        border: 4px solid #4a148c;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        animation-delay: 450ms;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(-45deg);
+        }
+        90%,
+        100% {
+          transform: rotate(315deg);
+        }
+      }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER66*/
+.loader66::before{content: '66';}
+.loader66::after{content: 'Colorful Revolving Circles';}
+    .circle{
+        border-radius: 50%;
+        position: relative;
+        border: 1px solid black;
+        transform: translateX(-5%) translateY(-5%);
+        animation: rotation 3s infinite ease-in-out;
+    }
+    .circle1{
+        height: 110px;
+        width: 110px;
+        background-color: #FF5733;
+        
+    }
+    .circle2{
+        height: 100px;
+        width: 100px;
+        background-color: #FF8D1A;
+        
+    }
+    .circle3{
+        height: 90px;
+        width: 90px;
+        background-color: #FFD700;
+        
+    }
+    .circle4{
+        height: 80px;
+        width: 80px;
+        background-color: #8DFF1A;
+        
+    }
+    .circle5{
+        height: 70px;
+        width: 70px;
+        background-color: #33FF57;
+        
+    }
+    .circle6{
+        height: 60px;
+        width: 60px;
+        background-color: #1AFFD7;
+        
+    }
+    .circle7{
+        height: 50px;
+        width: 50px;
+        background-color: #1A8DFF;
+        
+    }
+    .circle8{
+        height: 40px;
+        width: 40px;
+        background-color: #5733FF;
+        
+    }
+    .circle9{
+        height: 30px;
+        width: 30px;
+        background-color: #D71AFF;
+        
+    }
+    .circle10{
+        height: 20px;
+        width: 20px;
+        background-color: #FF1A8D;
+        
+    }
+    @keyframes rotation {
+        to{rotate: 360deg;}
+    }
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER67*/
+.loader67::before{content: '67';}
+.loader67::after{content: 'Word Stacked and Constrained';}
+.box-load-67{
+    height: 200px;
+    width: 200px;
+    background-image: url(https://i.ibb.co/ksgrxpd4/67-Many-Text-Layer.gif);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER68*/
+.loader68::before{content: '68';}
+.loader68::after{content: 'Circles Revolving in Sync';}
+        .box-load-68{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box-load-68 .ring{
+            background-image: radial-gradient(black 0 69%, transparent 71% 100%), conic-gradient(from 90deg,pink 0deg, transparent 350deg 360deg);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            position: absolute;
+            animation: disc-68 2s infinite alternate ease-in-out forwards;
+            rotate: 0deg;
+            
+        }
+        @keyframes disc-68 {
+            0%{rotate: -225deg;}
+            100%{rotate: 225deg;}
+        }
+.box-load-68 .ring:nth-child(1) {height: calc(18px  * 0.5);  z-index:19; animation-delay: 0.05s;}
+.box-load-68 .ring:nth-child(2) {height: calc(36px  * 0.5);  z-index:18; animation-delay: 0.1s;}
+.box-load-68 .ring:nth-child(3) {height: calc(54px  * 0.5);  z-index:17; animation-delay: 0.15s;}
+.box-load-68 .ring:nth-child(4) {height: calc(72px  * 0.5);  z-index:16; animation-delay: 0.2s;}
+.box-load-68 .ring:nth-child(5) {height: calc(90px  * 0.5);  z-index:15; animation-delay: 0.25s;}
+.box-load-68 .ring:nth-child(6) {height: calc(108px * 0.5); z-index:14;  animation-delay: 0.3s;}
+.box-load-68 .ring:nth-child(7) {height: calc(126px * 0.5); z-index:13;  animation-delay: 0.35s;}
+.box-load-68 .ring:nth-child(8) {height: calc(144px * 0.5); z-index:12;  animation-delay: 0.4s;}
+.box-load-68 .ring:nth-child(9) {height: calc(162px * 0.5); z-index:11;  animation-delay: 0.45s;}
+.box-load-68 .ring:nth-child(10){height: calc(180px * 0.5); z-index:10;  animation-delay: 0.5s;}
+.box-load-68 .ring:nth-child(11){height: calc(198px * 0.5); z-index:9;   animation-delay: 0.55s;}
+.box-load-68 .ring:nth-child(12){height: calc(216px * 0.5); z-index:8;   animation-delay: 0.6s;}
+.box-load-68 .ring:nth-child(13){height: calc(234px * 0.5); z-index:7;   animation-delay: 0.65s;}
+.box-load-68 .ring:nth-child(14){height: calc(252px * 0.5); z-index:6;   animation-delay: 0.7s;}
+.box-load-68 .ring:nth-child(15){height: calc(270px * 0.5); z-index:5;   animation-delay: 0.75s;}
+.box-load-68 .ring:nth-child(16){height: calc(288px * 0.5); z-index:4;   animation-delay: 0.8s;}
+.box-load-68 .ring:nth-child(17){height: calc(306px * 0.5); z-index:3;   animation-delay: 0.85s;}
+.box-load-68 .ring:nth-child(18){height: calc(324px * 0.5); z-index:2;   animation-delay: 0.9s;}
+.box-load-68 .ring:nth-child(19){height: calc(342px * 0.5); z-index:1;   animation-delay: 0.95s;}
+.box-load-68 .ring:nth-child(20){height: calc(360px * 0.5); z-index:0;   animation-delay: 1.0s;}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER69*/
+.loader69::before{content: '69';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER70*/
+.loader70::before{content: '70';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER71*/
+.loader71::before{content: '71';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER72*/
+.loader72::before{content: '72';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER73*/
+.loader73::before{content: '73';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER74*/
+.loader74::before{content: '74';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER75*/
+.loader75::before{content: '75';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER76*/
+.loader76::before{content: '76';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER77*/
+.loader77::before{content: '77';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER78*/
+.loader78::before{content: '78';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER79*/
+.loader79::before{content: '79';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER80*/
+.loader80::before{content: '80';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER81*/
+.loader81::before{content: '81';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER82*/
+.loader82::before{content: '82';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER83*/
+.loader83::before{content: '83';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER84*/
+.loader84::before{content: '84';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER85*/
+.loader85::before{content: '85';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER86*/
+.loader86::before{content: '86';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER87*/
+.loader87::before{content: '87';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER88*/
+.loader88::before{content: '88';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER89*/
+.loader89::before{content: '89';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER90*/
+.loader90::before{content: '90';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER91*/
+.loader91::before{content: '91';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER92*/
+.loader92::before{content: '92';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER93*/
+.loader93::before{content: '93';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER94*/
+.loader94::before{content: '94';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER95*/
+.loader95::before{content: '95';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER96*/
+.loader96::before{content: '96';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER97*/
+.loader97::before{content: '97';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER98*/
+.loader98::before{content: '98';}
+/*---------------------------------------------------------------------------------------------------------------------------------------------LOADER99*/
+.loader99::before{content: '99';}
+
+
+
+
+
+/* Footer */
+
+/* Properties of Particular Elements */
+div.end{
+    background-color: rgb(10 10 10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: gold;
+    padding: 10px;
+}
+.o{
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    background: radial-gradient(black 0 50%,transparent 50% 90%, black 90% 100%), conic-gradient(transparent 0 var(--p), gold var(--p) 360deg);
+    border-radius: 50%;
+    animation: object 2s ease-in-out infinite alternate-reverse,box 2s infinite linear;
+    margin: 3px;
+}
+@property --p{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes object{
+    0%{--p: 0deg;}
+    100%{--p: 360deg;}
+}
+@keyframes box{
+    to{transform: rotate(360deg);}
+}
+.navbar{
+    background-color: rgb(50 50 50);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.social{
+    background-color: rgb(50 50 50);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.social-h3{
+    background-color: rgb(50 50 50);
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 0;
+}
+
+.contact{
+    color: white;
+    margin-top: 10px;
+}
+.copyrights p{
+    text-align: center;
+}
+
+/* General Properties to Multiple Elements */
+h3{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+.end a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.end a:hover{
+    color: rgb(255, 42, 42);
+}
+.end img.social-img{
+    height: 2em;
+    aspect-ratio: 1;
+    border-radius: 45%;
+    transition: 0.2s;
+}
+.end img.social-img:hover{
+    scale: 1.2;
+}
+p{
+    color: white;
+}
+span.copyright-brand-name{
+    text-decoration: underline double rgb(255, 21, 21) 1px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1.more{
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 1px;
+
+}

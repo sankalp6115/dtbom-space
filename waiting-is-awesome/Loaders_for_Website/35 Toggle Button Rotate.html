@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: red;
+        }
+        :root{
+            --dur: 2s;
+        }
+        .out{
+            position: fixed;
+            inset: 0px;
+            width: 100px;
+            height: 50px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+            border-radius: 50px;
+	        background: white;
+            animation: out var(--dur) ease-in-out infinite;
+            border: 4px solid blue;
+        }
+        @keyframes out {
+            0%{transform: rotate(0);}
+            25%{transform: rotate(90deg);}
+            50%{transform: rotate(180deg);}
+            75%{transform: rotate(270deg);}
+            100%{transform: rotate(360deg);}
+        }
+        .in1{
+            position: fixed;
+            inset: 0px;
+            width: 40px;
+            height: 40px;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+            border-radius: 50%;
+	        background: blueviolet;
+            left: -50px;
+            animation: in1 var(--dur) ease-in-out infinite;
+        }
+        @keyframes in1 {
+            0%{transform: scaleX(1);}
+            25%{transform: scaleX(1) translateX(50px);}
+            50%{transform: scaleX(1) translateX(50px);}
+            75%{transform: scaleX(1);}
+            100%{transform: scaleX(1);}
+        }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="out"><div class="in1"><div class="in2"></div></div></div>
+        
+    </div>
+</body>
+</html>

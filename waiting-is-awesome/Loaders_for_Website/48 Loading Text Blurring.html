@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body{
+            background-color: gold;
+        }
+        .box{
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            margin-top: 15%;
+        }
+        div.letter{
+            text-align: center;
+            width: min-content;
+            height: 100px;
+            padding: 10px;
+            font-weight: 800;
+            font-size: 70px;
+            font-family:sans-serif;
+            
+            vertical-align: middle;
+        }
+        .L   {animation: letter 0.8s linear 0.1s infinite alternate;}
+        .O   {animation: letter 0.8s linear 0.2s infinite alternate;}
+        .A   {animation: letter 0.8s linear 0.3s infinite alternate;}
+        .D   {animation: letter 0.8s linear 0.4s infinite alternate;}
+        .I   {animation: letter 0.8s linear 0.5s infinite alternate;}
+        .N   {animation: letter 0.8s linear 0.6s infinite alternate;}
+        .G   {animation: letter 0.8s linear 0.7s infinite alternate;}
+        .dot1{animation: letter 0.8s linear 0.8s infinite alternate;}
+        .dot2{animation: letter 0.8s linear 0.9s infinite alternate;}
+        .dot3{animation: letter 0.8s linear 1s infinite alternate;}
+        @keyframes letter {
+            0%{filter: blur(0px);}
+            100%{filter: blur(10px);}
+        }
+        .dot{
+            height: 15px;
+            width: 15px;
+            margin-top: 60px;
+            border-radius: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="letter L">L</div>
+        <div class="letter O">O</div>
+        <div class="letter A">A</div>
+        <div class="letter D">D</div>
+        <div class="letter I">I</div>
+        <div class="letter N">N</div>
+        <div class="letter G">G</div>
+        <div class="letter"><div class="dot1 dot"></div></div>
+        <div class="letter"><div class="dot2 dot"></div></div>
+        <div class="letter"><div class="dot3 dot"></div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        background-color: black;
+        margin: 0;
+        font-family: "Work Sans", serif;
+    }
+    .word{
+        color: white;
+        display: flex;
+        flex-direction: row;
+        font-size: 50px;
+    }
+    .letter{
+        animation: letter 1s ease-in-out infinite alternate;
+        animation-delay: calc(-1*var(--i)*0.15s);
+    }
+    @keyframes letter {
+        0%{font-weight: 100; font-size: 50px;}
+        100%{font-weight: 700; font-size: 70px;}
+    }
+</style>
+<body>
+    <div class="word">
+        <div class="letter1 letter" style="--i: 1;">L</div>
+        <div class="letter2 letter" style="--i: 2;">O</div>
+        <div class="letter3 letter" style="--i: 3;">A</div>
+        <div class="letter4 letter" style="--i: 4;">D</div>
+        <div class="letter5 letter" style="--i: 5;">I</div>
+        <div class="letter6 letter" style="--i: 6;">N</div>
+        <div class="letter7 letter" style="--i: 7;">G</div>
+        <div class="letter8 letter" style="--i: 8;">.</div>
+        <div class="letter9 letter" style="--i: 9;">.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-color: indigo;
+    }
+    :root{--dur: 4s;}
+    .circle{
+        border-radius: 50%;
+        position: relative;
+        border: 1px solid black;
+        /* animation-play-state: paused !important; */
+        transform: translateX(-5%) translateY(-5%);
+    }
+    .circle1{
+        height: 200px;
+        width: 200px;
+        background-color: #FF5733;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle2{
+        height: 180px;
+        width: 180px;
+        background-color: #FF8D1A;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle3{
+        height: 160px;
+        width: 160px;
+        background-color: #FFD700;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle4{
+        height: 140px;
+        width: 140px;
+        background-color: #8DFF1A;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle5{
+        height: 120px;
+        width: 120px;
+        background-color: #33FF57;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle6{
+        height: 100px;
+        width: 100px;
+        background-color: #1AFFD7;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle7{
+        height: 80px;
+        width: 80px;
+        background-color: #1A8DFF;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle8{
+        height: 60px;
+        width: 60px;
+        background-color: #5733FF;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle9{
+        height: 40px;
+        width: 40px;
+        background-color: #D71AFF;
+        animation: rotation var(--dur) infinite linear;
+    }
+    .circle10{
+        height: 20px;
+        width: 20px;
+        background-color: #FF1A8D;
+        animation: rotation var(--dur) infinite linear;
+    }
+    @keyframes rotation {
+        to{rotate: 360deg;}
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="circle1 circle" style="--i: 1;">
+            <div class="circle2 circle" style="--i: 2;">
+                <div class="circle3 circle" style="--i: 3;">
+                    <div class="circle4 circle" style="--i: 4;">
+                        <div class="circle5 circle" style="--i: 5;">
+                            <div class="circle6 circle" style="--i: 6;">
+                                <div class="circle7 circle" style="--i: 7;">
+                                    <div class="circle8 circle" style="--i: 8;">
+                                        <div class="circle9 circle" style="--i: 9;">
+                                            <div class="circle10 circle" style="--i: 10;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

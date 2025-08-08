@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .progress-bar-container {
+  width: 700px;
+  height: 50px;
+  margin: 50px 0px;
+  background: black;
+}
+
+.progress-bar-indicator {
+  height: 100%;
+  background-image: linear-gradient(rgb(0, 255, 255), rgb(255, 45, 157));
+  border-radius: 25px;
+}
+
+#indicator-1 {
+  animation: loader 2s linear infinite forwards;
+}
+@keyframes loader{
+    0%{width: 0;}
+    100%{width: 100%;}
+}
+
+
+#container {
+  width: 800px;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  
+}
+
+.child {
+  width: 100%;
+  height: 100%;
+}
+
+.progress {
+  animation-direction: reverse;
+  background: #e5405e;
+  background: linear-gradient(to right, #e5405e 0%, #ffdb3a 25%, #3fffa2 50%, #3fffa2 50%, #1a9be0 73%, #ba68ed 100%);
+}
+
+.shrinker {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+.timelapse {
+  animation-name: timelapse;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(.86, .05, .4, .96);
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes timelapse {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+</style>
+<body>
+    <div class="progress-bar-container">
+        <div class="progress-bar-indicator" id="indicator-1"></div>
+      </div>
+
+
+      <div id="container">
+        <div class="child progress"></div>
+        <div class="child shrinker timelapse">
+      </div>
+</div>
+
+</body>
+</html>
