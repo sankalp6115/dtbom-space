@@ -48,10 +48,9 @@ header{
     top: 0;
     border-bottom: 2px solid gold;
     z-index: 1000;
-    padding-bottom: 40px;
 }
 svg{
-    margin-top: -30px;   
+    margin-top: -40px;   
 }
 svg text {
     font-size: 3em;
@@ -77,14 +76,11 @@ svg text {
 
 /* About Animation */
 div.free-loader{
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
     font-size: 1.5em;
     font-family: serif;
     -webkit-text-stroke: 1px white;
+    margin-top: -30px;
 }
 
 /* Sample Loader */
@@ -103,7 +99,7 @@ div.free-loader{
     transform: rotateX(20deg) rotateY(0deg);
     height: 330px;
     width: 270px;
-    /* background-color: #1a0e2f; */
+    background-color: #1a0e2f;
     position: absolute;
     z-index: -1;
     transition: 0.5s;
@@ -111,7 +107,7 @@ div.free-loader{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    translate: 0 -100px;
+    translate: 0 -120px;
 }
     .sample-box{
         animation: box 10s ease infinite forwards;
@@ -315,13 +311,13 @@ div.free-loader{
 /* Hover Box */
 .part{
     background-color: white;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     box-sizing: border-box;
     border: 1px solid;
     opacity: 0;
     text-align: center;
-    translate: 30px -30px;
+    translate: 40px -40px;
 }
 .part1:hover ~ .sample-whole{transform: rotateX(15deg) rotateY(-15deg) ;}
 .part2:hover ~ .sample-whole{transform: rotateX(20deg) rotateY(0deg)   ;}
@@ -351,7 +347,7 @@ section.loaders{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 27vh;
+    margin-top: 12%;
 }
 
 .loader{
@@ -663,6 +659,7 @@ a:nth-of-type(n+69){display: none;}
     height: 70px;
     background-color: blue;
     border-radius: 50%;
+    translate: 2px 2px;
 }
 .loader9 .bead1{animation: bead9 1s ease-in-out infinite alternate 0.1s;}
 .loader9 .bead2{animation: bead9 1s ease-in-out infinite alternate 0.3s;}
@@ -837,12 +834,13 @@ a:nth-of-type(n+69){display: none;}
     display: grid;
     grid-template-columns: repeat(3,1fr);
     place-items: center;
-    --distX: 19vh;
-    --distY: 17vh;
+    --distX: 40px;
+    --distY: 40px;
 }
 .loader15 .sqr-15{
     height: 30px;
     width: 30px;
+    position: absolute;
 }
 @keyframes sqr15 {
     0%{background-color: darkblue;}
@@ -2954,6 +2952,7 @@ div.end{
     justify-content: center;
     font-size: 40px;
     font-weight: 700;
+    width: max-content;
     color: gold;
     padding: 10px;
 }
