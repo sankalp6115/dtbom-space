@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #222;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+h1 {
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+}
+
+#mainSection{
+    display: flex;
+    width: 100%;
+}
+
+#sidebarToggle {
+  cursor: pointer;
+  margin-right: 12px;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+#sidebar {
+  width: 20%;
+  background: #111;
+  color: #ddd;
+  padding: 20px;
+  padding-top: 50px;
+  overflow-y: auto;
+  margin-left: -23%;
+  margin-top: 10px;
+  transition: margin-left 0.3s ease;
+  z-index: 9;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.8);
+}
+#sidebar::-webkit-scrollbar{
+    width: 0;
+}
+
+#sidebar.collapsed {
+  margin-left: 0%;
+}
+
+#content {
+  margin-top: 48px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 12px 20px 12px 20px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+
+div#borderToggle{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 2fr 3fr;
+}
+.borderLabel{
+    
+}
+
+input[type=checkbox]{
+    height: 30px;
+    width: 30px;
+    flex-grow: 1;
+}
+
+input[type="color"],
+input[type="number"],
+input[type="range"],
+input[type="checkbox"],
+input[type="file"],
+input[type="text"] {
+  width: 100%;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #5a9;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #487;
+}
+
+#canvas {
+  width: 100%;
+  height: auto;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #000;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+#info {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-align: center;
+}
