@@ -32,6 +32,7 @@ h1 {
 
 #mainSection{
     display: flex;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -144,4 +145,30 @@ button:hover {
   font-size: 0.9rem;
   margin-top: 8px;
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  #mainSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #sidebar {
+    order: 2;
+}
+#content {
+  order: 1;
+  margin-top: 48px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  padding: 12px 20px 12px 20px;
+}
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  
 }
