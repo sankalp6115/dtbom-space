@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://github.com/sankalp6115/dtbom-space/blob/main/Assets/icon.png?raw=true" type="image/x-icon">
+</head>
+<body>
+    <!-- Overlay -->
+    <div id="overlay">
+        <h1>Unleash your Creativity</h1>
+        <span id="clickToContinue">Click To Continue</span>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltipDiv"></div>
+
+    <section id="input">
+        <input type="number" id="rows" placeholder="Rows">
+        <input type="number" id="columns" placeholder="Columns">
+        <button type="submit" id="submit">Draw</button>
+        <div id="sizeInput">
+            <label for="size">Size</label>
+            <input type="range" id="cellSize" min="10" max="60">
+        </div>
+    </section>
+
+    <div id="box"></div>
+
+    <section id="tools">
+        <div id="colors">
+            <input type="radio" name="color" id="red" checked>
+            <label class="color" for="red"></label>
+            
+            <input type="radio" name="color" id="yellow">
+            <label class="color" for="yellow"></label>
+            
+            <input type="radio" name="color" id="orange">
+            <label class="color" for="orange"></label>
+            
+            <input type="radio" name="color" id="green">
+            <label class="color" for="green"></label>
+            
+            <input type="radio" name="color" id="greenyellow">
+            <label class="color" for="greenyellow"></label>
+            
+            <input type="radio" name="color" id="violet">
+            <label class="color" for="violet"></label>
+            
+            <input type="radio" name="color" id="indigo">
+            <label class="color" for="indigo"></label>
+            
+            <input type="radio" name="color" id="blue">
+            <label class="color" for="blue"></label>
+            
+            <!-- Eraser as white color -->
+            <input type="radio" name="color" id="white">
+            <label class="color eraser" for="white">
+                <img src="https://static.vecteezy.com/system/resources/previews/007/124/481/non_2x/easy-to-use-flat-icon-of-eraser-vector.jpg">
+            </label>
+            
+            <input type="color" id="customColor">
+        </div>
+            
+            <button id="fillAll"><img src="https://cdn-icons-png.flaticon.com/512/8039/8039118.png" class="buttonIcon"></button>
+            <button id="reset"><img src="https://cdn-icons-png.flaticon.com/512/5632/5632370.png" class="buttonIcon"></button>
+            <button id="saveImage"><img src="https://cdn-icons-png.flaticon.com/512/189/189249.png" class="buttonIcon"></button>
+    </section>
+
+
+</body>
+<script src="script.js" type="module"></script>
+</html>

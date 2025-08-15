@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    transition: 0.2s;
+}
+*{
+    font-family: "Playwrite IN", cursive;
+}
+
+#overlay{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgb(10, 10, 10, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3em;
+    transition: 0.5s;
+}
+span#clickToContinue{
+    font-size: 1em;
+}
+
+.tooltipDiv{
+    height: 40px;
+    border: 4px solid black;
+    background-color: white;
+    transition: 0.1s ease-in-out;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-70px);
+    top: 10px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+section#input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+section#input input,section#input button{
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid gold;
+    color: white;
+    background-color: black;
+    margin-top: 10px;
+}
+
+div#box {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -10;
+}
+
+.cell {
+    background: white;
+    box-shadow: 0 0 0px 1px black;
+    cursor: crosshair;
+    transition: 0.2s;
+}
+
+.cell.colored {
+    background: red;
+}
+
+section#tools {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+
+}
+section#tools img{
+    height: 40px;
+}
+section#tools button{
+    padding: 2px;
+    margin: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+div#sizeInput{
+    transform: translateY(10px);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+div#colors {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked + label{
+    outline: 2px solid white;
+    box-shadow: 0 0 5px white;
+    scale: 1.1;
+}
+
+label:hover{
+    scale: 1.05;
+}
+/* Eraser */
+label.eraser img{
+    height: 40px;
+}
+
+label.color {
+    display: block;
+    height: 40px;
+    width: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.activeColor{
+    box-shadow: 0 0 10px white;
+}
+
+input[type=color]{
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+}
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.1s;
+    &:hover{
+        scale: 1.1;
+    }
+}
