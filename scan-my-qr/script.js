@@ -26,7 +26,6 @@ function stopCamera() {
 
 function showResult(text) {
     const resultDiv = document.getElementById("result");
-    const copyBtn = document.getElementById("copy");
     resultDiv.innerHTML = `<b>QR Code Result:</b> ${text} 📋`;
     resultDiv.style.display = "block";
 
