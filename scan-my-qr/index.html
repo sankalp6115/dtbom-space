@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Scanner</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://github.com/sankalp6115/dtbom-space/blob/main/Assets/icon.png?raw=true">
+</head>
+<body>
+
+<h1>QR Code Scanner</h1>
+
+<div id="reader"></div>
+<div id="buttons">
+    <button onclick="startCamera()">Start Camera Scan</button>
+    <button onclick="stopCamera()">Stop Camera</button>
+</div>
+
+<div class="upload-box" id="dropArea">
+    <i class="fa-solid fa-upload fa-2x"></i>
+    <p>Drag & Drop QR Image or Click to Upload</p>
+    <input type="file" id="fileInput" accept="image/*">
+</div>
+
+<div id="result" class="result" style="display:none;"></div>
+<button id="copy">📋</button>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
