@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System with Path Trace</title>
+    <link rel="icon" href="https://github.com/sankalp6115/dtbom-space/blob/main/Assets/icon.png?raw=true" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(17, 17, 17);
+            overflow: hidden;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+        }
+        .sun {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: rgb(255, 177, 33);
+            box-shadow: 0 0 20px orange;   
+            position: absolute;
+            /* animation: sun 60s linear infinite; */
+            /* translate: -750px; */
+            margin-left: 750px;
+        }
+        @keyframes sun {
+            0%{transform: rotate(0);}
+            100%{transform: rotate(360deg);}
+        }
+        .emb-moon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            animation: orbit-1 var(--emb-moon) infinite var(--ease);
+            position: absolute;
+            transform: translateX(200px);
+            box-shadow: 0 0 10px 5px white;
+        }
+        @keyframes orbit-1 {
+            0%{rotate: 0deg; translate: 0px;}        
+            50%{               translate: 0px;}
+            100%{rotate: 360deg; translate: 0px;}
+        }
+        
+        :root{
+            --emb-moon: 60s;
+            --emb-emb-moon: 0s;
+            --emb-emb-emb-moon: 0.5s;
+            --ease: linear;
+        }
+        .emb-emb-moon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            animation: orbit var(--emb-emb-moon) infinite var(--ease);
+            position: absolute;
+            transform: translateX(100px);
+            box-shadow: 0 0 10px 5px gold;
+        }
+        .emb-emb-emb-moon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            animation: orbit var(--emb-emb-emb-moon) infinite var(--ease);
+            position: absolute;
+            transform: translateX(50px);
+            box-shadow: 0 0 10px 5px orange;
+        }
+        @keyframes orbit {
+            0%{rotate:0deg;}        
+            100%{rotate:360deg;}
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="sun">
+            <div class="emb-moon">
+                <div class="emb-emb-moon">
+                    <div class="emb-emb-emb-moon">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <canvas id="pathCanvas"></canvas>
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('pathCanvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = document.body.scrollWidth;
+            canvas.height = window.innerHeight;
+
+            const bodies = [
+                { element: document.querySelector('.sun'), color: 'grey', path: [] },
+                { element: document.querySelector('.emb-moon'), color: 'white', path: [] },
+                { element: document.querySelector('.emb-emb-moon'), color: 'gold', path: [] },
+                { element: document.querySelector('.emb-emb-emb-moon'), color: 'orange', path: [] },
+            ];
+
+            function updatePath() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous drawings
+
+                bodies.forEach(body => {
+                    const rect = body.element.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2 + window.scrollX;
+                    const centerY = rect.top + rect.height / 2;
+
+                    // Store current position
+                    body.path.push({ x: centerX, y: centerY });
+
+                    // Draw the path
+                    ctx.beginPath();
+                    ctx.strokeStyle = body.color; // Path color
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(body.path[0].x, body.path[0].y); // Start from the first point
+
+                    for (let i = 1; i < body.path.length; i++) {
+                        ctx.lineTo(body.path[i].x, body.path[i].y);
+                    }
+
+                    ctx.stroke();
+                    ctx.closePath();
+                });
+            }
+
+            setInterval(updatePath, 10);
+        };
+    </script>
+</body>
+</html>

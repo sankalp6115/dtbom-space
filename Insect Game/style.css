@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #000;
+    color: white;
+}
+

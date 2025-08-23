@@ -1,1 +1,174 @@
-birthday-timer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flip Countdown</title>
+<link rel="icon" href="https://github.com/sankalp6115/dtbom-space/blob/main/Assets/icon.png?raw=true" type="image/x-icon">
+<style>
+    :root {
+        --digit-width: 80px;
+        --digit-height: 120px;
+        --digit-font: 'Arial Black', sans-serif;
+        --bg-front: #333;
+        --bg-back: #222;
+        --text-color: #fff;
+    }
+    body {
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .countdown {
+        display: flex;
+        gap: 10px;
+    }
+    .flip-digit {
+        perspective: 1000px;
+    }
+    .card {
+        position: relative;
+        width: var(--digit-width);
+        height: var(--digit-height);
+        font-size: 80px;
+        line-height: var(--digit-height);
+        color: var(--text-color);
+        text-align: center;
+        font-family: var(--digit-font);
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .card .top,
+    .card .bottom,
+    .card .top-flip,
+    .card .bottom-flip {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        backface-visibility: hidden;
+    }
+    .card .top {
+        top: 0;
+        background: var(--bg-front);
+        border-bottom: 1px solid #111;
+    }
+    .card .bottom {
+        bottom: 0;
+        background: var(--bg-back);
+        border-top: 1px solid #111;
+    }
+    .card .top-flip {
+        top: 0;
+        background: var(--bg-front);
+        transform-origin: bottom;
+        transform: rotateX(0deg);
+    }
+    .card .bottom-flip {
+        bottom: 0;
+        background: var(--bg-back);
+        transform-origin: top;
+        transform: rotateX(90deg);
+    }
+    .top-flip.animate {
+        animation: flipTop 0.5s forwards;
+    }
+    .bottom-flip.animate {
+        animation: flipBottom 0.5s forwards;
+    }
+    @keyframes flipTop {
+        0% { transform: rotateX(0deg); }
+        100% { transform: rotateX(-90deg); }
+    }
+    @keyframes flipBottom {
+        0% { transform: rotateX(90deg); }
+        100% { transform: rotateX(0deg); }
+    }
+</style>
+</head>
+<body>
+
+<div class="countdown" id="countdown">
+    <div class="flip-digit" data-type="h1"></div>
+    <div class="flip-digit" data-type="h2"></div>
+    <div>:</div>
+    <div class="flip-digit" data-type="m1"></div>
+    <div class="flip-digit" data-type="m2"></div>
+    <div>:</div>
+    <div class="flip-digit" data-type="s1"></div>
+    <div class="flip-digit" data-type="s2"></div>
+</div>
+
+<script>
+function createCard(value) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="top">${value}</div>
+        <div class="bottom">${value}</div>
+        <div class="top-flip">${value}</div>
+        <div class="bottom-flip">${value}</div>
+    `;
+    return card;
+}
+
+function updateCard(container, newValue) {
+    const oldCard = container.querySelector('.card');
+    const oldValue = oldCard ? oldCard.querySelector('.top').textContent : null;
+
+    if (newValue == oldValue) return;
+
+    const card = createCard(oldValue ?? newValue);
+    container.innerHTML = '';
+    container.appendChild(card);
+
+    const topFlip = card.querySelector('.top-flip');
+    const bottomFlip = card.querySelector('.bottom-flip');
+
+    topFlip.textContent = oldValue ?? newValue;
+    bottomFlip.textContent = newValue;
+
+    topFlip.classList.add('animate');
+    topFlip.addEventListener('animationend', () => {
+        card.querySelector('.top').textContent = newValue;
+        topFlip.classList.remove('animate');
+        bottomFlip.classList.add('animate');
+    });
+    bottomFlip.addEventListener('animationend', () => {
+        card.querySelector('.bottom').textContent = newValue;
+        bottomFlip.classList.remove('animate');
+    });
+}
+
+function startCountdown(seconds) {
+    let remaining = seconds;
+    function tick() {
+        if (remaining < 0) return;
+        const h = String(Math.floor(remaining / 3600)).padStart(2, '0');
+        const m = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
+        const s = String(remaining % 60).padStart(2, '0');
+
+        updateCard(document.querySelector('[data-type="h1"]'), h[0]);
+        updateCard(document.querySelector('[data-type="h2"]'), h[1]);
+        updateCard(document.querySelector('[data-type="m1"]'), m[0]);
+        updateCard(document.querySelector('[data-type="m2"]'), m[1]);
+        updateCard(document.querySelector('[data-type="s1"]'), s[0]);
+        updateCard(document.querySelector('[data-type="s2"]'), s[1]);
+
+        remaining--;
+        setTimeout(tick, 1000);
+    }
+    tick();
+}
+
+document.querySelectorAll('.flip-digit').forEach(d => {
+    d.appendChild(createCard('0'));
+});
+
+startCountdown(60 * 60); // 1 hour
+</script>
+
+</body>
+</html>
