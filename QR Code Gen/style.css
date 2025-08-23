@@ -1,0 +1,206 @@
+    body {
+        background-image: url(https://4kwallpapers.com/images/wallpapers/gradient-background-1920x1080-10974.jpg);
+        background-color: var(--background);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: "Cal Sans", sans-serif;
+    }
+
+    :root {
+        --background: #121212;
+        --glass-panel: rgba(0, 0, 0, 0.2);
+        --accent-color: #c43b3b;
+        --font-color: #FFFFFF;
+        --secondry-text: #CCCCCC;
+
+    }
+
+    ::placeholder {
+        color: var(--secondry-text);
+    }
+
+    * {
+        font-family: "Cal Sans", sans-serif;
+    }
+
+    h1 {
+        margin: 0 0 20px 0;
+        color: var(--font-color);
+        letter-spacing: 2px;
+    }
+
+    div.box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--glass-panel);
+        padding: 10px;
+        backdrop-filter: blur(6px);     
+        width: fit-content;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        border-radius: 20px;
+    }
+
+    div.userField {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 20px
+    }
+
+
+    input[type=text] {
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid black;
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+    input[type=file] {
+        display: none;
+    }
+
+    label.stickerUpload {
+        background-color: var(--accent-color);
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        box-shadow: 5px 5px 0px var(--accent-color), 4px 4px 0px var(--accent-color), 3px 3px 0px var(--accent-color), 2px 2px 0px var(--accent-color), 1px 1px 0px var(--accent-color);
+        transition: 0.1s;
+    }
+
+    label:active {
+        background-color: crimson;
+        transform: translateX(2px) translateY(2px);
+        box-shadow: 3px 3px 0px var(--accent-color), 2px 2px 0px var(--accent-color), 1px 1px 0px var(--accent-color);
+    }
+
+    div.colorPicker {
+        display: inline;
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+
+    #fgColorPicker::after {
+        content: 'Pick Foreground Color';
+        position: absolute;
+        height: 20px;
+        padding: 2px;
+        border-radius: 5px;
+        top: 17px;
+        right: -100px;
+        opacity: 0;
+        background-color: var(--accent-color);
+        transition: 0.1s;
+    }
+
+    #bgColorPicker::after {
+        content: 'Pick Background Color';
+        position: absolute;
+        height: 20px;
+        padding: 2px;
+        border-radius: 5px;
+        top: 50px;
+        right: -100px;
+        opacity: 0;
+        background-color: var(--accent-color);
+        transition: 0.1s;
+    }
+
+    #bgColorPicker:hover::after {
+        opacity: 1;
+    }
+
+    #fgColorPicker:hover::after {
+        opacity: 1;
+    }
+
+    input[type=color] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        width: 30px;
+        height: 33px;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type=color]::-webkit-color-swatch {
+        border-radius: 30%;
+        border: 2px solid #000000;
+    }
+
+    img#barcode {
+        border: 5px solid black;
+        border-radius: 10px;
+        height: 350px;
+        border-radius: 5%;
+    }
+
+    section.bottom {
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+    }
+
+    button {
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid black;
+        background-color: #FF4D4D;
+        color: white;
+        cursor: pointer;
+        box-shadow: 5px 5px 0px var(--accent-color), 4px 4px 0px var(--accent-color), 3px 3px 0px var(--accent-color), 2px 2px 0px var(--accent-color), 1px 1px 0px var(--accent-color);
+        transition: 0.1s;
+    }
+
+    button:active {
+        background-color: crimson;
+        transform: translateX(2px) translateY(2px);
+        box-shadow: 3px 3px 0px var(--accent-color), 2px 2px 0px var(--accent-color), 1px 1px 0px var(--accent-color);
+    }
+
+    select {
+        box-shadow: 5px 5px 0px var(--accent-color), 4px 4px 0px var(--accent-color), 3px 3px 0px var(--accent-color), 2px 2px 0px var(--accent-color), 1px 1px 0px var(--accent-color);
+        font-size: 1.2em;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+        background-color: #FF4D4D;
+        color: white;
+        cursor: pointer;
+        transition: 0.1s;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        img {
+            height: 700px;
+            width: 700px;
+        }
+
+        body {}
+
+        input[type=color] {
+            width: 70px;
+            height: 72px;
+        }
+
+        select {
+            top: -67px;
+            left: -60px;
+        }
+    }
