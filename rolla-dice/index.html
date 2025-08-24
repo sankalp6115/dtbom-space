@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://github.com/sankalp6115/dtbom-space/blob/main/Assets/icon.png?raw=true" type="image/x-icon">
+  <title>Dice Roller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wave"></div>
+  <header>
+    <h1>Dice Roller</h1>
+    <span id="hint">(Click the button or Hit SPACE)</span>
+  </header>
+  <div id="box">
+    <div class="dice-container" id="diceContainer">
+      <!-- Dice images will be generated here -->
+    </div>
+    <div class="controls">
+      <label for="diceRange">Number of Dice: </label>
+      <input type="range" id="diceRange" min="1" max="30" value="1" />
+      <span id="diceCount">1</span>
+    </div>
+
+    <button id="shuffle">Throw Dice</button>
+
+    <span id="sum">Sum : 0 | Product: 0</span>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

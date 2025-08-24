@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow-x: hidden;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+:root {
+    --primary: lightblue;
+    --secondary: lightcyan;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-image: linear-gradient(to right, var(--primary), transparent);
+    padding-bottom: 10px;
+    height: 100px;
+}
+
+span#hint {
+    z-index: 10;
+}
+
+#box {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 80%;
+    z-index: 100;
+    margin-bottom: 20vh;
+    max-width: 70%;
+}
+
+.dice-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+img {
+    width: 6vw;
+    aspect-ratio: 1;
+    border-radius: 10%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+
+.wave {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: lightblue;
+    --size: 50px;
+    --m: 0.5;
+    --p: calc(var(--m)*var(--size));
+    --R: calc(var(--size)*sqrt(var(--m)*var(--m) + 1));
+
+    mask:
+        radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))), #000 99%, #0000 101%) calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
+        radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, #000 101%) 50% calc(100% - var(--size)) / calc(4 * var(--size)) 100% repeat-x;
+}
